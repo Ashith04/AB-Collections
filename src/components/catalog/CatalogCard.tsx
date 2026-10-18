@@ -40,6 +40,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
         return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20";
       case "Shirts":
         return "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20";
+      case "Outfits":
       case "Full Outfits":
         return "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20";
       default:

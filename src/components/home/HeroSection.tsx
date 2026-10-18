@@ -26,7 +26,7 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
       tag: "66 Exclusive Cuts",
     },
     {
-      category: "Full Outfits",
+      category: "Outfits",
       title: "Curated Shirt & Trouser Sets",
       subtitle: "Coordinated ensembles blending comfort with sharp tailoring",
       image: "/catalog/ab_collections_kavoor_2026-07-29_19-46-58_3951992887380927302_55023169382.jpg",
@@ -64,7 +64,7 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
             <span>•</span>
             <span>Shirts</span>
             <span>•</span>
-            <span>Full Outfits</span>
+            <span>Outfits</span>
             <span>•</span>
             <span className="text-black dark:text-white font-bold">142 Showcase Items</span>
           </div>
@@ -124,7 +124,7 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
             <span>Try Before You Buy • Walk-in Trial Rooms Available</span>
           </div>
 
-          {/* 3 Mini Product Cards for T-Shirts, Shirts, Full Outfits */}
+          {/* 3 Mini Product Cards for T-Shirts, Shirts, Outfits */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full sm:w-auto">
             {categoryHighlights.map((card) => (
               <button

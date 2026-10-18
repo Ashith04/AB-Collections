@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 const MARQUEE_ITEMS = [
   "T-Shirts",
   "Tailored Shirts",
-  "Full Outfits",
+  "Outfits",
   "142 Men's Styles",
   "Kavoor Tower Exclusive",
   "Vintage Knit Polos",

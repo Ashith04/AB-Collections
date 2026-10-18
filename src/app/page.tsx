@@ -29,7 +29,7 @@ export default function HomePage() {
     setVisibleCount(24);
   };
 
-  // Filter items based on Category (T-Shirts, Shirts, Full Outfits), Media Type, Fit, and Search Query
+  // Filter items based on Category (T-Shirts, Shirts, Outfits), Media Type, Fit, and Search Query
   const filteredItems = useMemo(() => {
     return catalogItems.filter((item) => {
       // 1. Category Filter

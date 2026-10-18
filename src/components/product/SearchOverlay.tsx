@@ -11,7 +11,7 @@ interface SearchOverlayProps {
   onClose: () => void;
 }
 
-const POPULAR_SEARCHES = ["T-Shirts", "Casual Shirts", "Full Outfits", "Linen", "Denim", "Polo Knit"];
+const POPULAR_SEARCHES = ["T-Shirts", "Casual Shirts", "Outfits", "Linen", "Denim", "Polo Knit"];
 
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
@@ -85,7 +85,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search T-Shirts, Shirts, Full Outfits, linen, denim, codes..."
+              placeholder="Search T-Shirts, Shirts, Outfits, linen, denim, codes..."
               className="w-full bg-transparent text-lg sm:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-50 placeholder-neutral-400 focus:outline-none"
             />
             {query && (
@@ -107,7 +107,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
           {/* Quick Categories Bar */}
           <div className="flex items-center gap-2 mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-900 overflow-x-auto no-scrollbar text-xs">
             <span className="text-neutral-400 font-medium shrink-0">Explore:</span>
-            {["T-Shirts", "Shirts", "Full Outfits", "Linen", "Denim", "Polo"].map((cat) => (
+            {["T-Shirts", "Shirts", "Outfits", "Linen", "Denim", "Polo"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => {
@@ -192,7 +192,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                     No exact fits found for &ldquo;{query}&rdquo;
                   </p>
                   <p className="text-xs text-neutral-400 mt-1">
-                    Try searching by category such as &ldquo;T-Shirts&rdquo;, &ldquo;Shirts&rdquo;, or &ldquo;Full Outfits&rdquo;.
+                    Try searching by category such as &ldquo;T-Shirts&rdquo;, &ldquo;Shirts&rdquo;, or &ldquo;Outfits&rdquo;.
                   </p>
                   <button
                     onClick={() => setQuery("")}
