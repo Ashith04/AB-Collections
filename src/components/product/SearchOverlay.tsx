@@ -3,16 +3,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, X, ArrowUpRight, Clock, Flame } from "lucide-react";
-import { products, productCategories } from "@/data/products";
-import { Product } from "@/types";
+import { Search, X, ArrowUpRight, Clock, Flame, Film } from "lucide-react";
+import { catalogItems, CatalogItem } from "@/data/catalog";
 
 interface SearchOverlayProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const POPULAR_SEARCHES = ["Cargo Shirts", "Linen Trousers", "Satin Tonal", "Slim Fit Denim", "240 GSM Tee"];
+const POPULAR_SEARCHES = ["T-Shirts", "Casual Shirts", "Full Outfits", "Linen", "Denim", "Polo Knit"];
 
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
@@ -33,7 +32,6 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
     }
   }, [isOpen]);
 
-  // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -61,15 +59,16 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
 
   const normalizedQuery = query.trim().toLowerCase();
 
-  const results: Product[] = normalizedQuery
-    ? products.filter((p) => {
-        const nameMatch = p.name.toLowerCase().includes(normalizedQuery);
-        const catMatch = p.category.toLowerCase().includes(normalizedQuery);
-        const codeMatch = p.code.toLowerCase().includes(normalizedQuery);
-        const fabricMatch = p.fabric.toLowerCase().includes(normalizedQuery);
-        const fitMatch = p.fit.toLowerCase().includes(normalizedQuery);
-        const descMatch = p.description.toLowerCase().includes(normalizedQuery);
-        return nameMatch || catMatch || codeMatch || fabricMatch || fitMatch || descMatch;
+  const results: CatalogItem[] = normalizedQuery
+    ? catalogItems.filter((item) => {
+        const nameMatch = item.name.toLowerCase().includes(normalizedQuery);
+        const catMatch = item.category.toLowerCase().includes(normalizedQuery);
+        const codeMatch = item.code.toLowerCase().includes(normalizedQuery);
+        const fabricMatch = item.fabric.toLowerCase().includes(normalizedQuery);
+        const fitMatch = item.fit.toLowerCase().includes(normalizedQuery);
+        const descMatch = item.description.toLowerCase().includes(normalizedQuery);
+        const tagMatch = item.tags.some((t) => t.toLowerCase().includes(normalizedQuery));
+        return nameMatch || catMatch || codeMatch || fabricMatch || fitMatch || descMatch || tagMatch;
       })
     : [];
 
@@ -86,7 +85,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search cargo shirts, satin, slim fit jeans, linen, code..."
+              placeholder="Search T-Shirts, Shirts, Full Outfits, linen, denim, codes..."
               className="w-full bg-transparent text-lg sm:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-50 placeholder-neutral-400 focus:outline-none"
             />
             {query && (
@@ -108,7 +107,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
           {/* Quick Categories Bar */}
           <div className="flex items-center gap-2 mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-900 overflow-x-auto no-scrollbar text-xs">
             <span className="text-neutral-400 font-medium shrink-0">Explore:</span>
-            {productCategories.slice(1, 7).map((cat) => (
+            {["T-Shirts", "Shirts", "Full Outfits", "Linen", "Denim", "Polo"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => {
@@ -138,52 +137,53 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                 <h3 className="text-sm font-semibold tracking-wider uppercase text-neutral-500">
                   Search Results ({results.length})
                 </h3>
-                <span className="text-xs text-neutral-400">Press item to view fit details</span>
+                <span className="text-xs text-neutral-400">All 142 items indexed</span>
               </div>
 
               {results.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {results.map((product) => (
-                    <Link
-                      key={product.id}
-                      href={`/product/${product.slug}`}
+                  {results.slice(0, 20).map((item) => (
+                    <div
+                      key={item.id}
                       onClick={() => {
                         saveRecentSearch(query);
                         onClose();
+                        window.location.href = `/shop?category=${encodeURIComponent(item.category)}`;
                       }}
-                      className="group flex items-center gap-4 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all border border-neutral-200/60 dark:border-neutral-700/40"
+                      className="group flex items-center gap-4 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all border border-neutral-200/60 dark:border-neutral-700/40 cursor-pointer"
                     >
                       <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shrink-0">
-                        <Image
-                          src={product.images[0]}
-                          alt={product.name}
-                          fill
-                          className="object-contain p-1 group-hover:scale-105 transition-transform"
-                        />
+                        {item.mediaType === "video" ? (
+                          <div className="w-full h-full bg-black flex items-center justify-center">
+                            <Film className="w-5 h-5 text-amber-400" />
+                          </div>
+                        ) : (
+                          <Image
+                            src={item.mediaUrl}
+                            alt={item.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform"
+                            sizes="64px"
+                          />
+                        )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-mono uppercase text-neutral-500 tracking-wider">
-                            {product.code}
+                            {item.code}
                           </span>
                           <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold">
-                            {product.fit}
+                            {item.category}
                           </span>
                         </div>
                         <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 truncate mt-0.5">
-                          {product.name}
+                          {item.name}
                         </h4>
-                        <div className="flex items-center justify-between mt-1">
-                          <span className="text-xs font-semibold text-neutral-900 dark:text-neutral-100">
-                            ₹{product.price.toLocaleString("en-IN")}
-                          </span>
-                          <span className="text-xs text-neutral-400 flex items-center gap-0.5 group-hover:text-amber-500 transition-colors">
-                            View
-                            <ArrowUpRight className="w-3 h-3" />
-                          </span>
-                        </div>
+                        <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate mt-0.5">
+                          {item.description}
+                        </p>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -192,7 +192,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                     No exact fits found for &ldquo;{query}&rdquo;
                   </p>
                   <p className="text-xs text-neutral-400 mt-1">
-                    Try searching by category such as &ldquo;Cargo&rdquo;, &ldquo;Denim&rdquo;, &ldquo;Satin&rdquo;, or &ldquo;Linen&rdquo;.
+                    Try searching by category such as &ldquo;T-Shirts&rdquo;, &ldquo;Shirts&rdquo;, or &ldquo;Full Outfits&rdquo;.
                   </p>
                   <button
                     onClick={() => setQuery("")}
@@ -208,8 +208,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
               {/* Popular Searches */}
               <div>
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">
-                  <Flame className="w-4 h-4 text-amber-500" />
-                  <span>Trending In Kavoor</span>
+                  <Flame className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Popular Searches</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {POPULAR_SEARCHES.map((term) => (
@@ -219,7 +219,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                         setQuery(term);
                         saveRecentSearch(term);
                       }}
-                      className="px-3 py-1.5 rounded-full text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:bg-amber-500 hover:text-black transition-colors"
+                      className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
                     >
                       {term}
                     </button>
@@ -231,34 +231,32 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
               <div>
                 <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="w-3.5 h-3.5" />
                     <span>Recent Searches</span>
                   </div>
                   {recentSearches.length > 0 && (
                     <button
                       onClick={clearRecentSearches}
-                      className="text-[11px] text-neutral-400 hover:text-red-500 transition-colors"
+                      className="text-[10px] text-neutral-400 hover:text-black dark:hover:text-white"
                     >
-                      Clear
+                      Clear All
                     </button>
                   )}
                 </div>
-
                 {recentSearches.length > 0 ? (
-                  <div className="space-y-1">
+                  <div className="flex flex-wrap gap-2">
                     {recentSearches.map((term) => (
                       <button
                         key={term}
                         onClick={() => setQuery(term)}
-                        className="w-full text-left px-3 py-1.5 rounded-xl text-xs text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center justify-between group"
+                        className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
                       >
-                        <span>{term}</span>
-                        <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover:text-black dark:group-hover:text-white" />
+                        {term}
                       </button>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-xs text-neutral-400 italic">No recent searches yet.</p>
+                  <p className="text-xs text-neutral-400">No recent searches yet</p>
                 )}
               </div>
             </div>

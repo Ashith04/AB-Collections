@@ -69,24 +69,24 @@ export const siteConfig: SiteConfig = {
     url: "https://www.instagram.com/ab_collections_kavoor/",
   },
   contact: {
-    phone: "+91 98450 00000", // [PLACEHOLDER - Replace with actual store phone]
-    phoneDisplay: "+91 98450 00000",
-    whatsappNumber: "919845000000", // [PLACEHOLDER - Replace with active WhatsApp business number]
-    whatsappDisplay: "+91 98450 00000",
-    email: "contact@abcollections.in", // [PLACEHOLDER - Replace with contact email]
+    phone: "+91 77604 68902",
+    phoneDisplay: "+91 77604 68902",
+    whatsappNumber: "917760468902",
+    whatsappDisplay: "+91 77604 68902",
+    email: "contact@abcollections.in",
     address: {
-      street: "Main Road, Near Kavoor Junction", // [PLACEHOLDER - Exact street address]
+      street: "Kavoor Tower, Above Union Bank",
       area: "Kavoor",
       city: "Mangaluru",
       state: "Karnataka",
       pincode: "575015",
       country: "India",
-      full: "AB Collections, Near Kavoor Junction, Airport Road, Kavoor, Mangaluru, Karnataka 575015",
+      full: "AB Collections, Kavoor Tower, Above Union Bank, Kavoor, Mangaluru, Karnataka 575015",
     },
     googleMapsEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.275525539744!2d74.839818!3d12.919246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a0928014e7b%3A0x67db206c9a304561!2sKavoor%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000",
     googleMapsDirectionsUrl:
-      "https://maps.google.com/?q=Kavoor+Junction+Mangaluru+Karnataka",
+      "https://maps.google.com/?q=Kavoor+Tower+Kavoor+Mangaluru+Karnataka",
   },
   businessHours: {
     days: "Monday – Sunday",

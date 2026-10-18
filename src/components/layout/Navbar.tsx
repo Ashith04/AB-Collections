@@ -39,9 +39,11 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   const navLinks = [
-    { label: "Shop", href: "/shop" },
+    { label: "All Items", href: "/shop" },
+    { label: "T-Shirts", href: "/shop?category=T-Shirts" },
+    { label: "Shirts", href: "/shop?category=Shirts" },
+    { label: "Outfits", href: "/shop?category=Outfits" },
     { label: "Lookbook", href: "/lookbook" },
-    { label: "About", href: "/about" },
     { label: "Visit Store", href: "/contact" },
   ];
 
@@ -57,14 +59,14 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* LEFT: Nav Links (Desktop) */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.slice(0, 2).map((link) => {
+            <div className="hidden md:flex items-center gap-6 lg:gap-7">
+              {navLinks.slice(0, 4).map((link) => {
                 const active = pathname === link.href;
                 return (
                   <Link
-                    key={link.href}
+                    key={link.label}
                     href={link.href}
-                    className={`text-xs uppercase tracking-widest font-semibold transition-colors ${
+                    className={`text-xs uppercase tracking-widest font-bold transition-colors ${
                       active
                         ? "text-black dark:text-white"
                         : "text-neutral-500 hover:text-black dark:hover:text-white"
