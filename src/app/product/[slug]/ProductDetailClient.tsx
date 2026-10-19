@@ -75,7 +75,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   const activePhoto = product.images[activeImage] || product.images[0];
   const photoUrl = activePhoto?.startsWith("http") ? activePhoto : `${origin}${activePhoto}`;
 
-  // Prefilled WhatsApp Inquiry with shirt photo and complete specifications
+  // Prefilled WhatsApp Inquiry with complete specifications
   const directWhatsAppUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
     `Hello AB Collections Kavoor!\n\n` +
     `I would like to reserve this outfit for in-store trial:\n` +
@@ -85,7 +85,6 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     `• Selected Size: ${selectedSize}\n` +
     `• Selected Color: ${selectedColor}\n` +
     `• Price: ₹${product.price.toLocaleString("en-IN")}\n` +
-    `• Photo Preview: ${photoUrl}\n` +
     `• Web Page: ${origin}/product/${product.slug}\n\n` +
     `Please confirm if this size is ready for trial at your Kavoor showroom today!`
   )}`;

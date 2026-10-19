@@ -118,13 +118,10 @@ export const ReserveProvider: React.FC<{ children: React.ReactNode }> = ({
     const origin = typeof window !== "undefined" ? window.location.origin : siteConfig.url;
 
     items.forEach((item, index) => {
-      const activePhoto = item.product.images[0];
-      const photoUrl = activePhoto?.startsWith("http") ? activePhoto : `${origin}${activePhoto}`;
       text += `${index + 1}. *${item.product.name}*\n`;
       text += `   • Code: ${item.product.code}\n`;
       text += `   • Size: ${item.size} | Color: ${item.color}\n`;
       text += `   • Qty: ${item.quantity} × ₹${item.product.price.toLocaleString("en-IN")}\n`;
-      text += `   • Photo: ${photoUrl}\n`;
       text += `   • Link: ${origin}/product/${item.product.slug}\n\n`;
     });
 

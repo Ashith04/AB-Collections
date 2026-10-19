@@ -61,7 +61,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
     `• Size: ${selectedSize}\n` +
     `• Color: ${selectedColor}\n` +
     `• Price: ₹${product.price.toLocaleString("en-IN")}\n` +
-    `• Photo Preview: ${photoUrl}\n` +
     `• Link: ${origin}/product/${product.slug}\n\n` +
     `Could you please let me know if this is available for trial at Kavoor?`
   )}`;
