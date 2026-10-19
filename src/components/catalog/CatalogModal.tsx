@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { X, MessageCircle, Sparkles, MapPin, Check, Share2, Film } from "lucide-react";
+import { X, MessageCircle, MapPin, Share2, Film, ArrowUpRight } from "lucide-react";
 import { CatalogItem } from "@/data/catalog";
 
 interface CatalogModalProps {
@@ -30,7 +30,19 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
 
   const handleWhatsApp = () => {
     const phone = "917760468902";
-    const text = `Hello AB Collections Kavoor! I am inquiring about "${item.name}" (Item Code: ${item.code}, Category: ${item.category}). Could you please share available sizes, in-store trial details, and current stock?`;
+    const origin = typeof window !== "undefined" ? window.location.origin : "https://abcollections.in";
+    const fullPhotoUrl = item.mediaUrl.startsWith("http") ? item.mediaUrl : `${origin}${item.mediaUrl}`;
+
+    const text =
+      `Hello AB Collections Kavoor!\n\n` +
+      `I am inquiring about this outfit:\n` +
+      `• Item: "${item.name}"\n` +
+      `• Item Code: ${item.code}\n` +
+      `• Category: ${item.category}\n` +
+      `• Fit Profile: ${item.fit}\n` +
+      `• Fabric: ${item.fabric}\n` +
+      `• Photo Preview: ${fullPhotoUrl}\n\n` +
+      `Could you please share available sizes, in-store trial details, and current stock at your Kavoor showroom?`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -52,7 +64,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/75 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md animate-fade-in">
       {/* Background click to dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
@@ -62,7 +74,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105"
+          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -92,10 +104,10 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           )}
 
           {/* Media type indicator */}
-          <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-medium">
+          <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-xs font-mono">
             {item.mediaType === "video" ? (
               <>
-                <Film className="w-3.5 h-3.5 text-amber-400" />
+                <Film className="w-3.5 h-3.5 text-neutral-300" />
                 <span>Video Reel Showcase</span>
               </>
             ) : (
@@ -109,12 +121,11 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           <div>
             {/* Category & Badge */}
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                 {item.category}
               </span>
               {item.badge && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
-                  <Sparkles className="w-3 h-3 text-amber-500" />
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-neutral-900 text-white dark:bg-white dark:text-black">
                   {item.badge}
                 </span>
               )}
@@ -127,10 +138,10 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
               Code: {item.code}
             </p>
 
-            {/* Short, Elegant English Description */}
+            {/* Description */}
             <div className="mt-4 p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-100 dark:border-neutral-800">
-              <h4 className="text-[11px] uppercase tracking-widest font-bold text-neutral-400 mb-1">
-                Style & Appeal
+              <h4 className="text-[10px] uppercase tracking-widest font-mono font-bold text-neutral-400 mb-1">
+                Style &amp; Appeal
               </h4>
               <p className="text-sm text-neutral-800 dark:text-neutral-200 leading-relaxed font-normal">
                 {item.description}
@@ -140,7 +151,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
             {/* Specifications */}
             <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
               <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/40">
-                <span className="text-neutral-400 block text-[10px] uppercase tracking-wider font-semibold">
+                <span className="text-neutral-400 block text-[10px] uppercase font-mono tracking-wider font-semibold">
                   Fit Profile
                 </span>
                 <span className="font-bold text-neutral-800 dark:text-neutral-200 mt-0.5 block">
@@ -148,8 +159,8 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
                 </span>
               </div>
               <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/40">
-                <span className="text-neutral-400 block text-[10px] uppercase tracking-wider font-semibold">
-                  Fabric & Weave
+                <span className="text-neutral-400 block text-[10px] uppercase font-mono tracking-wider font-semibold">
+                  Fabric &amp; Weave
                 </span>
                 <span className="font-bold text-neutral-800 dark:text-neutral-200 mt-0.5 block truncate">
                   {item.fabric}
@@ -163,7 +174,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
+                    className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
                   >
                     #{tag}
                   </span>
@@ -173,7 +184,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
 
             {/* Store Location Info */}
             <div className="mt-5 flex items-start gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-              <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-neutral-700 dark:text-neutral-300 shrink-0 mt-0.5" />
               <span>
                 Available for in-store trial at <strong>AB Collections</strong>, Kavoor Tower, Above Union Bank, Kavoor, Mangaluru.
               </span>
@@ -184,16 +195,21 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
             <button
               onClick={handleWhatsApp}
-              className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Inquire on WhatsApp</span>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>Inquire on WhatsApp</span>
+              </div>
+              <span className="w-8 h-8 rounded-full bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white flex items-center justify-center shrink-0">
+                <ArrowUpRight className="w-4 h-4" />
+              </span>
             </button>
 
             <button
               onClick={handleShare}
               aria-label="Share Look"
-              className="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-colors"
+              className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-colors cursor-pointer"
               title="Share look"
             >
               <Share2 className="w-4 h-4" />

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Search, X, Film, Image as ImageIcon, SlidersHorizontal, Sparkles } from "lucide-react";
+import { Search, X, Film, Image as ImageIcon } from "lucide-react";
 import { catalogStats } from "@/data/catalog";
 
 interface CatalogFilterBarProps {
@@ -55,17 +55,17 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
               <button
                 key={cat.name}
                 onClick={() => onSelectCategory(cat.name)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all whitespace-nowrap ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all whitespace-nowrap cursor-pointer ${
                   isSelected
-                    ? "bg-black text-white dark:bg-white dark:text-black shadow-md scale-105"
+                    ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md scale-105"
                     : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300"
                 }`}
               >
                 <span>{cat.name}</span>
                 <span
-                  className={`text-[11px] px-2 py-0.5 rounded-full ${
+                  className={`text-[11px] px-2 py-0.5 rounded-full font-mono ${
                     isSelected
-                      ? "bg-white/20 dark:bg-black/20 text-white dark:text-black"
+                      ? "bg-white/20 dark:bg-black/20 text-white dark:text-neutral-950"
                       : "bg-black/5 dark:bg-white/10 text-neutral-500 dark:text-neutral-400"
                   }`}
                 >
@@ -77,10 +77,10 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
         </div>
 
         {/* Media Type Filter (Photos / Videos) */}
-        <div className="flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-full border border-neutral-200/50 dark:border-neutral-700/50">
+        <div className="flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-800/80 rounded-full border border-neutral-200/60 dark:border-neutral-700/60">
           <button
             onClick={() => onSelectMediaType("all")}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "all"
                 ? "bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
@@ -90,7 +90,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
           </button>
           <button
             onClick={() => onSelectMediaType("image")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "image"
                 ? "bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
@@ -101,9 +101,9 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
           </button>
           <button
             onClick={() => onSelectMediaType("video")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "video"
-                ? "bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-xs text-amber-600 dark:text-amber-400"
+                ? "bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
             }`}
           >
@@ -145,9 +145,9 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
                 <button
                   key={fit}
                   onClick={() => onSelectFit(fit)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
+                      ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 shadow-xs"
                       : "bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-800/50 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-200/60 dark:border-neutral-700/60"
                   }`}
                 >
@@ -160,7 +160,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
           {hasActiveFilters && (
             <button
               onClick={onReset}
-              className="text-xs font-semibold text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 underline underline-offset-4 shrink-0 transition-colors ml-2"
+              className="text-xs font-semibold text-neutral-500 hover:text-neutral-950 dark:hover:text-white underline underline-offset-4 shrink-0 transition-colors ml-2 cursor-pointer"
             >
               Reset Filters
             </button>
@@ -176,7 +176,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
           {selectedMediaType !== "all" && ` (${selectedMediaType === "video" ? "Videos only" : "Photos only"})`}
         </span>
 
-        <span className="text-[11px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1 rounded-full border border-amber-500/20">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 rounded-full border border-neutral-200 dark:border-neutral-700">
           In-Store Exclusive • Kavoor, Mangalore
         </span>
       </div>
