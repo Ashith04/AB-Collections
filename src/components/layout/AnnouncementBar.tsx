@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { X, Sparkles, ArrowRight } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const AnnouncementBar: React.FC = () => {
@@ -13,16 +13,18 @@ export const AnnouncementBar: React.FC = () => {
   }
 
   return (
-    <div className="relative bg-black text-white text-xs py-2 px-4 border-b border-neutral-800 z-50">
+    <div className="relative bg-neutral-950 text-white text-xs py-2 px-4 border-b border-neutral-800/80 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3 text-center pr-6 sm:pr-0">
-        <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0 animate-pulse" />
-        <span className="font-normal text-neutral-300 tracking-tight">
+        <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full bg-white/10 text-neutral-200 font-mono text-[10px] uppercase tracking-wider font-semibold">
+          Update
+        </span>
+        <span className="font-normal text-neutral-300 tracking-tight text-[11px] sm:text-xs">
           {siteConfig.announcement.text}
         </span>
         {siteConfig.announcement.linkUrl && (
           <Link
             href={siteConfig.announcement.linkUrl}
-            className="inline-flex items-center gap-1 font-semibold text-white underline underline-offset-4 hover:text-amber-400 transition-colors shrink-0"
+            className="inline-flex items-center gap-1 font-semibold text-white hover:text-neutral-300 underline underline-offset-4 transition-colors shrink-0 text-[11px] sm:text-xs"
           >
             <span>{siteConfig.announcement.linkText}</span>
             <ArrowRight className="w-3 h-3" />

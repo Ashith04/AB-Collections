@@ -37,7 +37,7 @@ export const WhatsAppFloating: React.FC = () => {
         className="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
       >
         <MessageCircle className="w-7 h-7 fill-white text-emerald-500" />
-        <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-amber-400 border-2 border-white rounded-full" />
+        <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-white rounded-full" />
       </a>
     </div>
   );
