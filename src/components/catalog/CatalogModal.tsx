@@ -61,23 +61,23 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md animate-fade-in">
       {/* Background click to dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-4xl bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[90vh]">
+      <div className="relative z-10 w-full max-w-4xl bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[92vh]">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Media Container (Prominent Display) */}
-        <div className="relative w-full md:w-1/2 aspect-4/5 md:aspect-auto md:min-h-[460px] bg-neutral-100 dark:bg-neutral-950 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full md:w-1/2 aspect-4/5 md:aspect-auto max-h-[280px] sm:max-h-[380px] md:max-h-none md:min-h-[460px] bg-neutral-100 dark:bg-neutral-950 flex items-center justify-center overflow-hidden shrink-0">
           {item.mediaType === "video" ? (
             <video
               src={item.mediaUrl}
@@ -88,7 +88,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
               className="w-full h-full object-contain max-h-[70vh] bg-black"
             />
           ) : (
-            <div className="relative w-full h-full min-h-[380px]">
+            <div className="relative w-full h-full min-h-[220px] sm:min-h-[380px]">
               <Image
                 src={item.mediaUrl}
                 alt={item.name}

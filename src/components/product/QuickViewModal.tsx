@@ -67,23 +67,23 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
         <div
-          className="relative w-full max-w-3xl bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[90vh]"
+          className="relative w-full max-w-3xl bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[92vh]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={onClose}
             aria-label="Close preview"
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black text-neutral-800 dark:text-neutral-200 shadow-sm transition-colors cursor-pointer"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black text-neutral-800 dark:text-neutral-200 shadow-sm transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Left: Product Image Gallery */}
-          <div className="w-full md:w-1/2 bg-neutral-100 dark:bg-neutral-800 p-6 flex flex-col items-center justify-center relative">
-            <div className="relative w-full aspect-square max-h-[340px] rounded-2xl overflow-hidden">
+          <div className="w-full md:w-1/2 bg-neutral-100 dark:bg-neutral-800 p-4 sm:p-6 flex flex-col items-center justify-center relative">
+            <div className="relative w-full aspect-square max-h-[240px] sm:max-h-[340px] rounded-xl sm:rounded-2xl overflow-hidden">
               <Image
                 src={product.images[selectedImage] || product.images[0]}
                 alt={product.name}

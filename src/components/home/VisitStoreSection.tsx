@@ -21,7 +21,7 @@ export const VisitStoreSection: React.FC = () => {
       <div className="bg-[#f6f6f6] dark:bg-neutral-900 rounded-[36px] overflow-hidden border border-neutral-200/80 dark:border-neutral-800 shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Left Column: Store Details & Contact Actions */}
-          <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
+          <div className="lg:col-span-5 p-5 sm:p-8 md:p-12 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white dark:bg-black border border-black/5 dark:border-white/10 mb-4">
                 <span

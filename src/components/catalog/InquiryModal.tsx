@@ -129,17 +129,17 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto space-y-5">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5">
           {/* Shirt Photo & Info Card */}
-          <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/80 dark:border-neutral-700/60 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+          <div className="p-3 sm:p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/80 dark:border-neutral-700/60 flex flex-row gap-3 sm:gap-4 items-center">
             {/* Real Shirt Image */}
-            <div className="relative w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-950 shrink-0 shadow-sm border border-neutral-200 dark:border-neutral-700">
+            <div className="relative w-20 h-24 sm:w-28 sm:h-32 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-950 shrink-0 shadow-sm border border-neutral-200 dark:border-neutral-700">
               <Image
                 src={item.mediaUrl}
                 alt={item.name}
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 96px, 112px"
+                sizes="(max-width: 640px) 80px, 112px"
               />
             </div>
 
