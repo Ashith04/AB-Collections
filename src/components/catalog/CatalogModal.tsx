@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { X, MessageCircle, MapPin, Share2, Film, ArrowUpRight } from "lucide-react";
 import { CatalogItem } from "@/data/catalog";
+import { copyImageToClipboard, shareImageWithNativeShare } from "@/utils/whatsappImage";
 
 interface CatalogModalProps {
   item: CatalogItem | null;
@@ -28,10 +29,8 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
 
   if (!isOpen || !item) return null;
 
-  const handleWhatsApp = () => {
+  const handleWhatsApp = async () => {
     const phone = "917760468902";
-    const origin = typeof window !== "undefined" ? window.location.origin : "https://abcollections.in";
-    const fullPhotoUrl = item.mediaUrl.startsWith("http") ? item.mediaUrl : `${origin}${item.mediaUrl}`;
 
     const text =
       `Hello AB Collections Kavoor!\n\n` +
@@ -39,11 +38,15 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
       `• Item: "${item.name}"\n` +
       `• Item Code: ${item.code}\n` +
       `• Category: ${item.category}\n` +
-      `• Fit Profile: ${item.fit}\n` +
-      `• Fabric: ${item.fabric}\n` +
-      `• Photo Preview: ${fullPhotoUrl}\n\n` +
-      `Could you please share available sizes, in-store trial details, and current stock at your Kavoor showroom?`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+      (item.fit ? `• Fit: ${item.fit}\n` : "") +
+      (item.fabric ? `• Fabric: ${item.fabric}\n` : "") +
+      `\nCould you please share available sizes, in-store trial details, and current stock at your Kavoor showroom?`;
+
+    const sharedNatively = await shareImageWithNativeShare(item.mediaUrl, item.name, text);
+    if (!sharedNatively) {
+      await copyImageToClipboard(item.mediaUrl);
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+    }
   };
 
   const handleShare = async () => {
