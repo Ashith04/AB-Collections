@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ArrowUpRight, X, Play, Maximize2, Tag } from "lucide-react";
+import { ArrowUpRight, X, Play, Maximize2 } from "lucide-react";
 import { lookbookItems, LookbookEntry } from "@/data/lookbook";
-import { products } from "@/data/products";
+import { PillButton } from "@/components/ui/PillButton";
 
 export default function LookbookPage() {
   const [activeLightbox, setActiveLightbox] = useState<LookbookEntry | null>(null);
@@ -14,7 +14,7 @@ export default function LookbookPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       {/* Editorial Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
+        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
           Visual Archive // Kavoor Edition
         </span>
         <h1 className="editorial-headline text-4xl sm:text-6xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-2">
@@ -41,7 +41,7 @@ export default function LookbookPage() {
             <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white mb-4 hover:scale-110 transition-transform">
               <Play className="w-6 h-6 fill-white ml-1" />
             </div>
-            <span className="text-xs uppercase tracking-widest text-amber-400 font-bold">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-300 font-semibold">
               Autumn / Winter Campaign Film
             </span>
             <h2 className="editorial-headline text-2xl sm:text-4xl font-extrabold uppercase mt-1 max-w-lg">
@@ -56,7 +56,7 @@ export default function LookbookPage() {
 
       {/* Masonry Editorial Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {lookbookItems.map((item, index) => (
+        {lookbookItems.map((item) => (
           <div
             key={item.id}
             className={`group rounded-3xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 flex flex-col justify-between ${
@@ -91,7 +91,7 @@ export default function LookbookPage() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full"
+                      className="text-[10px] font-mono font-semibold text-neutral-500 uppercase tracking-wider bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full"
                     >
                       {tag}
                     </span>
@@ -107,8 +107,8 @@ export default function LookbookPage() {
                 </p>
 
                 {/* Styling Tips */}
-                <div className="mt-4 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-neutral-800 dark:text-neutral-200">
-                  <span className="font-bold text-amber-700 dark:text-amber-400 block mb-0.5">
+                <div className="mt-4 p-3.5 rounded-2xl bg-neutral-200/50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
+                  <span className="font-bold text-neutral-900 dark:text-white block mb-0.5 font-mono text-[11px] uppercase tracking-wider">
                     Stylist Directive:
                   </span>
                   {item.stylingTips}
@@ -117,12 +117,12 @@ export default function LookbookPage() {
 
               {/* Linked Outfits */}
               <div className="pt-6 mt-6 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider">
+                <span className="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider">
                   Featured in Look
                 </span>
                 <Link
                   href="/shop"
-                  className="text-xs font-bold text-neutral-900 dark:text-neutral-100 hover:text-amber-500 flex items-center gap-1"
+                  className="text-xs font-semibold text-neutral-900 dark:text-neutral-100 hover:underline flex items-center gap-1"
                 >
                   <span>Explore Outfits</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -145,7 +145,7 @@ export default function LookbookPage() {
           >
             <button
               onClick={() => setActiveLightbox(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/20 text-white hover:bg-white/40"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/20 text-white hover:bg-white/40 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -161,7 +161,7 @@ export default function LookbookPage() {
 
             <div className="w-full md:w-1/2 flex flex-col justify-between text-white p-2">
               <div>
-                <span className="text-xs text-amber-400 font-mono uppercase tracking-wider">
+                <span className="text-xs text-neutral-400 font-mono uppercase tracking-wider">
                   {activeLightbox.season}
                 </span>
                 <h3 className="editorial-headline text-3xl font-extrabold mt-1">
@@ -171,20 +171,21 @@ export default function LookbookPage() {
                   {activeLightbox.concept}
                 </p>
                 <div className="mt-4 p-4 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs text-neutral-300">
-                  <span className="font-bold text-white block mb-1">Styling Tip:</span>
+                  <span className="font-bold text-white block mb-1 font-mono uppercase tracking-wider text-[10px]">Styling Tip:</span>
                   {activeLightbox.stylingTips}
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-neutral-800">
-                <Link
+              <div className="pt-6 border-t border-neutral-800 flex justify-center">
+                <PillButton
                   href="/shop"
                   onClick={() => setActiveLightbox(null)}
-                  className="w-full py-3 rounded-full bg-white text-black font-bold text-xs flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors"
+                  variant="white"
+                  size="md"
+                  className="w-full"
                 >
-                  <span>Shop Featured Articles</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+                  Shop Featured Articles
+                </PillButton>
               </div>
             </div>
           </div>

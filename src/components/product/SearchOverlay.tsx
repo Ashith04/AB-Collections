@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Search, X, ArrowUpRight, Clock, Flame, Film } from "lucide-react";
+import { Search, X, Clock, Flame, Film } from "lucide-react";
 import { catalogItems, CatalogItem } from "@/data/catalog";
 
 interface SearchOverlayProps {
@@ -75,7 +74,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-black/60 backdrop-blur-md transition-all">
+    <div className="fixed inset-0 z-50 flex flex-col bg-black/75 backdrop-blur-md transition-all">
       <div className="w-full bg-white dark:bg-neutral-950 shadow-2xl border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex items-center gap-3">
@@ -91,14 +90,14 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="p-1 rounded-full text-neutral-400 hover:text-black dark:hover:text-white"
+                className="p-1 rounded-full text-neutral-400 hover:text-black dark:hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             )}
             <button
               onClick={onClose}
-              className="ml-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors"
+              className="ml-2 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors cursor-pointer"
             >
               ESC
             </button>
@@ -106,7 +105,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
 
           {/* Quick Categories Bar */}
           <div className="flex items-center gap-2 mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-900 overflow-x-auto no-scrollbar text-xs">
-            <span className="text-neutral-400 font-medium shrink-0">Explore:</span>
+            <span className="text-neutral-400 font-mono text-[11px] shrink-0">Explore:</span>
             {["T-Shirts", "Shirts", "Outfits", "Linen", "Denim", "Polo"].map((cat) => (
               <button
                 key={cat}
@@ -114,7 +113,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                   setQuery(cat);
                   saveRecentSearch(cat);
                 }}
-                className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors shrink-0"
+                className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors shrink-0 cursor-pointer"
               >
                 {cat}
               </button>
@@ -134,10 +133,10 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
           {query ? (
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-semibold tracking-wider uppercase text-neutral-500">
+                <h3 className="text-xs font-mono font-semibold tracking-wider uppercase text-neutral-500">
                   Search Results ({results.length})
                 </h3>
-                <span className="text-xs text-neutral-400">All 142 items indexed</span>
+                <span className="text-xs text-neutral-400 font-mono">142 items indexed</span>
               </div>
 
               {results.length > 0 ? (
@@ -155,7 +154,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                       <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-700 shrink-0">
                         {item.mediaType === "video" ? (
                           <div className="w-full h-full bg-black flex items-center justify-center">
-                            <Film className="w-5 h-5 text-amber-400" />
+                            <Film className="w-5 h-5 text-neutral-400" />
                           </div>
                         ) : (
                           <Image
@@ -172,7 +171,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                           <span className="text-[10px] font-mono uppercase text-neutral-500 tracking-wider">
                             {item.code}
                           </span>
-                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold">
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 font-semibold">
                             {item.category}
                           </span>
                         </div>
@@ -196,7 +195,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                   </p>
                   <button
                     onClick={() => setQuery("")}
-                    className="mt-4 px-4 py-2 rounded-full text-xs font-medium bg-black text-white dark:bg-white dark:text-black"
+                    className="mt-4 px-4 py-2 rounded-full text-xs font-semibold bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 cursor-pointer"
                   >
                     Clear Search
                   </button>
@@ -207,8 +206,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Popular Searches */}
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">
-                  <Flame className="w-3.5 h-3.5 text-amber-500" />
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-neutral-400 mb-3">
+                  <Flame className="w-3.5 h-3.5 text-neutral-500" />
                   <span>Popular Searches</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -219,7 +218,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                         setQuery(term);
                         saveRecentSearch(term);
                       }}
-                      className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                      className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                     >
                       {term}
                     </button>
@@ -229,15 +228,15 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
 
               {/* Recent Searches */}
               <div>
-                <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">
+                <div className="flex items-center justify-between text-xs font-mono font-semibold uppercase tracking-wider text-neutral-400 mb-3">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5" />
+                    <Clock className="w-3.5 h-3.5 text-neutral-500" />
                     <span>Recent Searches</span>
                   </div>
                   {recentSearches.length > 0 && (
                     <button
                       onClick={clearRecentSearches}
-                      className="text-[10px] text-neutral-400 hover:text-black dark:hover:text-white"
+                      className="text-[10px] text-neutral-400 hover:text-black dark:hover:text-white cursor-pointer"
                     >
                       Clear All
                     </button>
@@ -249,7 +248,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                       <button
                         key={term}
                         onClick={() => setQuery(term)}
-                        className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                        className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
                       >
                         {term}
                       </button>

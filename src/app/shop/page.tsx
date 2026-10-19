@@ -3,19 +3,14 @@
 import React, { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
-  Grid,
-  List,
-  SlidersHorizontal,
-  X,
-  RotateCcw,
-  Sparkles,
   Film,
   Image as ImageIcon,
-  Check,
+  X,
 } from "lucide-react";
 import { catalogItems, catalogStats, CatalogItem } from "@/data/catalog";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { CatalogModal } from "@/components/catalog/CatalogModal";
+import { PillButton } from "@/components/ui/PillButton";
 
 const FITS = ["All Fits", "Slim Fit", "Regular Fit", "Relaxed Fit", "Oversized"];
 
@@ -105,8 +100,8 @@ function ShopContent() {
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-semibold uppercase tracking-wider mb-2 border border-neutral-200 dark:border-neutral-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white" />
             <span>The Complete Collection</span>
           </div>
           <h1 className="editorial-headline text-3xl sm:text-5xl font-black text-black dark:text-white tracking-tight">
@@ -118,8 +113,8 @@ function ShopContent() {
         </div>
 
         {/* Live In-Store Tag */}
-        <div className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800 text-xs font-semibold text-neutral-700 dark:text-neutral-300">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <div className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800 text-xs font-medium text-neutral-700 dark:text-neutral-300">
+          <span className="w-2 h-2 rounded-full bg-emerald-500" />
           <span>Walk-In Trials • Kavoor Tower, Mangaluru</span>
         </div>
       </div>
@@ -137,17 +132,17 @@ function ShopContent() {
                   setCategory(cat.name);
                   setVisibleCount(32);
                 }}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all whitespace-nowrap ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all whitespace-nowrap cursor-pointer ${
                   isSelected
-                    ? "bg-black text-white dark:bg-white dark:text-black shadow-md scale-105"
+                    ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md scale-105"
                     : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300"
                 }`}
               >
                 <span>{cat.name}</span>
                 <span
-                  className={`text-[11px] px-2 py-0.5 rounded-full ${
+                  className={`text-[11px] px-2 py-0.5 rounded-full font-mono ${
                     isSelected
-                      ? "bg-white/20 dark:bg-black/20 text-white dark:text-black"
+                      ? "bg-white/20 dark:bg-black/20 text-white dark:text-neutral-950"
                       : "bg-black/5 dark:bg-white/10 text-neutral-500 dark:text-neutral-400"
                   }`}
                 >
@@ -162,7 +157,7 @@ function ShopContent() {
         <div className="flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-full border border-neutral-200/50 dark:border-neutral-700/50 shrink-0">
           <button
             onClick={() => setSelectedMediaType("all")}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "all"
                 ? "bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
@@ -172,7 +167,7 @@ function ShopContent() {
           </button>
           <button
             onClick={() => setSelectedMediaType("image")}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "image"
                 ? "bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
@@ -183,9 +178,9 @@ function ShopContent() {
           </button>
           <button
             onClick={() => setSelectedMediaType("video")}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "video"
-                ? "bg-white dark:bg-neutral-900 text-amber-600 dark:text-amber-400 shadow-xs"
+                ? "bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200"
             }`}
           >
@@ -226,9 +221,9 @@ function ShopContent() {
                 setSelectedFit(fit);
                 setVisibleCount(32);
               }}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                 selectedFit === fit
-                  ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
+                  ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
                   : "bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-700"
               }`}
             >
@@ -238,7 +233,7 @@ function ShopContent() {
           {(category !== "All" || selectedFit !== "All Fits" || selectedMediaType !== "all" || searchQuery) && (
             <button
               onClick={resetAllFilters}
-              className="text-xs font-bold text-neutral-500 hover:text-black dark:hover:text-white underline ml-2"
+              className="text-xs font-bold text-neutral-500 hover:text-black dark:hover:text-white underline ml-2 cursor-pointer"
             >
               Reset
             </button>
@@ -257,12 +252,13 @@ function ShopContent() {
 
           {visibleCount < filteredItems.length && (
             <div className="mt-14 text-center">
-              <button
+              <PillButton
                 onClick={() => setVisibleCount((prev) => prev + 32)}
-                className="px-8 py-3.5 rounded-full bg-black text-white dark:bg-white dark:text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition-all hover:scale-105 shadow-md"
+                variant="dark"
+                size="lg"
               >
                 Load More ({displayedItems.length} of {filteredItems.length})
-              </button>
+              </PillButton>
             </div>
           )}
         </>
@@ -271,12 +267,11 @@ function ShopContent() {
           <p className="text-sm font-bold text-neutral-800 dark:text-neutral-200">
             No items found in this selection
           </p>
-          <button
-            onClick={resetAllFilters}
-            className="mt-4 px-6 py-2 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold"
-          >
-            Clear Filters
-          </button>
+          <div className="mt-4">
+            <PillButton onClick={resetAllFilters} variant="dark" size="md">
+              Clear Filters
+            </PillButton>
+          </div>
         </div>
       )}
 
@@ -292,7 +287,7 @@ function ShopContent() {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen py-20 text-center">Loading collection...</div>}>
+    <Suspense fallback={<div className="min-h-screen py-20 text-center font-mono text-xs text-neutral-400">Loading collection...</div>}>
       <ShopContent />
     </Suspense>
   );

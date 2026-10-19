@@ -9,14 +9,11 @@ import {
   Plus,
   Minus,
   MessageCircle,
-  ArrowUpRight,
   ShieldCheck,
   Store,
-  Clock,
-  Sparkles,
+  ArrowUpRight,
 } from "lucide-react";
 import { useReserve } from "@/context/ReserveContext";
-import { siteConfig } from "@/config/site";
 import { PillButton } from "@/components/ui/PillButton";
 
 export default function ReservePage() {
@@ -43,8 +40,8 @@ export default function ReservePage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-200 dark:border-neutral-800">
         <div>
-          <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
-            Cart-Style Reservation // No Online Payment
+          <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
+            In-Store Hold // Zero Online Payment
           </span>
           <h1 className="editorial-headline text-4xl sm:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-1">
             In-Store Reserve List ({count})
@@ -57,7 +54,7 @@ export default function ReservePage() {
         {count > 0 && (
           <button
             onClick={clearReserve}
-            className="flex items-center gap-1.5 text-xs text-red-500 hover:text-red-600 font-semibold underline underline-offset-4"
+            className="flex items-center gap-1.5 text-xs text-red-500 hover:text-red-600 font-semibold underline underline-offset-4 cursor-pointer"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Clear List</span>
@@ -89,7 +86,7 @@ export default function ReservePage() {
                       Code: {item.product.code}
                     </span>
                     <Link href={`/product/${item.product.slug}`}>
-                      <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-amber-500 transition-colors">
+                      <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-neutral-100 hover:underline transition-colors">
                         {item.product.name}
                       </h3>
                     </Link>
@@ -109,7 +106,7 @@ export default function ReservePage() {
                   <div className="flex items-center gap-2 bg-white dark:bg-neutral-800 rounded-full px-2 py-1 border border-neutral-200 dark:border-neutral-700 shadow-xs">
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white"
+                      className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white cursor-pointer"
                       aria-label="Decrease quantity"
                     >
                       <Minus className="w-3.5 h-3.5" />
@@ -119,7 +116,7 @@ export default function ReservePage() {
                     </span>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white"
+                      className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white cursor-pointer"
                       aria-label="Increase quantity"
                     >
                       <Plus className="w-3.5 h-3.5" />
@@ -128,7 +125,7 @@ export default function ReservePage() {
 
                   <button
                     onClick={() => removeFromReserve(item.id)}
-                    className="p-2 text-neutral-400 hover:text-red-500 transition-colors"
+                    className="p-2 text-neutral-400 hover:text-red-500 transition-colors cursor-pointer"
                     aria-label="Remove item"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -137,8 +134,8 @@ export default function ReservePage() {
               </div>
             ))}
 
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-neutral-700 dark:text-neutral-300 flex items-center gap-3">
-              <Store className="w-4 h-4 text-amber-500 shrink-0" />
+            <div className="p-4 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 flex items-center gap-3">
+              <Store className="w-4 h-4 text-neutral-700 dark:text-neutral-300 shrink-0" />
               <span>
                 <strong>48-Hour In-Store Hold:</strong> We hold all reserved sizes exclusively under your name at our Kavoor showroom for 48 hours without upfront fee.
               </span>
@@ -174,7 +171,7 @@ export default function ReservePage() {
               {/* Customer Inputs for WhatsApp Payload */}
               <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">
+                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
                     Your Name (Optional)
                   </label>
                   <input
@@ -187,7 +184,7 @@ export default function ReservePage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">
+                  <label className="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
                     Visiting Note (Optional)
                   </label>
                   <input
@@ -200,13 +197,18 @@ export default function ReservePage() {
                 </div>
               </div>
 
-              {/* Primary Action Button */}
+              {/* Primary Action Button using Signature PillButton */}
               <button
                 onClick={handleWhatsAppReserve}
-                className="w-full py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
+                className="w-full group flex items-center justify-between py-3 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Dispatch Reservation via WhatsApp</span>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5 text-emerald-400" />
+                  <span>Dispatch WhatsApp Hold</span>
+                </div>
+                <span className="w-8 h-8 rounded-full bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white flex items-center justify-center shrink-0">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </button>
 
               <div className="flex items-center justify-center gap-2 text-[11px] text-neutral-400 text-center">
@@ -227,8 +229,8 @@ export default function ReservePage() {
           <p className="text-xs text-neutral-500 mt-2 leading-relaxed">
             Browse our catalogue, choose your sizes, and add them here to generate a unified hold order on WhatsApp.
           </p>
-          <div className="mt-6">
-            <PillButton href="/shop" variant="primary" size="lg">
+          <div className="mt-6 flex justify-center">
+            <PillButton href="/shop" variant="dark" size="lg">
               Explore Outfits
             </PillButton>
           </div>
