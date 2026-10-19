@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { ArrowUpRight, Sparkles } from "lucide-react";
 import { colorStories, products } from "@/data/products";
 import { ProductCard } from "@/components/product/ProductCard";
 import { PillButton } from "@/components/ui/PillButton";
@@ -21,8 +19,8 @@ export const ColorStorySection: React.FC = () => {
       {/* Top Header & Tab Navigation */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
         <div>
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-amber-500 font-bold mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white" />
             <span>Seasonal Palettes</span>
           </div>
           <h2 className="editorial-headline text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -36,9 +34,9 @@ export const ColorStorySection: React.FC = () => {
             <button
               key={story.id}
               onClick={() => setActiveStoryIndex(idx)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer ${
                 activeStoryIndex === idx
-                  ? "bg-black text-white dark:bg-white dark:text-black shadow-md scale-105"
+                  ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md scale-105"
                   : "bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200"
               }`}
             >
@@ -60,7 +58,7 @@ export const ColorStorySection: React.FC = () => {
               <span className="font-mono text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-neutral-100">
                 {currentStory.index}
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md text-neutral-800 dark:text-neutral-200">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md text-neutral-800 dark:text-neutral-200">
                 {currentStory.badge}
               </span>
             </div>
@@ -79,12 +77,12 @@ export const ColorStorySection: React.FC = () => {
           </div>
 
           <div className="pt-8 border-t border-black/10 dark:border-white/10 flex flex-col gap-3">
-            <span className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-              🏷️ Tag: {currentStory.tag}
+            <span className="text-xs font-mono font-medium text-neutral-600 dark:text-neutral-400">
+              Palette: {currentStory.tag}
             </span>
             <PillButton
               href={`/shop?story=${currentStory.id}`}
-              variant="primary"
+              variant="dark"
               size="md"
             >
               Explore {currentStory.name}

@@ -10,7 +10,8 @@ import { DarkBentoSection } from "@/components/home/DarkBentoSection";
 import { MarqueeStrip } from "@/components/home/MarqueeStrip";
 import { ValueProps } from "@/components/home/ValueProps";
 import { VisitStoreSection } from "@/components/home/VisitStoreSection";
-import { Sparkles, MessageCircle, ArrowRight } from "lucide-react";
+import { PillButton } from "@/components/ui/PillButton";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -80,8 +81,10 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. Hero Section */}
-      <HeroSection onSelectCategory={(cat) => setSelectedCategory(cat)} />
+      {/* 1. Hero Section with Entry Animation */}
+      <RevealOnScroll direction="up" delayMs={50}>
+        <HeroSection onSelectCategory={(cat) => setSelectedCategory(cat)} />
+      </RevealOnScroll>
 
       {/* 2. Marquee Strip */}
       <MarqueeStrip />
@@ -89,74 +92,80 @@ export default function HomePage() {
       {/* 3. Main Catalog Gallery Section */}
       <section id="catalog-section" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Gallery Title & Context */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Complete Showroom Collection • 142 Items</span>
+        <RevealOnScroll direction="up" delayMs={100}>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-semibold uppercase tracking-wider mb-3 border border-neutral-200 dark:border-neutral-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white" />
+              <span>Showroom Collection • 142 Items</span>
+            </div>
+
+            <h2 className="editorial-headline text-3xl sm:text-5xl font-black text-neutral-900 dark:text-neutral-50 tracking-tight">
+              Curated Men&apos;s Wardrobe
+            </h2>
+
+            <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              Every garment in our Kavoor store is captured and categorized below. Browse our relaxed-fit tees, tailored button-downs, and coordinated ensembles with prominent visual previews.
+            </p>
           </div>
-
-          <h2 className="editorial-headline text-3xl sm:text-5xl font-black text-neutral-900 dark:text-neutral-50 tracking-tight">
-            Curated Men&apos;s Wardrobe
-          </h2>
-
-          <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Every garment in our Kavoor store is captured and categorized below. Browse our relaxed-fit tees, tailored button-downs, and coordinated ensembles with prominent visual previews.
-          </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Filter Bar */}
-        <CatalogFilterBar
-          selectedCategory={selectedCategory}
-          onSelectCategory={(cat) => {
-            setSelectedCategory(cat);
-            setVisibleCount(24);
-          }}
-          selectedMediaType={selectedMediaType}
-          onSelectMediaType={(type) => {
-            setSelectedMediaType(type);
-            setVisibleCount(24);
-          }}
-          selectedFit={selectedFit}
-          onSelectFit={(fit) => {
-            setSelectedFit(fit);
-            setVisibleCount(24);
-          }}
-          searchQuery={searchQuery}
-          onSearchChange={(q) => {
-            setSearchQuery(q);
-            setVisibleCount(24);
-          }}
-          totalFiltered={filteredItems.length}
-          onReset={resetFilters}
-        />
+        <RevealOnScroll direction="up" delayMs={150}>
+          <CatalogFilterBar
+            selectedCategory={selectedCategory}
+            onSelectCategory={(cat) => {
+              setSelectedCategory(cat);
+              setVisibleCount(24);
+            }}
+            selectedMediaType={selectedMediaType}
+            onSelectMediaType={(type) => {
+              setSelectedMediaType(type);
+              setVisibleCount(24);
+            }}
+            selectedFit={selectedFit}
+            onSelectFit={(fit) => {
+              setSelectedFit(fit);
+              setVisibleCount(24);
+            }}
+            searchQuery={searchQuery}
+            onSearchChange={(q) => {
+              setSearchQuery(q);
+              setVisibleCount(24);
+            }}
+            totalFiltered={filteredItems.length}
+            onReset={resetFilters}
+          />
+        </RevealOnScroll>
 
         {/* Prominent Grid of Items */}
         {filteredItems.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7">
-              {displayedItems.map((item) => (
-                <CatalogCard
+              {displayedItems.map((item, idx) => (
+                <RevealOnScroll
                   key={item.id}
-                  item={item}
-                  onQuickView={handleOpenModal}
-                />
+                  direction="up"
+                  delayMs={Math.min((idx % 4) * 80, 240)}
+                >
+                  <CatalogCard
+                    item={item}
+                    onQuickView={handleOpenModal}
+                  />
+                </RevealOnScroll>
               ))}
             </div>
 
-            {/* Load More Button if remaining */}
+            {/* Load More Button using signature PillButton */}
             {visibleCount < filteredItems.length && (
-              <div className="mt-14 text-center">
-                <button
+              <RevealOnScroll direction="up" delayMs={100} className="mt-14 text-center">
+                <PillButton
                   onClick={() => setVisibleCount((prev) => prev + 24)}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-black text-white dark:bg-white dark:text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition-all hover:scale-105 shadow-md"
+                  variant="dark"
+                  size="lg"
                 >
-                  <span>Load More Pieces</span>
-                  <span className="opacity-70">
-                    ({displayedItems.length} of {filteredItems.length})
-                  </span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+                  Load More Pieces ({displayedItems.length} of {filteredItems.length})
+                </PillButton>
+              </RevealOnScroll>
             )}
           </>
         ) : (
@@ -168,24 +177,29 @@ export default function HomePage() {
             <p className="text-xs text-neutral-500 mt-2 leading-relaxed">
               We couldn&apos;t find any items matching &ldquo;{searchQuery}&rdquo;. Try another search keyword or clear your active filters.
             </p>
-            <button
-              onClick={resetFilters}
-              className="mt-6 px-6 py-2.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase tracking-wider"
-            >
-              Reset All Filters
-            </button>
+            <div className="mt-6">
+              <PillButton onClick={resetFilters} variant="dark" size="md">
+                Reset All Filters
+              </PillButton>
+            </div>
           </div>
         )}
       </section>
 
-      {/* 4. Value Propositions Strip */}
-      <ValueProps />
+      {/* 4. Value Propositions Strip with Scroll Reveal */}
+      <RevealOnScroll direction="up" delayMs={100}>
+        <ValueProps />
+      </RevealOnScroll>
 
-      {/* 5. Dark Bento Section */}
-      <DarkBentoSection />
+      {/* 5. Dark Bento Section with Scroll Reveal */}
+      <RevealOnScroll direction="up" delayMs={100}>
+        <DarkBentoSection />
+      </RevealOnScroll>
 
       {/* 6. Visit Store Section with Live Map & Hours */}
-      <VisitStoreSection />
+      <RevealOnScroll direction="up" delayMs={100}>
+        <VisitStoreSection />
+      </RevealOnScroll>
 
       {/* 7. Quick View Full Modal */}
       <CatalogModal

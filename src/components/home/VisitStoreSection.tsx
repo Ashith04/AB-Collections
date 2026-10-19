@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin, Phone, MessageCircle, Clock, ArrowUpRight, Navigation, Store } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock, Navigation } from "lucide-react";
 import { siteConfig, isStoreCurrentlyOpen } from "@/config/site";
+import { PillButton } from "@/components/ui/PillButton";
 
 export const VisitStoreSection: React.FC = () => {
   const [storeStatus, setStoreStatus] = useState({
@@ -28,7 +29,7 @@ export const VisitStoreSection: React.FC = () => {
                     storeStatus.isOpen ? "bg-emerald-500 pulse-dot" : "bg-neutral-400"
                   }`}
                 />
-                <span className="text-neutral-800 dark:text-neutral-200">
+                <span className="text-neutral-800 dark:text-neutral-200 font-medium">
                   {storeStatus.statusText}
                 </span>
               </div>
@@ -43,7 +44,7 @@ export const VisitStoreSection: React.FC = () => {
 
               <div className="mt-8 space-y-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                       Address
@@ -53,7 +54,7 @@ export const VisitStoreSection: React.FC = () => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                       Operating Hours
@@ -63,14 +64,14 @@ export const VisitStoreSection: React.FC = () => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                       Call Store
                     </span>
                     <a
                       href={`tel:${siteConfig.contact.phone}`}
-                      className="hover:text-amber-500 font-semibold"
+                      className="hover:underline font-semibold"
                     >
                       {siteConfig.contact.phoneDisplay}
                     </a>
@@ -80,27 +81,23 @@ export const VisitStoreSection: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-10 pt-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap gap-3">
-              <a
+            <div className="mt-10 pt-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center gap-3">
+              <PillButton
                 href={siteConfig.contact.googleMapsDirectionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold hover:scale-105 transition-all shadow-sm"
+                variant="dark"
+                size="md"
               >
-                <Navigation className="w-4 h-4" />
-                <span>Get Directions</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+                Get Directions
+              </PillButton>
 
-              <a
+              <PillButton
                 href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold hover:scale-105 transition-all shadow-sm"
+                variant="emerald"
+                size="md"
+                icon={<MessageCircle className="w-4 h-4 mr-1 text-white" />}
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Store</span>
-              </a>
+                WhatsApp Store
+              </PillButton>
             </div>
           </div>
 
@@ -119,7 +116,7 @@ export const VisitStoreSection: React.FC = () => {
             />
 
             {/* Overlay store interior preview badge */}
-            <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-black/5 dark:border-white/10 flex items-center gap-3">
+            <div className="absolute top-4 right-4 bg-white/95 dark:bg-black/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-neutral-200 dark:border-neutral-800 flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0">
                 <Image
                   src="/images/store/store_interior.jpg"
@@ -129,7 +126,7 @@ export const VisitStoreSection: React.FC = () => {
                 />
               </div>
               <div className="text-left pr-2">
-                <span className="text-[10px] uppercase tracking-wider text-amber-500 font-bold block">
+                <span className="text-[10px] uppercase tracking-wider font-mono text-neutral-500 font-bold block">
                   Kavoor Atelier
                 </span>
                 <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100">

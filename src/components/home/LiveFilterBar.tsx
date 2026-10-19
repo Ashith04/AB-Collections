@@ -74,7 +74,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
           {hasActiveFilters && (
             <button
               onClick={onReset}
-              className="flex items-center gap-1 text-xs text-amber-600 hover:text-amber-700 font-semibold underline underline-offset-4 ml-2"
+              className="flex items-center gap-1 text-xs text-neutral-900 dark:text-neutral-100 font-semibold underline underline-offset-4 ml-2 cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" />
               <span>Reset</span>
@@ -139,7 +139,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
                   }`}
                 >
                   <span>{cat}</span>
-                  {selectedCategory === cat && <Check className="w-3.5 h-3.5 text-amber-500" />}
+                  {selectedCategory === cat && <Check className="w-3.5 h-3.5 text-neutral-900 dark:text-white" />}
                 </button>
               ))}
             </div>
@@ -180,7 +180,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
                   }`}
                 >
                   <span>{size}</span>
-                  {selectedSize === size && <Check className="w-3.5 h-3.5 text-amber-500" />}
+                  {selectedSize === size && <Check className="w-3.5 h-3.5 text-neutral-900 dark:text-white" />}
                 </button>
               ))}
             </div>
@@ -218,7 +218,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
                 step="100"
                 value={maxPrice}
                 onChange={(e) => onSelectMaxPrice(Number(e.target.value))}
-                className="w-full accent-amber-500 cursor-pointer"
+                className="w-full accent-neutral-900 dark:accent-white cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-neutral-400 mt-1">
                 <span>₹800</span>

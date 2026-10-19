@@ -102,7 +102,7 @@ export const siteConfig: SiteConfig = {
   },
   announcement: {
     enabled: true,
-    text: "✨ Festival Edit & New Slim-Fit Drop In Store Now — Reserve on WhatsApp or Visit Us in Kavoor!",
+    text: "Festival Edit & New Slim-Fit Drop In Store Now — Reserve on WhatsApp or Visit Us in Kavoor",
     linkText: "Explore Shop",
     linkUrl: "/shop",
   },
