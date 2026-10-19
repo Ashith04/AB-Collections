@@ -10,7 +10,6 @@ import {
   Share2,
   Star,
   Ruler,
-  ShieldCheck,
   Check,
   ChevronDown,
   ArrowUpRight,
@@ -72,9 +71,23 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     }
   };
 
-  // Prefilled WhatsApp Inquiry
+  const origin = typeof window !== "undefined" ? window.location.origin : siteConfig.url;
+  const activePhoto = product.images[activeImage] || product.images[0];
+  const photoUrl = activePhoto?.startsWith("http") ? activePhoto : `${origin}${activePhoto}`;
+
+  // Prefilled WhatsApp Inquiry with shirt photo and complete specifications
   const directWhatsAppUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-    `Hello AB Collections Kavoor! I would like to reserve this outfit for trial:\n\n*${product.name}*\n• Code: ${product.code}\n• Size: ${selectedSize}\n• Color: ${selectedColor}\n• Price: ₹${product.price}\n• Page: ${siteConfig.url}/product/${product.slug}\n\nPlease let me know if it's available in store today!`
+    `Hello AB Collections Kavoor!\n\n` +
+    `I would like to reserve this outfit for in-store trial:\n` +
+    `• Item: "${product.name}"\n` +
+    `• Code: ${product.code}\n` +
+    `• Category: ${product.category}\n` +
+    `• Selected Size: ${selectedSize}\n` +
+    `• Selected Color: ${selectedColor}\n` +
+    `• Price: ₹${product.price.toLocaleString("en-IN")}\n` +
+    `• Photo Preview: ${photoUrl}\n` +
+    `• Web Page: ${origin}/product/${product.slug}\n\n` +
+    `Please confirm if this size is ready for trial at your Kavoor showroom today!`
   )}`;
 
   // Related products
@@ -104,7 +117,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {product.category}
         </Link>
         <span>/</span>
-        <span className="text-neutral-900 dark:text-neutral-100 truncate max-w-xs">
+        <span className="text-neutral-900 dark:text-neutral-100 truncate max-w-xs font-semibold">
           {product.name}
         </span>
       </nav>
@@ -126,13 +139,13 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </div>
 
             {/* In-store badge overlay */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 bg-white/90 dark:bg-black/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-black/5 text-xs font-bold shadow-xs">
-              <Store className="w-3.5 h-3.5 text-amber-500" />
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-white/95 dark:bg-black/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-xs font-semibold shadow-xs">
+              <Store className="w-3.5 h-3.5 text-neutral-800 dark:text-neutral-200" />
               <span>Available in Kavoor Store</span>
             </div>
 
             {/* Product Code */}
-            <div className="absolute bottom-6 left-6 font-mono text-[11px] uppercase tracking-wider text-neutral-500 bg-white/80 dark:bg-black/80 px-2.5 py-1 rounded-full">
+            <div className="absolute bottom-6 left-6 font-mono text-[11px] uppercase tracking-wider text-neutral-500 bg-white/80 dark:bg-black/80 px-2.5 py-1 rounded-full border border-neutral-200/60 dark:border-neutral-800">
               Code: {product.code}
             </div>
           </div>
@@ -144,7 +157,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <button
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`relative w-20 h-20 rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border-2 transition-all ${
+                  className={`relative w-20 h-20 rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border-2 transition-all cursor-pointer ${
                     activeImage === idx
                       ? "border-black dark:border-white scale-105"
                       : "border-transparent opacity-60 hover:opacity-100"
@@ -161,10 +174,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         <div className="lg:col-span-5 space-y-6">
           <div>
             <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-widest text-amber-500 font-bold">
+              <span className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500 font-semibold">
                 {product.category}
               </span>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-semibold">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-mono font-semibold">
                 {product.fit}
               </span>
             </div>
@@ -184,10 +197,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 </span>
               )}
 
-              <div className="flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-full text-xs font-bold text-amber-600 dark:text-amber-400 ml-auto">
-                <Star className="w-3.5 h-3.5 fill-amber-500" />
+              <div className="flex items-center gap-1.5 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 dark:text-neutral-200 ml-auto">
+                <Star className="w-3.5 h-3.5 fill-neutral-900 dark:fill-white text-neutral-900 dark:text-white" />
                 <span>{product.rating}</span>
-                <span className="text-neutral-400 font-normal">({product.reviewsCount} reviews)</span>
+                <span className="text-neutral-400 font-normal">({product.reviewsCount})</span>
               </div>
             </div>
 
@@ -198,8 +211,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* Color Variants */}
           <div className="pt-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block mb-2">
-              Select Color: <span className="text-black dark:text-white">{selectedColor}</span>
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 block mb-2">
+              Select Color: <span className="text-black dark:text-white font-sans">{selectedColor}</span>
             </span>
             <div className="flex items-center gap-2.5">
               {product.colors.map((color) => (
@@ -207,7 +220,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
                   title={color.name}
-                  className={`w-8 h-8 rounded-full border-2 transition-transform ${
+                  className={`w-8 h-8 rounded-full border-2 transition-transform cursor-pointer ${
                     selectedColor === color.name
                       ? "border-black dark:border-white scale-110 shadow-sm"
                       : "border-transparent opacity-80 hover:opacity-100"
@@ -221,15 +234,15 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {/* Size Selector & Guide */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
-                Select Size: <span className="text-black dark:text-white">{selectedSize}</span>
+              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                Select Size: <span className="text-black dark:text-white font-sans">{selectedSize}</span>
               </span>
               <button
                 onClick={() => setSizeGuideOpen(true)}
-                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white underline flex items-center gap-1"
+                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white underline flex items-center gap-1 cursor-pointer"
               >
                 <Ruler className="w-3.5 h-3.5" />
-                <span>Size &amp; Fit Guide</span>
+                <span>Size Guide</span>
               </button>
             </div>
 
@@ -238,7 +251,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <button
                   key={s}
                   onClick={() => setSelectedSize(s)}
-                  className={`min-w-12 h-11 px-4 rounded-2xl text-xs font-bold transition-all border ${
+                  className={`min-w-12 h-11 px-4 rounded-2xl text-xs font-bold transition-all border cursor-pointer ${
                     selectedSize === s
                       ? "bg-black text-white dark:bg-white dark:text-black border-transparent shadow-xs scale-105"
                       : "border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:border-black"
@@ -253,24 +266,30 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {/* Reserve / WhatsApp Action Suite */}
           <div className="pt-4 space-y-3">
             {addedToast && (
-              <div className="text-center text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 py-2 rounded-2xl animate-in fade-in">
+              <div className="text-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 py-2 rounded-2xl animate-in fade-in">
                 ✓ Added to your Reserve List! View from top bar.
               </div>
             )}
 
             <div className="flex items-center gap-3">
+              {/* Primary Signature Pill Button */}
               <button
                 onClick={handleAddReserve}
-                className="flex-1 flex items-center justify-center gap-2.5 bg-black dark:bg-white text-white dark:text-black py-4 rounded-full text-xs sm:text-sm font-extrabold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-[1.01] active:scale-[0.98] shadow-md"
+                className="flex-1 group inline-flex items-center justify-between pl-6 pr-2 py-2 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-medium text-xs sm:text-sm hover:bg-black dark:hover:bg-neutral-100 transition-all hover:scale-[1.01] active:scale-[0.98] shadow-md cursor-pointer"
               >
-                <ShoppingBag className="w-4 h-4" />
-                <span>Hold for In-Store Trial</span>
+                <div className="flex items-center gap-2">
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Hold for In-Store Trial</span>
+                </div>
+                <span className="w-8 h-8 rounded-full bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white flex items-center justify-center shrink-0">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </button>
 
               <button
                 onClick={() => toggleWishlist(product)}
                 aria-label="Save to Wishlist"
-                className={`p-4 rounded-full border transition-colors ${
+                className={`p-3.5 rounded-full border transition-colors cursor-pointer ${
                   isFavorited
                     ? "border-red-500 text-red-500 bg-red-50 dark:bg-red-950/40"
                     : "border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:border-black"
@@ -282,7 +301,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <button
                 onClick={shareProduct}
                 aria-label="Share outfit"
-                className="p-4 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:border-black transition-colors"
+                className="p-3.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:border-black transition-colors cursor-pointer"
               >
                 <Share2 className="w-5 h-5" />
               </button>
@@ -293,14 +312,19 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               href={directWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold transition-all shadow-sm"
+              className="w-full group flex items-center justify-between pl-6 pr-2 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-medium transition-all"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Direct WhatsApp Inquiry / Instant Hold</span>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-emerald-500" />
+                <span>Direct WhatsApp Inquiry / Hold</span>
+              </div>
+              <span className="w-7 h-7 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 flex items-center justify-center shrink-0">
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
             </a>
 
             {copiedShare && (
-              <div className="text-center text-[11px] text-amber-600 font-semibold animate-in fade-in">
+              <div className="text-center text-[11px] text-neutral-500 font-semibold animate-in fade-in">
                 Link copied to clipboard!
               </div>
             )}
@@ -312,7 +336,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
               <button
                 onClick={() => toggleAccordion("details")}
-                className="w-full flex items-center justify-between p-4 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >
                 <span>Fabric &amp; Architecture Details</span>
                 <ChevronDown
@@ -339,7 +363,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
               <button
                 onClick={() => toggleAccordion("care")}
-                className="w-full flex items-center justify-between p-4 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >
                 <span>Wash &amp; Care Recommendations</span>
                 <ChevronDown
@@ -352,7 +376,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <div className="p-4 pt-0 text-xs text-neutral-600 dark:text-neutral-400 space-y-1.5">
                   {product.care.map((c, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <Check className="w-3.5 h-3.5 text-neutral-700 dark:text-neutral-300 shrink-0" />
                       <span>{c}</span>
                     </div>
                   ))}
@@ -364,7 +388,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
               <button
                 onClick={() => toggleAccordion("store")}
-                className="w-full flex items-center justify-between p-4 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >
                 <span>Kavoor Showroom &amp; Exchange Policy</span>
                 <ChevronDown
@@ -392,7 +416,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
       <div className="mt-24 pt-16 border-t border-neutral-200 dark:border-neutral-800">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <span className="text-xs uppercase tracking-widest text-amber-500 font-bold">
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500 font-semibold">
               Complete The Look
             </span>
             <h2 className="editorial-headline text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 mt-1">

@@ -144,8 +144,8 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
         </div>
 
         {/* Store Trial Note */}
-        <div className="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-neutral-700 dark:text-neutral-300 flex items-start gap-3">
-          <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-700 dark:text-neutral-300 flex items-start gap-3">
+          <Check className="w-4 h-4 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
           <div>
             <span className="font-bold text-neutral-900 dark:text-neutral-100">
               Complimentary In-Store Fitting in Kavoor:
