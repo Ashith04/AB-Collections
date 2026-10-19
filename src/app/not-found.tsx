@@ -6,7 +6,7 @@ import { PillButton } from "@/components/ui/PillButton";
 export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-24 text-center">
-      <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
+      <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 font-semibold">
         Error 404 // Out of Range
       </span>
       <h1 className="editorial-headline text-6xl sm:text-8xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-3">

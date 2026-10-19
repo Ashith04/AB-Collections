@@ -38,7 +38,7 @@ export default function FAQPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 min-h-[70vh]">
       <div className="text-center mb-16">
-        <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
+        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
           Customer Guidance // Sizing &amp; Policies
         </span>
         <h1 className="editorial-headline text-4xl sm:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-2">
@@ -60,12 +60,12 @@ export default function FAQPage() {
             >
               <button
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
-                className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-neutral-900 dark:text-neutral-100 hover:text-amber-500 transition-colors"
+                className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer"
               >
                 <span>{faq.q}</span>
                 <ChevronDown
                   className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 text-amber-500" : ""
+                    isOpen ? "rotate-180 text-neutral-900 dark:text-white" : ""
                   }`}
                 />
               </button>
@@ -82,7 +82,7 @@ export default function FAQPage() {
 
       {/* Still Have Questions Box */}
       <div className="mt-16 p-8 rounded-3xl bg-neutral-100 dark:bg-neutral-900 text-center space-y-4 border border-neutral-200 dark:border-neutral-800">
-        <HelpCircle className="w-8 h-8 text-amber-500 mx-auto" />
+        <HelpCircle className="w-8 h-8 text-neutral-700 dark:text-neutral-300 mx-auto" />
         <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
           Still Have Questions on Fit or Availability?
         </h3>

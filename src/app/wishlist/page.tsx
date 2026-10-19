@@ -15,7 +15,7 @@ export default function WishlistPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-200 dark:border-neutral-800">
         <div>
-          <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
+          <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
             Saved Articles // Personal Shortlist
           </span>
           <h1 className="editorial-headline text-4xl sm:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-1">

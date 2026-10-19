@@ -12,6 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { siteConfig, isStoreCurrentlyOpen } from "@/config/site";
+import { PillButton } from "@/components/ui/PillButton";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -43,14 +44,14 @@ export default function ContactPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs uppercase tracking-[0.25em] text-amber-500 font-bold">
+        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
           Get in Touch // Kavoor, Mangaluru
         </span>
         <h1 className="editorial-headline text-4xl sm:text-6xl font-black uppercase tracking-tight text-neutral-900 dark:text-neutral-50 mt-2">
           VISIT OR CONNECT
         </h1>
         <p className="text-xs sm:text-sm text-neutral-500 mt-4 max-w-lg mx-auto leading-relaxed">
-          Need sizing advice, directions to our Kavoor outlet, or wish to place an in-store hold? Our staff is here to assist.
+          Need sizing advice, directions to our Kavoor showroom, or wish to place an in-store hold? Our staff is here to assist.
         </p>
       </div>
 
@@ -59,7 +60,7 @@ export default function ContactPage() {
         <div className="lg:col-span-5 space-y-8">
           <div className="p-8 rounded-3xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 space-y-6">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500">
                 Live Store Status
               </span>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white dark:bg-black border border-black/5">
@@ -76,7 +77,7 @@ export default function ContactPage() {
 
             <div className="space-y-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                     Showroom Address
@@ -86,7 +87,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                     Store Hours
@@ -96,14 +97,14 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                     Direct Phone Line
                   </span>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="hover:text-amber-500 font-semibold"
+                    className="hover:underline font-semibold"
                   >
                     {siteConfig.contact.phoneDisplay}
                   </a>
@@ -111,14 +112,14 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
                     Email Inquiry
                   </span>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="hover:text-amber-500"
+                    className="hover:underline"
                   >
                     {siteConfig.contact.email}
                   </a>
@@ -126,27 +127,26 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Quick Actions */}
+            {/* Quick Actions using PillButton */}
             <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap gap-3">
-              <a
+              <PillButton
                 href={siteConfig.contact.googleMapsDirectionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-4 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold flex items-center justify-center gap-2 hover:scale-105 transition-all text-center"
+                variant="dark"
+                size="md"
+                className="flex-1"
               >
-                <Navigation className="w-4 h-4" />
-                <span>Get Directions</span>
-              </a>
+                Get Directions
+              </PillButton>
 
-              <a
+              <PillButton
                 href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center justify-center gap-2 hover:scale-105 transition-all text-center"
+                variant="emerald"
+                size="md"
+                className="flex-1"
+                icon={<MessageCircle className="w-4 h-4 mr-1 text-white" />}
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Us</span>
-              </a>
+                WhatsApp Us
+              </PillButton>
             </div>
           </div>
 
@@ -187,7 +187,7 @@ export default function ContactPage() {
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-3 text-xs text-emerald-600 font-bold underline"
+                  className="mt-3 text-xs text-emerald-600 font-bold underline cursor-pointer"
                 >
                   Send another inquiry
                 </button>
@@ -195,7 +195,7 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                  <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Your Full Name
                   </label>
                   <input
@@ -209,7 +209,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                  <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Phone / WhatsApp Number
                   </label>
                   <input
@@ -223,7 +223,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                  <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Inquiry Topic
                   </label>
                   <select
@@ -240,7 +240,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                  <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Message / Outfits of Interest
                   </label>
                   <textarea
@@ -255,10 +255,15 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs sm:text-sm font-bold flex items-center justify-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-[1.01] shadow-md cursor-pointer"
+                  className="w-full group flex items-center justify-between py-3 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 text-xs sm:text-sm font-semibold hover:bg-black dark:hover:bg-neutral-100 transition-all hover:scale-[1.01] shadow-md cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Send via WhatsApp Concierge</span>
+                  <div className="flex items-center gap-2">
+                    <Send className="w-4 h-4" />
+                    <span>Send via WhatsApp Concierge</span>
+                  </div>
+                  <span className="w-8 h-8 rounded-full bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white flex items-center justify-center shrink-0">
+                    <Send className="w-3.5 h-3.5 -ml-0.5" />
+                  </span>
                 </button>
               </form>
             )}
