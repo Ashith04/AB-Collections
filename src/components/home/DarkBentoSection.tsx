@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles, MapPin, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, MapPin, CheckCircle2 } from "lucide-react";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/product/ProductCard";
-import { siteConfig } from "@/config/site";
+import { PillButton } from "@/components/ui/PillButton";
 
 const DARK_TABS = [
   { label: "All Fits", category: "All" },
@@ -27,18 +27,18 @@ export const DarkBentoSection: React.FC = () => {
 
   return (
     <section className="relative w-full bg-[#0a0a0a] text-white py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Subtle background ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Giant Gradient Headline */}
+        {/* Giant Headline */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-semibold uppercase tracking-widest text-amber-400 mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-mono font-medium uppercase tracking-widest text-neutral-300 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-white" />
             <span>Kavoor Exclusive Atelier</span>
           </div>
 
-          <h2 className="editorial-headline text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight bg-gradient-to-b from-white via-neutral-200 to-neutral-600 bg-clip-text text-transparent leading-[0.95]">
+          <h2 className="editorial-headline text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight bg-gradient-to-b from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[0.95]">
             THE FIT OF EVERYDAY STYLE
           </h2>
 
@@ -57,11 +57,11 @@ export const DarkBentoSection: React.FC = () => {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-85"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
             <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-amber-400 font-bold">
+                <span className="text-[10px] uppercase tracking-widest text-neutral-300 font-mono font-semibold">
                   The Experience
                 </span>
                 <h3 className="text-2xl font-bold text-white mt-1">
@@ -72,13 +72,13 @@ export const DarkBentoSection: React.FC = () => {
                 </p>
               </div>
 
-              <Link
+              <PillButton
                 href="/about"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-semibold hover:bg-neutral-200 transition-colors shrink-0"
+                variant="white"
+                size="sm"
               >
-                <span>Store Tour</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+                Store Tour
+              </PillButton>
             </div>
           </div>
 
@@ -86,10 +86,10 @@ export const DarkBentoSection: React.FC = () => {
           <div className="md:col-span-5 rounded-3xl overflow-hidden relative group min-h-[380px] bg-gradient-to-br from-neutral-900 to-neutral-950 border border-white/10 p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-neutral-500 uppercase">
+                <span className="text-[11px] font-mono text-neutral-400 uppercase">
                   DROP HIGHLIGHT
                 </span>
-                <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 font-bold">
+                <span className="text-[10px] px-2.5 py-1 rounded-full bg-white/10 text-neutral-200 font-mono font-semibold">
                   100% Breathable
                 </span>
               </div>
@@ -112,13 +112,13 @@ export const DarkBentoSection: React.FC = () => {
 
             <div className="flex items-center justify-between pt-2">
               <span className="text-sm font-bold text-neutral-200">Starting at ₹1,699</span>
-              <Link
+              <PillButton
                 href="/shop?category=Cargo+Trousers"
-                className="text-xs text-amber-400 font-semibold hover:underline flex items-center gap-1"
+                variant="white"
+                size="sm"
               >
-                <span>View Cargos</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+                View Cargos
+              </PillButton>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export const DarkBentoSection: React.FC = () => {
                 <button
                   key={tab.label}
                   onClick={() => setSelectedTab(tab.category)}
-                  className={`px-5 py-2 rounded-full text-xs font-semibold transition-all shrink-0 ${
+                  className={`px-5 py-2 rounded-full text-xs font-semibold transition-all shrink-0 cursor-pointer ${
                     active
                       ? "bg-white text-black shadow-lg scale-105"
                       : "text-neutral-400 hover:text-white hover:bg-white/5"
@@ -157,14 +157,14 @@ export const DarkBentoSection: React.FC = () => {
         </div>
 
         {/* Explore Full Shop CTA */}
-        <div className="text-center mt-16">
-          <Link
+        <div className="text-center mt-16 flex justify-center">
+          <PillButton
             href="/shop"
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-black text-sm font-bold hover:bg-neutral-200 transition-all hover:scale-105"
+            variant="white"
+            size="lg"
           >
-            <span>Explore Entire Men&apos;s Catalogue</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
+            Explore Entire Men&apos;s Catalogue
+          </PillButton>
         </div>
       </div>
     </section>

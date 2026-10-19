@@ -1,10 +1,10 @@
 import React from "react";
-import { Sparkles, Scissors, Store, Tag } from "lucide-react";
+import { TrendingUp, Scissors, Store, Tag } from "lucide-react";
 
 export const ValueProps: React.FC = () => {
   const values = [
     {
-      icon: Sparkles,
+      icon: TrendingUp,
       title: "Latest Styles",
       desc: "Weekly refreshed catalogue of trending cargo shirts, textural waffle knits, and resort collars.",
     },
@@ -28,7 +28,7 @@ export const ValueProps: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest text-amber-500 font-bold">
+        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
           Why AB Collections
         </span>
         <h2 className="editorial-headline text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 mt-2">
@@ -45,10 +45,10 @@ export const ValueProps: React.FC = () => {
           return (
             <div
               key={i}
-              className="p-6 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/70 dark:border-neutral-800 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200"
+              className="p-6 rounded-3xl bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200/80 dark:border-neutral-800 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200"
             >
               <div>
-                <div className="w-10 h-10 rounded-2xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-2xl bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 flex items-center justify-center mb-4 shadow-xs">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100 mb-2">
