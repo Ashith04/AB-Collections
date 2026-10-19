@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { X, MessageCircle, MapPin, Share2, Film, ArrowUpRight } from "lucide-react";
 import { CatalogItem } from "@/data/catalog";
-import { copyImageToClipboard, shareImageWithNativeShare } from "@/utils/whatsappImage";
+import { copyImageToClipboard } from "@/utils/whatsappImage";
 
 interface CatalogModalProps {
   item: CatalogItem | null;
@@ -42,27 +42,21 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
       (item.fabric ? `• Fabric: ${item.fabric}\n` : "") +
       `\nCould you please share available sizes, in-store trial details, and current stock at your Kavoor showroom?`;
 
-    const sharedNatively = await shareImageWithNativeShare(item.mediaUrl, item.name, text);
-    if (!sharedNatively) {
+    // Pre-copy image to clipboard so user can press Ctrl+V in WhatsApp Web
+    try {
       await copyImageToClipboard(item.mediaUrl);
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+    } catch {
+      // Non-blocking
     }
+
+    // Directly open WhatsApp chat with AB Collections (+91 77604 68902)
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${item.name} | AB Collections`,
-          text: item.description,
-          url: window.location.href,
-        });
-      } catch (e) {
-        // Ignored
-      }
-    } else {
+  const handleShare = () => {
+    if (typeof window !== "undefined") {
       navigator.clipboard.writeText(window.location.href);
-      alert("Link copied to clipboard!");
+      alert("Outfit link copied to clipboard!");
     }
   };
 

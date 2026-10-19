@@ -16,7 +16,6 @@ import {
 import { siteConfig } from "@/config/site";
 import {
   copyImageToClipboard,
-  shareImageWithNativeShare,
   downloadProductImage,
 } from "@/utils/whatsappImage";
 
@@ -85,25 +84,18 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
   const handleSendToWhatsApp = async () => {
     setIsProcessing(true);
 
-    // 1. On mobile / supported devices, attempt native share with actual image file
-    const sharedNatively = await shareImageWithNativeShare(
-      item.mediaUrl,
-      item.name,
-      formattedMessage
-    );
+    // Pre-copy the shirt photo to clipboard for instant Ctrl+V pasting in WhatsApp
+    try {
+      await copyImageToClipboard(item.mediaUrl);
+      setCopiedPhoto(true);
+      setShowPasteTip(true);
+    } catch {
+      // Non-blocking
+    }
 
     setIsProcessing(false);
 
-    if (sharedNatively) {
-      return;
-    }
-
-    // 2. On desktop (WhatsApp Web), copy the photo to clipboard so user can press Ctrl+V
-    await copyImageToClipboard(item.mediaUrl);
-    setCopiedPhoto(true);
-    setShowPasteTip(true);
-
-    // 3. Open WhatsApp Web / App with clean query
+    // Open DIRECTLY into WhatsApp chat with AB Collections (+91 77604 68902)
     const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
       formattedMessage
     )}`;

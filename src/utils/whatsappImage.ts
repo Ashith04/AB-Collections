@@ -58,44 +58,6 @@ export async function copyImageToClipboard(imageUrl: string): Promise<boolean> {
   return false;
 }
 
-/**
- * Attempts to share the actual image file natively (Android / iOS / supported OS)
- * directly into WhatsApp with the inquiry text attached as the caption.
- */
-export async function shareImageWithNativeShare(
-  imageUrl: string,
-  title: string,
-  text: string
-): Promise<boolean> {
-  if (typeof window === "undefined" || !navigator.share) {
-    return false;
-  }
-
-  try {
-    const res = await fetch(imageUrl);
-    if (!res.ok) return false;
-    const blob = await res.blob();
-
-    const sanitizedName = (title || "outfit").toLowerCase().replace(/[^a-z0-9]/g, "_");
-    const file = new File([blob], `${sanitizedName}.jpg`, {
-      type: blob.type || "image/jpeg",
-    });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        files: [file],
-        title,
-        text,
-      });
-      return true;
-    }
-  } catch (error) {
-    // AbortError is triggered if user dismisses share sheet; ignore silently
-    console.warn("Native file share was dismissed or not completed:", error);
-  }
-
-  return false;
-}
 
 /**
  * Direct file download helper
