@@ -133,3 +133,54 @@ body {
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
+
+/* Brand Loader: Drop and Bounce for AB */
+@keyframes dropBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-260px) scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(22px) scale(1.08, 0.92);
+  }
+  70% {
+    transform: translateY(-10px) scale(0.96, 1.04);
+  }
+  85% {
+    transform: translateY(4px) scale(1.02, 0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+.animate-drop-bounce {
+  animation: dropBounce 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Brand Loader: Staggered Letter Reveal for COLLECTIONS */
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.85);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.05);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-letter-reveal {
+  opacity: 0;
+  animation: letterReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
