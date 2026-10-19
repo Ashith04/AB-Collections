@@ -46,20 +46,20 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
     <section className="relative pt-6 sm:pt-10 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
       {/* 1. Giant Headline Across the Full Width */}
       <div className="flex flex-col items-center justify-center text-center select-none">
-        <h1 className="editorial-headline text-[15vw] sm:text-[13vw] md:text-[12vw] lg:text-[11vw] font-black uppercase text-neutral-950 dark:text-white tracking-tighter leading-[0.85] w-full text-center">
+        <h1 className="editorial-headline text-[10vw] sm:text-[12vw] md:text-[12vw] lg:text-[11vw] font-black uppercase text-neutral-950 dark:text-white tracking-tight sm:tracking-tighter leading-[0.85] w-full text-center">
           AB COLLECTIONS
         </h1>
 
         {/* Left and Right Supporting Copy */}
-        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 sm:mt-6 text-xs text-neutral-500 font-medium px-2">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mt-4 sm:mt-6 text-xs text-neutral-500 font-medium px-1 sm:px-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neutral-950 dark:bg-white shrink-0" />
-            <p className="tracking-tight text-center sm:text-left max-w-xs font-semibold text-neutral-800 dark:text-neutral-200">
+            <p className="tracking-tight text-center sm:text-left max-w-xs font-semibold text-neutral-800 dark:text-neutral-200 text-[11px] sm:text-xs">
               Modern Men&apos;s Fashion Destination • Kavoor, Mangaluru
             </p>
           </div>
 
-          <div className="flex items-center gap-3 text-[11px] uppercase tracking-wider font-semibold text-neutral-500">
+          <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-neutral-500 flex-wrap justify-center sm:justify-end">
             <span>T-Shirts</span>
             <span>•</span>
             <span>Shirts</span>

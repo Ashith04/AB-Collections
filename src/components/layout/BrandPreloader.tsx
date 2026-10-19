@@ -102,8 +102,8 @@ export function BrandPreloader() {
         <div className="absolute -inset-10 bg-gradient-to-r from-amber-500/10 via-white/10 to-amber-500/10 blur-3xl rounded-full opacity-60 pointer-events-none" />
 
         {/* 1. "AB" Monogram Container - Drops from above & bounces back to middle */}
-        <div className="relative mb-6 animate-drop-bounce">
-          <div className="relative inline-flex items-center justify-center px-8 py-5 sm:px-12 sm:py-7 rounded-3xl bg-neutral-900/90 border border-white/15 backdrop-blur-2xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.05)]">
+        <div className="relative mb-4 sm:mb-6 animate-drop-bounce">
+          <div className="relative inline-flex items-center justify-center px-6 py-3.5 sm:px-12 sm:py-7 rounded-2xl sm:rounded-3xl bg-neutral-900/90 border border-white/15 backdrop-blur-2xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.05)]">
             {/* Corner accent marks for luxury couture feel */}
             <span className="absolute top-2 left-2.5 w-1.5 h-1.5 rounded-full bg-white/30" />
             <span className="absolute top-2 right-2.5 w-1.5 h-1.5 rounded-full bg-white/30" />
@@ -111,21 +111,21 @@ export function BrandPreloader() {
             <span className="absolute bottom-2 right-2.5 w-1.5 h-1.5 rounded-full bg-white/30" />
 
             {/* AB Letters */}
-            <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white leading-none">
+            <h1 className="text-5xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white leading-none">
               AB
             </h1>
           </div>
         </div>
 
         {/* 2. "COLLECTIONS" - Each word/letter pops and animates in sequentially */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 my-2 min-h-[32px]">
+        <div className="flex items-center justify-center gap-1 sm:gap-2.5 my-2 min-h-[28px] max-w-full px-2">
           {letters.map((letter, index) => (
             <span
               key={`${letter}-${index}`}
               style={{
                 animationDelay: `${index * 55}ms`,
               }}
-              className={`inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-neutral-200 transition-opacity ${
+              className={`inline-block text-[11px] sm:text-sm md:text-base font-extrabold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-neutral-200 transition-opacity ${
                 hasRevealedLetters ? "animate-letter-reveal" : "opacity-0"
               }`}
             >
@@ -136,7 +136,7 @@ export function BrandPreloader() {
 
         {/* 3. Subline & Location */}
         <p
-          className={`mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-neutral-400 transition-all duration-700 ${
+          className={`mt-2 text-[9px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.28em] text-neutral-400 text-center px-4 max-w-xs sm:max-w-none transition-all duration-700 ${
             phase === "complete" || phase === "exiting"
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-2"
@@ -146,7 +146,7 @@ export function BrandPreloader() {
         </p>
 
         {/* 4. Sleek Minimalist Progress Hairline */}
-        <div className="w-36 sm:w-48 h-[2px] bg-white/10 rounded-full overflow-hidden mt-6">
+        <div className="w-32 sm:w-48 h-[2px] bg-white/10 rounded-full overflow-hidden mt-5 sm:mt-6">
           <div
             className="h-full bg-gradient-to-r from-neutral-500 via-white to-neutral-300 rounded-full transition-all duration-100 ease-out"
             style={{ width: `${progress}%` }}

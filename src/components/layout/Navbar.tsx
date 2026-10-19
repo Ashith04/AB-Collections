@@ -92,37 +92,37 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center gap-1 md:hidden">
+            <div className="flex items-center gap-0.5 sm:gap-1 md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
-                className="p-2 rounded-full text-neutral-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-full text-neutral-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 cursor-pointer"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
-                className="p-2 rounded-full text-neutral-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-full text-neutral-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 cursor-pointer"
               >
                 <Search className="w-4 h-4" />
               </button>
             </div>
 
             {/* CENTER: Editorial Wordmark with hover glow */}
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center text-center px-1">
               <Link href="/" className="group flex flex-col items-center">
-                <span className="editorial-headline text-xl sm:text-2xl md:text-3xl text-neutral-950 dark:text-white font-extrabold tracking-tighter transition-transform duration-300 group-hover:scale-[1.01]">
+                <span className="editorial-headline text-base sm:text-2xl md:text-3xl text-neutral-950 dark:text-white font-extrabold tracking-tight sm:tracking-tighter transition-transform duration-300 group-hover:scale-[1.01] whitespace-nowrap">
                   AB COLLECTIONS
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-200 transition-colors -mt-1 font-semibold">
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-200 transition-colors -mt-0.5 sm:-mt-1 font-semibold whitespace-nowrap">
                   Kavoor • Mangaluru
                 </span>
               </Link>
             </div>
 
             {/* RIGHT: Actions (Search, Wishlist, Reserve List) */}
-            <div className="flex items-center gap-2.5 sm:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-4">
               {/* Live Open / Closed Pill with Hover Tooltip */}
               <div
                 className="relative hidden lg:block"
