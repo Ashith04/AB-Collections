@@ -18,60 +18,60 @@ export const VisitStoreSection: React.FC = () => {
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="bg-[#f6f6f6] dark:bg-neutral-900 rounded-[36px] overflow-hidden border border-neutral-200/80 dark:border-neutral-800 shadow-xl">
+      <div className="bg-[#f8fafc] rounded-[36px] overflow-hidden border border-neutral-200/90 shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Left Column: Store Details & Contact Actions */}
           <div className="lg:col-span-5 p-5 sm:p-8 md:p-12 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white dark:bg-black border border-black/5 dark:border-white/10 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200 mb-4 shadow-2xs">
                 <span
                   className={`w-2 h-2 rounded-full ${
                     storeStatus.isOpen ? "bg-emerald-500 pulse-dot" : "bg-neutral-400"
                   }`}
                 />
-                <span className="text-neutral-800 dark:text-neutral-200 font-medium">
+                <span className="text-neutral-800 font-medium">
                   {storeStatus.statusText}
                 </span>
               </div>
 
-              <h2 className="editorial-headline text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
+              <h2 className="editorial-headline text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-950">
                 Visit Us in Kavoor, Mangaluru
               </h2>
 
-              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-3 leading-relaxed">
+              <p className="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
                 Step inside our physical store on Airport Road. Experience fabric textures firsthand, try on tailored cuts in our dedicated dressing spaces, and consult with our stylists.
               </p>
 
-              <div className="mt-8 space-y-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
+              <div className="mt-8 space-y-4 text-xs sm:text-sm text-neutral-700">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-neutral-950 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
+                    <span className="font-bold text-neutral-950 block">
                       Address
                     </span>
-                    <span>{siteConfig.contact.address.full}</span>
+                    <span className="text-neutral-600">{siteConfig.contact.address.full}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-neutral-950 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
+                    <span className="font-bold text-neutral-950 block">
                       Operating Hours
                     </span>
-                    <span>{siteConfig.businessHours.display}</span>
+                    <span className="text-neutral-600">{siteConfig.businessHours.display}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-neutral-950 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
+                    <span className="font-bold text-neutral-950 block">
                       Call Store
                     </span>
                     <a
                       href={`tel:${siteConfig.contact.phone}`}
-                      className="hover:underline font-semibold"
+                      className="hover:underline font-semibold text-neutral-950"
                     >
                       {siteConfig.contact.phoneDisplay}
                     </a>
@@ -81,7 +81,7 @@ export const VisitStoreSection: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-10 pt-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center gap-3">
+            <div className="mt-10 pt-6 border-t border-neutral-200 flex flex-wrap items-center gap-3">
               <PillButton
                 href={siteConfig.contact.googleMapsDirectionsUrl}
                 variant="dark"
@@ -102,7 +102,7 @@ export const VisitStoreSection: React.FC = () => {
           </div>
 
           {/* Right Column: Google Maps Embed & Store Interior Preview */}
-          <div className="lg:col-span-7 flex flex-col h-full min-h-[420px] bg-neutral-200 dark:bg-neutral-800 relative">
+          <div className="lg:col-span-7 flex flex-col h-full min-h-[420px] bg-neutral-200 relative">
             <iframe
               src={siteConfig.contact.googleMapsEmbedUrl}
               title="AB Collections Kavoor Location Map"
@@ -112,11 +112,11 @@ export const VisitStoreSection: React.FC = () => {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full grayscale contrast-125 dark:invert dark:hue-rotate-180"
+              className="w-full h-full grayscale contrast-125"
             />
 
             {/* Overlay store interior preview badge */}
-            <div className="absolute top-4 right-4 bg-white/95 dark:bg-black/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-neutral-200 dark:border-neutral-800 flex items-center gap-3">
+            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-neutral-200 flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0">
                 <Image
                   src="/images/store/store_interior.jpg"
@@ -129,7 +129,7 @@ export const VisitStoreSection: React.FC = () => {
                 <span className="text-[10px] uppercase tracking-wider font-mono text-neutral-500 font-bold block">
                   Kavoor Atelier
                 </span>
-                <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100">
+                <span className="text-xs font-bold text-neutral-950">
                   Ready for In-Store Trials
                 </span>
               </div>

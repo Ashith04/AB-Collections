@@ -110,7 +110,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FBFBFB] dark:bg-black text-neutral-900 dark:text-neutral-50 antialiased selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-black">
+      <body className="min-h-screen flex flex-col bg-white text-neutral-900 antialiased selection:bg-neutral-950 selection:text-white">
         <BrandPreloader />
         <WishlistProvider>
           <ReserveProvider>

@@ -28,13 +28,13 @@ export const ValueProps: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 dark:text-neutral-400 font-semibold">
+        <span className="text-xs uppercase tracking-[0.25em] font-mono text-neutral-500 font-semibold">
           Why AB Collections
         </span>
-        <h2 className="editorial-headline text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 mt-2">
+        <h2 className="editorial-headline text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-950 mt-2">
           The Kavoor Men&apos;s Standard
         </h2>
-        <p className="text-xs sm:text-sm text-neutral-500 mt-2">
+        <p className="text-xs sm:text-sm text-neutral-600 mt-2">
           Focused exclusively on men&apos;s clothing with high standards of fabric density and fitting.
         </p>
       </div>
@@ -45,21 +45,21 @@ export const ValueProps: React.FC = () => {
           return (
             <div
               key={i}
-              className="p-6 rounded-3xl bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200/80 dark:border-neutral-800 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200"
+              className="p-6 rounded-3xl bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 shadow-2xs hover:shadow-md"
             >
               <div>
-                <div className="w-10 h-10 rounded-2xl bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 flex items-center justify-center mb-4 shadow-xs">
+                <div className="w-10 h-10 rounded-2xl bg-neutral-950 text-white flex items-center justify-center mb-4 shadow-xs">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                <h3 className="text-base font-bold text-neutral-950 mb-2">
                   {v.title}
                 </h3>
-                <p className="text-xs text-neutral-500 leading-relaxed">
+                <p className="text-xs text-neutral-600 leading-relaxed">
                   {v.desc}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-neutral-200/60 dark:border-neutral-800 text-[11px] font-mono text-neutral-400">
+              <div className="pt-4 mt-4 border-t border-neutral-200/60 text-[11px] font-mono text-neutral-500 font-medium">
                 0{i + 1} // STANDARD
               </div>
             </div>

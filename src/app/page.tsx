@@ -94,16 +94,16 @@ export default function HomePage() {
         {/* Gallery Title & Context */}
         <RevealOnScroll direction="up" delayMs={100}>
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-semibold uppercase tracking-wider mb-3 border border-neutral-200 dark:border-neutral-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 text-neutral-800 text-xs font-mono font-semibold uppercase tracking-wider mb-3 border border-neutral-200/90 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               <span>Showroom Collection • 142 Items</span>
             </div>
 
-            <h2 className="editorial-headline text-3xl sm:text-5xl font-black text-neutral-900 dark:text-neutral-50 tracking-tight">
+            <h2 className="editorial-headline text-3xl sm:text-5xl font-black text-neutral-950 tracking-tight">
               Curated Men&apos;s Wardrobe
             </h2>
 
-            <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl mx-auto">
               Every garment in our Kavoor store is captured and categorized below. Browse our relaxed-fit tees, tailored button-downs, and coordinated ensembles with prominent visual previews.
             </p>
           </div>

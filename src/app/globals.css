@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #fbfbfb;
-  --foreground: #0a0a0a;
-  --card-bg: #f4f4f4;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card-bg: #f8fafc;
   --accent-amber: #f59e0b;
-  --obsidian: #0a0a0a;
+  --obsidian: #09090b;
   --border-subtle: rgba(0, 0, 0, 0.08);
 }
 
