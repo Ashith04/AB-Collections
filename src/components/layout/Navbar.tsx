@@ -52,6 +52,7 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   const navLinks = [
+    { label: "Home", href: "/home" },
     { label: "All Items", href: "/shop" },
     { label: "T-Shirts", href: "/shop?category=T-Shirts" },
     { label: "Shirts", href: "/shop?category=Shirts" },
@@ -72,14 +73,17 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* LEFT: Nav Links (Desktop) */}
-            <nav className="hidden md:flex items-center gap-1.5 lg:gap-2" aria-label="Main Navigation">
-              {navLinks.slice(0, 4).map((link) => {
-                const active = pathname === link.href;
+            <nav className="hidden md:flex items-center gap-1 lg:gap-1.5" aria-label="Main Navigation">
+              {navLinks.slice(0, 5).map((link) => {
+                const isHome = link.href === "/home" || link.href === "/";
+                const active = isHome
+                  ? pathname === "/" || pathname === "/home"
+                  : pathname === link.href;
                 return (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`text-[11px] lg:text-xs uppercase tracking-widest font-semibold px-3 py-1.5 rounded-full transition-all duration-200 relative ${
+                    className={`text-[11px] lg:text-xs uppercase tracking-widest font-semibold px-2.5 lg:px-3 py-1.5 rounded-full transition-all duration-200 relative ${
                       active
                         ? "bg-neutral-950 text-white shadow-xs"
                         : "text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100"
@@ -201,16 +205,26 @@ export const Navbar: React.FC = () => {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-neutral-200 bg-white px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200">
             <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-base font-semibold text-neutral-900 hover:text-neutral-600 flex items-center justify-between py-2 border-b border-neutral-100"
-                >
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-neutral-400" />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isHome = link.href === "/home" || link.href === "/";
+                const active = isHome
+                  ? pathname === "/" || pathname === "/home"
+                  : pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-base font-semibold flex items-center justify-between py-2 border-b border-neutral-100 ${
+                      active
+                        ? "text-neutral-950 font-bold"
+                        : "text-neutral-800 hover:text-neutral-600"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+                  </Link>
+                );
+              })}
               <div className="pt-2 flex flex-col space-y-2">
                 <Link
                   href="/faq"
