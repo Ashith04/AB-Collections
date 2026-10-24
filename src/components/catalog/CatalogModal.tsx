@@ -1,10 +1,24 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, MessageCircle, MapPin, Share2, Film, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import {
+  X,
+  MessageCircle,
+  MapPin,
+  Share2,
+  Film,
+  ArrowUpRight,
+  Heart,
+  ShoppingBag,
+  CheckCircle2,
+} from "lucide-react";
 import { CatalogItem } from "@/data/catalog";
 import { copyImageToClipboard } from "@/utils/whatsappImage";
+import { useWishlist } from "@/context/WishlistContext";
+import { useReserve } from "@/context/ReserveContext";
+import { catalogItemToProduct } from "@/utils/catalogAdapter";
 
 interface CatalogModalProps {
   item: CatalogItem | null;
@@ -13,6 +27,10 @@ interface CatalogModalProps {
 }
 
 export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClose }) => {
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { items: reserveItems, addToReserve } = useReserve();
+  const [justReserved, setJustReserved] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -28,6 +46,10 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
   }, [isOpen, onClose]);
 
   if (!isOpen || !item) return null;
+
+  const product = catalogItemToProduct(item);
+  const isFavorited = isInWishlist(item.id);
+  const isReserved = reserveItems.some((r) => r.product.id === item.id);
 
   const handleWhatsApp = async () => {
     const phone = "917760468902";
@@ -53,6 +75,12 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
+  const handleAddToReserve = () => {
+    addToReserve(product, item.fit || "Standard", "Default", 1);
+    setJustReserved(true);
+    setTimeout(() => setJustReserved(false), 3000);
+  };
+
   const handleShare = () => {
     if (typeof window !== "undefined") {
       navigator.clipboard.writeText(window.location.href);
@@ -66,15 +94,32 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-4xl bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[92vh]">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          aria-label="Close modal"
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
-        >
-          <X className="w-4 h-4 sm:w-5 sm:h-5" />
-        </button>
+      <div className="relative z-10 w-full max-w-4xl bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row max-h-[92vh] overflow-hidden shadow-2xl">
+        {/* Top Control Buttons (Close & Favorite) */}
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 flex items-center gap-2">
+          {/* Heart Favorite Button */}
+          <button
+            onClick={() => toggleWishlist(product)}
+            aria-label={isFavorited ? "Remove from favorites" : "Save to favorites"}
+            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-md ${
+              isFavorited
+                ? "bg-white text-red-500 shadow-red-500/20"
+                : "bg-black/70 hover:bg-black text-white hover:text-red-400"
+            }`}
+            title={isFavorited ? "Saved in Favorites (Click to remove)" : "Save to Favorites"}
+          >
+            <Heart className={`w-4 h-4 sm:w-5 sm:h-5 ${isFavorited ? "fill-red-500 text-red-500" : ""}`} />
+          </button>
+
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            aria-label="Close modal"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-md"
+          >
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+        </div>
 
         {/* Media Container (Prominent Display) */}
         <div className="relative w-full md:w-1/2 aspect-4/5 md:aspect-auto max-h-[280px] sm:max-h-[380px] md:max-h-none md:min-h-[460px] bg-neutral-100 dark:bg-neutral-950 flex items-center justify-center overflow-hidden shrink-0">
@@ -113,7 +158,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           </div>
         </div>
 
-        {/* Item Details (NO Prices) */}
+        {/* Item Details */}
         <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
           <div>
             {/* Category & Badge */}
@@ -186,13 +231,31 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
                 Available for in-store trial at <strong>AB Collections</strong>, Kavoor Tower, Above Union Bank, Kavoor, Mangaluru.
               </span>
             </div>
+
+            {/* Reserved Confirmation Banner */}
+            {justReserved && (
+              <div className="mt-4 p-3 rounded-xl bg-neutral-900 text-white text-xs flex items-center justify-between gap-2 animate-in fade-in duration-200">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Held in Reserve List on your device!</span>
+                </div>
+                <Link
+                  href="/reserve"
+                  onClick={onClose}
+                  className="underline font-bold text-emerald-300 hover:text-emerald-200 shrink-0"
+                >
+                  View List →
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Action CTAs */}
-          <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
+          <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center gap-3">
+            {/* WhatsApp Inquiry */}
             <button
               onClick={handleWhatsApp}
-              className="flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
+              className="w-full sm:flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
             >
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
@@ -203,10 +266,25 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
               </span>
             </button>
 
+            {/* In-Store Reserve Button */}
+            <button
+              onClick={handleAddToReserve}
+              className={`w-full sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                justReserved || isReserved
+                  ? "bg-emerald-600 text-white"
+                  : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-100"
+              }`}
+              title="Hold this outfit for trial at Kavoor showroom"
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              <span>{justReserved ? "Reserved!" : isReserved ? "In Reserve List" : "Hold for Trial"}</span>
+            </button>
+
+            {/* Share */}
             <button
               onClick={handleShare}
               aria-label="Share Look"
-              className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-colors cursor-pointer"
+              className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-colors cursor-pointer hidden sm:flex items-center justify-center"
               title="Share look"
             >
               <Share2 className="w-4 h-4" />

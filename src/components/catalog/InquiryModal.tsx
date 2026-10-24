@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   X,
   MessageCircle,
@@ -11,15 +12,19 @@ import {
   Download,
   Image as ImageIcon,
   CheckCircle2,
-  Sparkles,
+  Heart,
+  ShoppingBag,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import {
   copyImageToClipboard,
   downloadProductImage,
 } from "@/utils/whatsappImage";
+import { useWishlist } from "@/context/WishlistContext";
+import { useReserve } from "@/context/ReserveContext";
+import { catalogItemToProduct, AdaptableCatalogItem } from "@/utils/catalogAdapter";
 
-export interface InquiryItem {
+export interface InquiryItem extends AdaptableCatalogItem {
   id: string;
   name: string;
   code: string;
@@ -37,12 +42,20 @@ interface InquiryModalProps {
 }
 
 export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClose }) => {
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { items: reserveItems, addToReserve } = useReserve();
+
   const [copiedText, setCopiedText] = useState(false);
   const [copiedPhoto, setCopiedPhoto] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showPasteTip, setShowPasteTip] = useState(false);
+  const [justReserved, setJustReserved] = useState(false);
 
   if (!isOpen || !item) return null;
+
+  const product = catalogItemToProduct(item);
+  const isFavorited = isInWishlist(item.id);
+  const isReserved = reserveItems.some((r) => r.product.id === item.id);
 
   // Clean, professional WhatsApp message WITHOUT raw file links or localhost URLs
   const formattedMessage =
@@ -71,7 +84,6 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
       setShowPasteTip(true);
       setTimeout(() => setCopiedPhoto(false), 3500);
     } else {
-      // Fallback: download the image if direct clipboard copy is blocked
       downloadProductImage(item.mediaUrl, `${item.code}.jpg`);
       alert("Image downloaded! You can drag it directly into your WhatsApp chat.");
     }
@@ -79,6 +91,12 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
 
   const handleDownload = () => {
     downloadProductImage(item.mediaUrl, `${item.code}.jpg`);
+  };
+
+  const handleAddToReserve = () => {
+    addToReserve(product, item.fit || "Standard", "Default", 1);
+    setJustReserved(true);
+    setTimeout(() => setJustReserved(false), 3000);
   };
 
   const handleSendToWhatsApp = async () => {
@@ -112,20 +130,36 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between bg-neutral-50/70 dark:bg-neutral-900/70">
+        <div className="p-4 sm:p-5 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between bg-neutral-50/70 dark:bg-neutral-900/70">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-dot" />
-            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-white">
-              WhatsApp Outfit Inquiry
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-white">
+              Outfit Details &amp; Inquiry
             </h3>
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close inquiry"
-            className="p-1.5 rounded-full text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-1.5">
+            {/* Wishlist / Favorite Heart Toggle */}
+            <button
+              type="button"
+              onClick={() => toggleWishlist(product)}
+              aria-label={isFavorited ? "Saved in Favorites" : "Add to Favorites"}
+              className={`p-2 rounded-full transition-all cursor-pointer ${
+                isFavorited
+                  ? "bg-red-50 text-red-500 dark:bg-red-950/60"
+                  : "text-neutral-400 hover:text-red-500 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              }`}
+              title={isFavorited ? "Saved in Favorites (Click to remove)" : "Save to Favorites"}
+            >
+              <Heart className={`w-4 h-4 ${isFavorited ? "fill-red-500 text-red-500" : ""}`} />
+            </button>
+            <button
+              onClick={onClose}
+              aria-label="Close inquiry"
+              className="p-1.5 rounded-full text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
         {/* Modal Body */}
@@ -143,7 +177,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
               />
             </div>
 
-            {/* Info Query Details (No cut-off truncation) */}
+            {/* Info Query Details */}
             <div className="flex-1 min-w-0 space-y-1.5">
               <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block font-semibold">
                 Code: {item.code}
@@ -168,7 +202,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
                 </p>
               )}
 
-              {/* Direct Photo Actions */}
+              {/* Direct Photo & Reserve Actions */}
               <div className="flex items-center gap-2 pt-1 flex-wrap">
                 <button
                   type="button"
@@ -180,7 +214,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
                   }`}
                 >
                   {copiedPhoto ? <Check className="w-3 h-3" /> : <ImageIcon className="w-3 h-3" />}
-                  <span>{copiedPhoto ? "Photo Copied!" : "Copy Photo (Ctrl+V)"}</span>
+                  <span>{copiedPhoto ? "Photo Copied!" : "Copy Photo"}</span>
                 </button>
 
                 <button
@@ -192,11 +226,42 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
                   <Download className="w-3 h-3" />
                   <span>Save</span>
                 </button>
+
+                {/* Hold / Reserve button */}
+                <button
+                  type="button"
+                  onClick={handleAddToReserve}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold transition-all cursor-pointer ${
+                    justReserved || isReserved
+                      ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                      : "bg-neutral-100 hover:bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
+                  }`}
+                  title="Hold for in-store trial at Kavoor showroom"
+                >
+                  <ShoppingBag className="w-3 h-3" />
+                  <span>{justReserved ? "Reserved!" : isReserved ? "In Reserve List" : "Hold for Trial"}</span>
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Photo Copied Toast Banner */}
+          {/* Toast / Banner for Reserve or Photo */}
+          {justReserved && (
+            <div className="p-3 rounded-xl bg-neutral-900 text-white text-xs flex items-center justify-between gap-2 animate-in fade-in duration-200">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Added to your In-Store Reserve List (stored on your device)!</span>
+              </div>
+              <Link
+                href="/reserve"
+                onClick={onClose}
+                className="underline font-bold text-emerald-300 hover:text-emerald-200 shrink-0"
+              >
+                View Reserve List →
+              </Link>
+            </div>
+          )}
+
           {showPasteTip && (
             <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-xs text-emerald-900 dark:text-emerald-200 flex items-start gap-2.5 animate-in fade-in duration-200">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -233,7 +298,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
         </div>
 
         {/* Footer Actions */}
-        <div className="p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/50 flex flex-col sm:flex-row items-center gap-3">
+        <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/50 flex flex-col sm:flex-row items-center gap-3">
           <button
             onClick={handleSendToWhatsApp}
             disabled={isProcessing}

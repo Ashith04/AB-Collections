@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Play, Pause, Eye, MessageCircle, Heart, Tag, Film, ArrowUpRight } from "lucide-react";
 import { CatalogItem } from "@/data/catalog";
 import { InquiryModal } from "./InquiryModal";
+import { useWishlist } from "@/context/WishlistContext";
+import { catalogItemToProduct } from "@/utils/catalogAdapter";
 
 interface CatalogCardProps {
   item: CatalogItem;
@@ -12,10 +14,12 @@ interface CatalogCardProps {
 }
 
 export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) => {
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const isLiked = isInWishlist(item.id);
 
   const toggleVideoPlay = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -113,20 +117,21 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
                 <Eye className="w-3.5 h-3.5" />
               </button>
 
-              {/* Like Button */}
+              {/* Like / Wishlist Button (Persisted to localStorage) */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsLiked(!isLiked);
+                  toggleWishlist(catalogItemToProduct(item));
                 }}
-                aria-label="Favorite item"
+                aria-label={isLiked ? "Remove from favorites" : "Save to favorites"}
                 className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md shadow-sm transition-transform hover:scale-110 cursor-pointer ${
                   isLiked
-                    ? "bg-red-50 text-red-500"
+                    ? "bg-red-50 text-red-500 shadow-xs"
                     : "bg-white/95 text-neutral-700 hover:text-red-500"
                 }`}
+                title={isLiked ? "Saved in Favorites" : "Save to Favorites"}
               >
-                <Heart className={`w-3.5 h-3.5 ${isLiked ? "fill-red-500" : ""}`} />
+                <Heart className={`w-3.5 h-3.5 ${isLiked ? "fill-red-500 text-red-500" : ""}`} />
               </button>
             </div>
           </div>

@@ -1,12 +1,22 @@
 import { notFound } from "next/navigation";
 import { products } from "@/data/products";
+import { catalogItems } from "@/data/catalog";
+import { catalogItemToProduct } from "@/utils/catalogAdapter";
 import ProductDetailClient from "./ProductDetailClient";
 import type { Metadata } from "next";
 
+function getProductBySlug(slug: string) {
+  const fromProducts = products.find((p) => p.slug === slug);
+  if (fromProducts) return fromProducts;
+  const fromCatalog = catalogItems.find((c) => c.slug === slug);
+  if (fromCatalog) return catalogItemToProduct(fromCatalog);
+  return null;
+}
+
 export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
+  const productSlugs = products.map((product) => ({ slug: product.slug }));
+  const catalogSlugs = catalogItems.map((item) => ({ slug: item.slug }));
+  return [...productSlugs, ...catalogSlugs];
 }
 
 export async function generateMetadata({
@@ -15,7 +25,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -40,7 +50,7 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
