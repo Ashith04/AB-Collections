@@ -37,7 +37,7 @@ AB Collections is architected as an offline-first retail hybrid web application.
 
 1. **Client-Side Discovery & Curation:** Customers browse high-resolution flat-lays, tactical cargos, and evening jacquards with multi-facet filtering (category, fit, size, color, fabric).
 2. **Instant Reservation & Inquiry:** Users build multi-garment in-store trial requests or trigger 1-click outfit inquiries.
-3. **Automated Clipboard & Direct Deep Linking:** Product specifications are compiled into clean structured payloads, high-resolution garment photos are automatically staged to the system clipboard, and chats launch directly to the showroom team via WhatsApp (`+91 77604 68902`).
+3. **Automated Clipboard & Direct Deep Linking:** Product specifications are compiled into clean structured payloads, high-resolution garment photos are automatically staged to the system clipboard, and chats launch directly to the showroom team via WhatsApp (`+91 98456 74374`).
 
 ```mermaid
 flowchart LR
@@ -245,7 +245,7 @@ WhatsApp integration is engineered for maximum conversion without OS friction:
            │      "• Category: Shirts"
            │      "• Fit: Regular Fit"
            │
-           └─► 3. Opens directly to +91 77604 68902 via https://wa.me/917760468902
+           └─► 3. Opens directly to +91 98456 74374 via https://wa.me/919845674374
                   (Customer simply presses Ctrl+V in WhatsApp to attach the shirt photo)
 ```
 
@@ -264,8 +264,8 @@ export const siteConfig = {
   tagline: "The Fit of Everyday Style",
   url: "https://abcollections.in",
   contact: {
-    phone: "+91 77604 68902",
-    whatsappNumber: "917760468902", // International format without +
+    phone: "+91 98456 74374",
+    whatsappNumber: "919845674374", // International format without +
     email: "contact@abcollections.in",
     address: {
       street: "Kavoor Tower, Above Union Bank",

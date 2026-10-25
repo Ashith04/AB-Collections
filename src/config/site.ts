@@ -11,6 +11,8 @@ export interface SiteConfig {
   contact: {
     phone: string;
     phoneDisplay: string;
+    secondaryPhone?: string;
+    secondaryPhoneDisplay?: string;
     whatsappNumber: string; // international format without + or spaces e.g. 919876543210
     whatsappDisplay: string;
     email: string;
@@ -69,10 +71,12 @@ export const siteConfig: SiteConfig = {
     url: "https://www.instagram.com/ab_collections_kavoor/",
   },
   contact: {
-    phone: "+91 77604 68902",
-    phoneDisplay: "+91 77604 68902",
-    whatsappNumber: "917760468902",
-    whatsappDisplay: "+91 77604 68902",
+    phone: "+91 98456 74374",
+    phoneDisplay: "+91 98456 74374",
+    secondaryPhone: "+91 82772 99541",
+    secondaryPhoneDisplay: "+91 82772 99541",
+    whatsappNumber: "919845674374",
+    whatsappDisplay: "+91 98456 74374",
     email: "contact@abcollections.in",
     address: {
       street: "Kavoor Tower, Above Union Bank",

@@ -100,14 +100,28 @@ export default function ContactPage() {
                 <Phone className="w-5 h-5 text-neutral-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 dark:text-neutral-100 block">
-                    Direct Phone Line
+                    Phone &amp; WhatsApp Enquiries
                   </span>
-                  <a
-                    href={`tel:${siteConfig.contact.phone}`}
-                    className="hover:underline font-semibold"
-                  >
-                    {siteConfig.contact.phoneDisplay}
-                  </a>
+                  <div className="flex flex-col gap-1.5 mt-1">
+                    <a
+                      href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2"
+                    >
+                      <span>{siteConfig.contact.whatsappDisplay}</span>
+                      <span className="text-[10px] font-mono uppercase bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 px-1.5 py-0.5 rounded-full font-bold">WhatsApp</span>
+                    </a>
+                    {siteConfig.contact.secondaryPhone && (
+                      <a
+                        href={`tel:${siteConfig.contact.secondaryPhone}`}
+                        className="hover:underline text-neutral-600 dark:text-neutral-400 flex items-center gap-2 text-xs font-medium"
+                      >
+                        <span>{siteConfig.contact.secondaryPhoneDisplay}</span>
+                        <span className="text-[10px] font-mono uppercase bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-1.5 py-0.5 rounded-full font-bold">Store Call</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
 

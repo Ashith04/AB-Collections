@@ -129,11 +129,20 @@ export const Footer: React.FC = () => {
                 <Clock className="w-4 h-4 text-neutral-400 shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="group-hover:text-white transition-colors">{siteConfig.businessHours.display}</span>
               </div>
-              <div className="flex items-center gap-2.5 group transition-transform duration-300 ease-out hover:translate-x-2 cursor-pointer">
-                <Phone className="w-4 h-4 text-neutral-400 shrink-0 group-hover:scale-110 transition-transform" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="hover:underline font-medium group-hover:text-white transition-colors">
-                  {siteConfig.contact.phoneDisplay}
-                </a>
+              <div className="flex flex-col gap-1.5">
+                <div className="flex items-center gap-2.5 group transition-transform duration-300 ease-out hover:translate-x-2 cursor-pointer">
+                  <Phone className="w-4 h-4 text-neutral-400 shrink-0 group-hover:scale-110 transition-transform" />
+                  <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="hover:underline font-medium group-hover:text-white transition-colors">
+                    {siteConfig.contact.whatsappDisplay} <span className="text-[10px] text-neutral-400 font-mono">(WhatsApp)</span>
+                  </a>
+                </div>
+                {siteConfig.contact.secondaryPhone && (
+                  <div className="flex items-center gap-2.5 pl-6 group transition-transform duration-300 ease-out hover:translate-x-2 cursor-pointer">
+                    <a href={`tel:${siteConfig.contact.secondaryPhone}`} className="hover:underline font-medium text-neutral-400 group-hover:text-white transition-colors">
+                      {siteConfig.contact.secondaryPhoneDisplay} <span className="text-[10px] text-neutral-400 font-mono">(Calls)</span>
+                    </a>
+                  </div>
+                )}
               </div>
               <div className="pt-2">
                 <a

@@ -19,6 +19,7 @@ import { copyImageToClipboard } from "@/utils/whatsappImage";
 import { useWishlist } from "@/context/WishlistContext";
 import { useReserve } from "@/context/ReserveContext";
 import { catalogItemToProduct } from "@/utils/catalogAdapter";
+import { siteConfig } from "@/config/site";
 
 interface CatalogModalProps {
   item: CatalogItem | null;
@@ -52,8 +53,6 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
   const isReserved = reserveItems.some((r) => r.product.id === item.id);
 
   const handleWhatsApp = async () => {
-    const phone = "917760468902";
-
     const text =
       `Hello AB Collections Kavoor!\n\n` +
       `I am inquiring about this outfit:\n` +
@@ -71,8 +70,8 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
       // Non-blocking
     }
 
-    // Directly open WhatsApp chat with AB Collections (+91 77604 68902)
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+    // Directly open WhatsApp chat with AB Collections
+    window.open(`https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   const handleAddToReserve = () => {

@@ -67,14 +67,28 @@ export const VisitStoreSection: React.FC = () => {
                   <Phone className="w-5 h-5 text-neutral-950 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-neutral-950 block">
-                      Call Store
+                      Direct Contact &amp; WhatsApp
                     </span>
-                    <a
-                      href={`tel:${siteConfig.contact.phone}`}
-                      className="hover:underline font-semibold text-neutral-950"
-                    >
-                      {siteConfig.contact.phoneDisplay}
-                    </a>
+                    <div className="flex flex-col gap-1 text-xs">
+                      <a
+                        href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline font-semibold text-neutral-950 flex items-center gap-1.5"
+                      >
+                        <span>{siteConfig.contact.whatsappDisplay}</span>
+                        <span className="text-[10px] font-mono uppercase bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-bold">WhatsApp</span>
+                      </a>
+                      {siteConfig.contact.secondaryPhone && (
+                        <a
+                          href={`tel:${siteConfig.contact.secondaryPhone}`}
+                          className="hover:underline text-neutral-600 flex items-center gap-1.5 font-medium"
+                        >
+                          <span>{siteConfig.contact.secondaryPhoneDisplay}</span>
+                          <span className="text-[10px] font-mono uppercase bg-neutral-200 text-neutral-700 px-1.5 py-0.2 rounded font-bold">Call</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -64,9 +64,8 @@ export default function FAQPage() {
               >
                 <span>{faq.q}</span>
                 <ChevronDown
-                  className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 text-neutral-900 dark:text-white" : ""
-                  }`}
+                  className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-neutral-900 dark:text-white" : ""
+                    }`}
                 />
               </button>
 
@@ -89,7 +88,7 @@ export default function FAQPage() {
         <p className="text-xs text-neutral-500 max-w-sm mx-auto">
           Message our store associates directly on WhatsApp. We typically respond within 15 minutes during store hours.
         </p>
-        <div className="pt-2">
+        <div className="pt-2 flex flex-col items-center gap-3">
           <a
             href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
             target="_blank"
@@ -97,8 +96,19 @@ export default function FAQPage() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold transition-all shadow-md"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Chat with Kavoor Store</span>
+            <span>Chat on WhatsApp ({siteConfig.contact.whatsappDisplay})</span>
           </a>
+          {siteConfig.contact.secondaryPhone && (
+            <p className="text-[11px] text-neutral-500 font-mono">
+              Direct Phone Support:{" "}
+              <a
+                href={`tel:${siteConfig.contact.secondaryPhone}`}
+                className="font-bold text-neutral-800 dark:text-neutral-200 hover:underline"
+              >
+                {siteConfig.contact.secondaryPhoneDisplay}
+              </a>
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -113,7 +113,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
 
     setIsProcessing(false);
 
-    // Open DIRECTLY into WhatsApp chat with AB Collections (+91 77604 68902)
+    // Open DIRECTLY into WhatsApp chat with AB Collections (+91 98456 74374)
     const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
       formattedMessage
     )}`;
