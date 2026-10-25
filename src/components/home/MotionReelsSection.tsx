@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Play,
@@ -11,14 +10,13 @@ import {
   ChevronLeft,
   ChevronRight,
   Film,
-  Sparkles,
+  Store,
   MessageCircle,
   ShoppingBag,
   Heart,
   ArrowUpRight,
   Eye,
   CheckCircle2,
-  RotateCcw,
 } from "lucide-react";
 import { catalogItems, CatalogItem } from "@/data/catalog";
 import { useWishlist } from "@/context/WishlistContext";
@@ -62,7 +60,6 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
         const playPromise = videoRef.current.play();
         if (playPromise !== undefined) {
           playPromise.catch(() => {
-            // Browser autoplay policy prevented play; user interaction will resume
             setIsPlaying(false);
           });
         }
@@ -79,7 +76,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
     }
   };
 
-  // When video reaches end: auto-move to the next video reel!
+  // When video reaches end: auto-move to the next video reel
   const handleVideoEnded = () => {
     if (!autoAdvance) return;
     setActiveIndex((prev) => (prev + 1) % reels.length);
@@ -148,16 +145,16 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold uppercase tracking-wider mb-3 shadow-xs">
-            <Film className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Studio In Motion • 3 Exclusive Video Reels</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-semibold uppercase tracking-wider mb-3 border border-neutral-200 dark:border-neutral-800">
+            <Film className="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300" />
+            <span>Showroom Reels • 3 Motion Edits</span>
           </div>
           <h2 className="editorial-headline text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 dark:text-white">
             Wardrobe In Motion
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-xl leading-relaxed">
-            Authentic silhouettes, fabric drape, and dynamic styling captured live inside our Kavoor showroom.
-            Videos auto-advance seamlessly once completed.
+            Authentic silhouettes, fabric drape, and dynamic styling recorded live in our Kavoor showroom.
+            Each video transitions automatically once played.
           </p>
         </div>
 
@@ -166,15 +163,15 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
           {/* Auto-Advance Pill */}
           <button
             onClick={() => setAutoAdvance(!autoAdvance)}
-            className={`px-3 py-1.5 rounded-full text-xs font-mono font-medium flex items-center gap-1.5 transition-all cursor-pointer border ${
+            className={`px-3 py-1.5 rounded-full text-xs font-mono font-medium flex items-center gap-2 transition-all cursor-pointer border ${
               autoAdvance
-                ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
+                ? "bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 border-neutral-950 dark:border-white"
                 : "bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400"
             }`}
-            title={autoAdvance ? "Auto-play next reel enabled" : "Auto-advance paused"}
+            title={autoAdvance ? "Auto-advance enabled" : "Auto-advance paused"}
           >
-            <span className={`w-2 h-2 rounded-full ${autoAdvance ? "bg-emerald-500 animate-pulse" : "bg-neutral-400"}`} />
-            <span>{autoAdvance ? "Auto-Move: ON" : "Auto-Move: PAUSED"}</span>
+            <span className={`w-1.5 h-1.5 rounded-full ${autoAdvance ? "bg-emerald-400" : "bg-neutral-400"}`} />
+            <span>{autoAdvance ? "Auto-Play: ON" : "Auto-Play: PAUSED"}</span>
           </button>
 
           {/* Navigation Arrows */}
@@ -201,13 +198,9 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
       </div>
 
       {/* Main Container Card */}
-      <div className="relative rounded-[28px] sm:rounded-[36px] bg-neutral-950 text-white border border-neutral-800/80 p-5 sm:p-8 lg:p-10 shadow-2xl overflow-hidden">
-        {/* Ambient Warm Studio Lighting */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* 1. Top Story-Style Segmented Progress Bars (Instagram / Luxury Story Style) */}
-        <div className="relative z-10 grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8">
+      <div className="relative rounded-[28px] sm:rounded-[36px] bg-[#0c0c0c] text-white border border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl overflow-hidden">
+        {/* 1. Top Story-Style Segmented Progress Bars */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8">
           {reels.map((reel, idx) => {
             const isCurrent = idx === activeIndex;
             const isPast = idx < activeIndex;
@@ -215,7 +208,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
               <button
                 key={reel.id}
                 onClick={() => setActiveIndex(idx)}
-                className="group relative h-1.5 sm:h-2 rounded-full bg-white/20 overflow-hidden text-left cursor-pointer transition-all hover:h-2.5"
+                className="group relative h-1.5 rounded-full bg-white/20 overflow-hidden text-left cursor-pointer transition-all hover:h-2"
                 title={`Jump to Reel 0${idx + 1}: ${reel.name}`}
               >
                 <div
@@ -230,8 +223,8 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
         </div>
 
         {/* 2. Interactive 3-Reel Stage */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Side: Editorial Look Details & Action Hub */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Side: Editorial Details & Action Hub */}
           <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-between space-y-5">
             <div>
               {/* Category & Code Pills */}
@@ -239,8 +232,8 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-neutral-200 border border-white/15">
                   {activeReel.category}
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  {activeReel.badge || "Live Motion Reel"}
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-neutral-800 text-neutral-200 border border-neutral-700">
+                  {activeReel.badge || "In-Store Motion"}
                 </span>
                 <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider ml-auto">
                   {activeReel.code}
@@ -276,7 +269,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 </div>
               </div>
 
-              {/* Tags */}
+              {/* Style Tags */}
               {activeReel.tags && activeReel.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {activeReel.tags.map((tag) => (
@@ -291,7 +284,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
               )}
             </div>
 
-            {/* Reserved Toast */}
+            {/* Reserved Confirmation Toast */}
             {justReserved && (
               <div className="p-3.5 rounded-2xl bg-white text-neutral-950 text-xs font-semibold flex items-center justify-between gap-3 animate-in fade-in duration-200 shadow-xl">
                 <div className="flex items-center gap-2">
@@ -312,11 +305,11 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
               {/* WhatsApp Inquiry */}
               <button
                 onClick={handleWhatsApp}
-                className="flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
+                className="flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                  <span>Inquire Look on WhatsApp</span>
+                  <span>Inquire on WhatsApp</span>
                 </div>
                 <span className="w-8 h-8 rounded-full bg-emerald-950 text-white flex items-center justify-center shrink-0">
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -343,7 +336,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 aria-label={isFavorited ? "Saved in Favorites" : "Save to Favorites"}
                 className={`p-2.5 rounded-full border transition-all cursor-pointer flex items-center justify-center shrink-0 ${
                   isFavorited
-                    ? "bg-red-500/20 border-red-500/40 text-red-400"
+                    ? "bg-white text-red-500 border-white"
                     : "bg-white/10 hover:bg-white/20 border-white/15 text-neutral-300 hover:text-white"
                 }`}
                 title={isFavorited ? "Saved in Favorites" : "Save to Favorites"}
@@ -351,7 +344,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 <Heart className={`w-4 h-4 ${isFavorited ? "fill-red-500 text-red-500" : ""}`} />
               </button>
 
-              {/* Quick View */}
+              {/* Quick View Full Modal */}
               {onQuickView && (
                 <button
                   onClick={() => onQuickView(activeReel)}
@@ -369,7 +362,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
           <div className="lg:col-span-7 order-1 lg:order-2">
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
               {/* Main Featured Video (Center - 9:16 Portrait Reel Frame) */}
-              <div className="sm:col-span-8 relative aspect-9/16 sm:aspect-4/5 max-h-[520px] rounded-3xl overflow-hidden bg-neutral-900 border-2 border-emerald-500/40 shadow-2xl flex items-center justify-center group">
+              <div className="sm:col-span-8 relative aspect-9/16 sm:aspect-4/5 max-h-[520px] rounded-3xl overflow-hidden bg-neutral-900 border border-neutral-700 shadow-2xl flex items-center justify-center group">
                 <video
                   ref={videoRef}
                   src={activeReel.mediaUrl}
@@ -384,9 +377,9 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
 
                 {/* Top Overlay: Reel Badge & Live Audio Indicator */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-20">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-mono border border-white/15">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                    <span>Reel 0{activeIndex + 1} of 0{reels.length}</span>
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-[11px] font-mono border border-white/15">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    <span>Reel 0{activeIndex + 1} / 0{reels.length}</span>
                   </div>
 
                   <div className="pointer-events-auto flex items-center gap-1.5">
@@ -394,13 +387,13 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                     <button
                       onClick={toggleMute}
                       aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-                      className="p-2 rounded-full bg-black/75 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
+                      className="p-2 rounded-full bg-black/80 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
                       title={isMuted ? "Tap to unmute" : "Tap to mute"}
                     >
                       {isMuted ? (
                         <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
                       ) : (
-                        <Volume2 className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                        <Volume2 className="w-3.5 h-3.5 text-white" />
                       )}
                     </button>
 
@@ -408,7 +401,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                     <button
                       onClick={togglePlay}
                       aria-label={isPlaying ? "Pause reel" : "Play reel"}
-                      className="p-2 rounded-full bg-black/75 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
+                      className="p-2 rounded-full bg-black/80 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
                     >
                       {isPlaying ? (
                         <Pause className="w-3.5 h-3.5" />
@@ -424,7 +417,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                   <button
                     onClick={togglePlay}
                     aria-label="Play video"
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-xs z-10 cursor-pointer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-xs z-10 cursor-pointer"
                   >
                     <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center shadow-2xl transition-transform hover:scale-110">
                       <Play className="w-7 h-7 fill-black ml-1" />
@@ -435,8 +428,8 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 {/* Bottom Scrim with Outfit Tag Overlay */}
                 <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none z-10 flex items-end justify-between">
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold block">
-                      Now In Motion
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold block">
+                      Now Playing
                     </span>
                     <p className="text-xs font-bold text-white line-clamp-1">
                       {activeReel.name}
@@ -457,7 +450,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                     <button
                       key={reel.id}
                       onClick={() => setActiveIndex(idx)}
-                      className="group relative flex-1 min-h-[140px] sm:min-h-[190px] rounded-2xl overflow-hidden bg-neutral-900 border border-white/15 hover:border-emerald-400/60 transition-all text-left cursor-pointer hover:scale-[1.02] shadow-lg"
+                      className="group relative flex-1 min-h-[140px] sm:min-h-[190px] rounded-2xl overflow-hidden bg-neutral-900 border border-white/15 hover:border-white/50 transition-all text-left cursor-pointer hover:scale-[1.01] shadow-lg"
                       title={`Switch to Reel 0${idx + 1}`}
                     >
                       <video
@@ -474,14 +467,14 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                         <span className="px-2 py-0.5 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono text-neutral-300 border border-white/10">
                           Reel 0{idx + 1}
                         </span>
-                        <div className="w-6 h-6 rounded-full bg-white/20 group-hover:bg-emerald-500 text-white flex items-center justify-center transition-colors">
-                          <Play className="w-3 h-3 fill-white ml-0.5" />
+                        <div className="w-6 h-6 rounded-full bg-white/20 group-hover:bg-white group-hover:text-black text-white flex items-center justify-center transition-colors">
+                          <Play className="w-3 h-3 fill-current ml-0.5" />
                         </div>
                       </div>
 
                       {/* Details */}
                       <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                        <span className="text-[9px] font-mono uppercase text-emerald-400 font-semibold block">
+                        <span className="text-[10px] font-mono uppercase text-neutral-400 font-semibold block">
                           Up Next
                         </span>
                         <h4 className="text-xs font-bold text-white line-clamp-1 group-hover:underline">
@@ -495,13 +488,13 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                   );
                 })}
 
-                {/* Quick Info Box for Showroom Walk-ins */}
-                <div className="hidden sm:flex flex-col justify-center p-3 rounded-2xl bg-white/5 border border-white/10 text-[11px] text-neutral-300 space-y-1">
+                {/* Showroom Walk-in Info Card (Standard Clean Architecture) */}
+                <div className="hidden sm:flex flex-col justify-center p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs text-neutral-300 space-y-1">
                   <div className="flex items-center gap-1.5 font-bold text-white">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <Store className="w-3.5 h-3.5 text-neutral-400" />
                     <span>Kavoor Trial Lounge</span>
                   </div>
-                  <p className="text-[10px] text-neutral-400 leading-tight">
+                  <p className="text-[11px] text-neutral-400 leading-tight">
                     All 3 motion outfits are steamed and in-stock for walk-in fittings at Kavoor showroom.
                   </p>
                 </div>
