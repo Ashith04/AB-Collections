@@ -112,8 +112,9 @@ files.forEach((file) => {
   const eventConfig = eventFiles.find((e) => file.includes(e.pattern));
   if (eventConfig) {
     const isVideo = path.extname(file).toLowerCase() === '.mp4';
+    const eventNum = String(eventItems.length + 1).padStart(3, '0');
     eventItems.push({
-      id: `ab-event-${file.split('_')[3] || 'promo'}`,
+      id: `ab-event-${eventNum}`,
       slug: eventConfig.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
       title: eventConfig.title,
       category: eventConfig.category,

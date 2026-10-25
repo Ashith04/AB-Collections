@@ -1,5 +1,4 @@
-import { CatalogItem } from "@/data/catalog";
-import { Product, ProductCategory, ProductFit } from "@/types";
+import { Product, ProductCategory, ProductFit, ProductBadge } from "@/types";
 
 export interface AdaptableCatalogItem {
   id: string;
@@ -63,7 +62,7 @@ export function catalogItemToProduct(item: AdaptableCatalogItem): Product {
       { name: "Olive", hex: "#4b5320" },
     ],
     images: [item.mediaUrl],
-    badge: (item.badge as any) || undefined,
+    badge: (item.badge as ProductBadge) || undefined,
     fit: validFit,
     fabric: item.fabric || "Combed Cotton",
     care: ["Gentle wash with cold water", "Dry in shade", "Warm iron if needed"],

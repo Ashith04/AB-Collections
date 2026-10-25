@@ -161,7 +161,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
         {/* Global Controls & Status */}
         <div className="flex items-center gap-3">
           {/* Auto-Advance Pill */}
-          <button
+          <button suppressHydrationWarning
             onClick={() => setAutoAdvance(!autoAdvance)}
             className={`px-3 py-1.5 rounded-full text-xs font-mono font-medium flex items-center gap-2 transition-all cursor-pointer border ${
               autoAdvance
@@ -176,7 +176,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
 
           {/* Navigation Arrows */}
           <div className="flex items-center gap-1.5 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-full border border-neutral-200 dark:border-neutral-700">
-            <button
+            <button suppressHydrationWarning
               onClick={handlePrev}
               aria-label="Previous reel"
               className="p-1.5 rounded-full hover:bg-white dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 transition-colors cursor-pointer"
@@ -186,7 +186,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
             <span className="text-[11px] font-mono font-semibold px-2 text-neutral-600 dark:text-neutral-300">
               0{activeIndex + 1} / 0{reels.length}
             </span>
-            <button
+            <button suppressHydrationWarning
               onClick={handleNext}
               aria-label="Next reel"
               className="p-1.5 rounded-full hover:bg-white dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 transition-colors cursor-pointer"
@@ -205,7 +205,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
             const isCurrent = idx === activeIndex;
             const isPast = idx < activeIndex;
             return (
-              <button
+              <button suppressHydrationWarning
                 key={reel.id}
                 onClick={() => setActiveIndex(idx)}
                 className="group relative h-1.5 rounded-full bg-white/20 overflow-hidden text-left cursor-pointer transition-all hover:h-2"
@@ -303,7 +303,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
             {/* Actions Bar */}
             <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               {/* WhatsApp Inquiry */}
-              <button
+              <button suppressHydrationWarning
                 onClick={handleWhatsApp}
                 className="flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
               >
@@ -317,7 +317,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
               </button>
 
               {/* Hold for In-Store Trial (Reserve) */}
-              <button
+              <button suppressHydrationWarning
                 onClick={handleAddToReserve}
                 className={`px-4 py-2.5 rounded-full text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer border ${
                   isReserved || justReserved
@@ -331,7 +331,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
               </button>
 
               {/* Wishlist Heart */}
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleWishlist(catalogItemToProduct(activeReel))}
                 aria-label={isFavorited ? "Saved in Favorites" : "Save to Favorites"}
                 className={`p-2.5 rounded-full border transition-all cursor-pointer flex items-center justify-center shrink-0 ${
@@ -346,7 +346,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
 
               {/* Quick View Full Modal */}
               {onQuickView && (
-                <button
+                <button suppressHydrationWarning
                   onClick={() => onQuickView(activeReel)}
                   aria-label="Quick View full modal"
                   className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-neutral-300 hover:text-white transition-all cursor-pointer hidden sm:flex items-center justify-center shrink-0"
@@ -384,7 +384,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
 
                   <div className="pointer-events-auto flex items-center gap-1.5">
                     {/* Sound Toggle Button */}
-                    <button
+                    <button suppressHydrationWarning
                       onClick={toggleMute}
                       aria-label={isMuted ? "Unmute audio" : "Mute audio"}
                       className="p-2 rounded-full bg-black/80 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
@@ -398,7 +398,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                     </button>
 
                     {/* Play/Pause Button */}
-                    <button
+                    <button suppressHydrationWarning
                       onClick={togglePlay}
                       aria-label={isPlaying ? "Pause reel" : "Play reel"}
                       className="p-2 rounded-full bg-black/80 hover:bg-black backdrop-blur-md text-white transition-all hover:scale-110 cursor-pointer border border-white/15"
@@ -414,7 +414,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
 
                 {/* Big Center Play Indicator when Paused */}
                 {!isPlaying && (
-                  <button
+                  <button suppressHydrationWarning
                     onClick={togglePlay}
                     aria-label="Play video"
                     className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-xs z-10 cursor-pointer"
@@ -447,7 +447,7 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
                 {reels.map((reel, idx) => {
                   if (idx === activeIndex) return null;
                   return (
-                    <button
+                    <button suppressHydrationWarning
                       key={reel.id}
                       onClick={() => setActiveIndex(idx)}
                       className="group relative flex-1 min-h-[140px] sm:min-h-[190px] rounded-2xl overflow-hidden bg-neutral-900 border border-white/15 hover:border-white/50 transition-all text-left cursor-pointer hover:scale-[1.01] shadow-lg"

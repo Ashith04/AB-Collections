@@ -73,7 +73,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
-          <button
+          <button suppressHydrationWarning
             onClick={onClose}
             aria-label="Close preview"
             className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-black/80 hover:bg-white dark:hover:bg-black text-neutral-800 dark:text-neutral-200 shadow-sm transition-colors cursor-pointer"
@@ -96,7 +96,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             {product.images.length > 1 && (
               <div className="flex gap-2 mt-4">
                 {product.images.map((img, idx) => (
-                  <button
+                  <button suppressHydrationWarning
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
                     className={`relative w-12 h-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
@@ -156,7 +156,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   {product.colors.map((c) => (
-                    <button
+                    <button suppressHydrationWarning
                       key={c.name}
                       onClick={() => setSelectedColor(c.name)}
                       title={c.name}
@@ -175,7 +175,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-2">
                   <span>Size: {selectedSize}</span>
-                  <button
+                  <button suppressHydrationWarning
                     onClick={() => setSizeGuideOpen(true)}
                     className="text-neutral-500 hover:text-black dark:hover:text-white flex items-center gap-1 font-normal underline cursor-pointer"
                   >
@@ -185,7 +185,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {product.sizes.map((s) => (
-                    <button
+                    <button suppressHydrationWarning
                       key={s}
                       onClick={() => setSelectedSize(s)}
                       className={`min-w-10 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
@@ -210,7 +210,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               )}
 
               <div className="flex items-center gap-2">
-                <button
+                <button suppressHydrationWarning
                   onClick={handleAddReserve}
                   className="flex-1 group flex items-center justify-between pl-5 pr-1.5 py-1.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-medium text-xs hover:bg-black dark:hover:bg-neutral-100 transition-all active:scale-[0.98] cursor-pointer"
                 >
@@ -233,7 +233,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                   <span className="hidden sm:inline">WhatsApp</span>
                 </a>
 
-                <button
+                <button suppressHydrationWarning
                   onClick={() => toggleWishlist(product)}
                   aria-label="Wishlist"
                   className={`p-2.5 rounded-full border transition-colors cursor-pointer ${

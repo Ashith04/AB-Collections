@@ -127,7 +127,7 @@ function ShopContent() {
           {categories.map((cat) => {
             const isSelected = category === cat.name;
             return (
-              <button
+              <button suppressHydrationWarning
                 key={cat.name}
                 onClick={() => {
                   setCategory(cat.name);
@@ -156,7 +156,7 @@ function ShopContent() {
 
         {/* Photos vs Video Reels */}
         <div className="flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-full border border-neutral-200/50 dark:border-neutral-700/50 shrink-0">
-          <button
+          <button suppressHydrationWarning
             onClick={() => setSelectedMediaType("all")}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "all"
@@ -166,7 +166,7 @@ function ShopContent() {
           >
             All Media
           </button>
-          <button
+          <button suppressHydrationWarning
             onClick={() => setSelectedMediaType("image")}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "image"
@@ -177,7 +177,7 @@ function ShopContent() {
             <ImageIcon className="w-3.5 h-3.5" />
             <span>Photos</span>
           </button>
-          <button
+          <button suppressHydrationWarning
             onClick={() => setSelectedMediaType("video")}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "video"
@@ -194,7 +194,7 @@ function ShopContent() {
       {/* Sub Filter: Search & Fits */}
       <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-3xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/80 dark:border-neutral-800">
         <div className="relative w-full sm:max-w-xs">
-          <input
+          <input suppressHydrationWarning
             type="text"
             value={searchQuery}
             onChange={(e) => {
@@ -205,7 +205,7 @@ function ShopContent() {
             className="w-full pl-4 pr-9 py-2 text-xs rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none focus:border-black dark:focus:border-white"
           />
           {searchQuery && (
-            <button
+            <button suppressHydrationWarning
               onClick={() => setSearchQuery("")}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
             >
@@ -216,7 +216,7 @@ function ShopContent() {
 
         <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto">
           {FITS.map((fit) => (
-            <button
+            <button suppressHydrationWarning
               key={fit}
               onClick={() => {
                 setSelectedFit(fit);
@@ -232,7 +232,7 @@ function ShopContent() {
             </button>
           ))}
           {(category !== "All" || selectedFit !== "All Fits" || selectedMediaType !== "all" || searchQuery) && (
-            <button
+            <button suppressHydrationWarning
               onClick={resetAllFilters}
               className="text-xs font-bold text-neutral-500 hover:text-black dark:hover:text-white underline ml-2 cursor-pointer"
             >

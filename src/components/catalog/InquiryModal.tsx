@@ -139,7 +139,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
           </div>
           <div className="flex items-center gap-1.5">
             {/* Wishlist / Favorite Heart Toggle */}
-            <button
+            <button suppressHydrationWarning
               type="button"
               onClick={() => toggleWishlist(product)}
               aria-label={isFavorited ? "Saved in Favorites" : "Add to Favorites"}
@@ -152,7 +152,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
             >
               <Heart className={`w-4 h-4 ${isFavorited ? "fill-red-500 text-red-500" : ""}`} />
             </button>
-            <button
+            <button suppressHydrationWarning
               onClick={onClose}
               aria-label="Close inquiry"
               className="p-1.5 rounded-full text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
@@ -204,7 +204,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
 
               {/* Direct Photo & Reserve Actions */}
               <div className="flex items-center gap-2 pt-1 flex-wrap">
-                <button
+                <button suppressHydrationWarning
                   type="button"
                   onClick={handleCopyPhoto}
                   className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold transition-all cursor-pointer ${
@@ -217,7 +217,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
                   <span>{copiedPhoto ? "Photo Copied!" : "Copy Photo"}</span>
                 </button>
 
-                <button
+                <button suppressHydrationWarning
                   type="button"
                   onClick={handleDownload}
                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white bg-transparent border border-neutral-300 dark:border-neutral-600 transition-colors cursor-pointer"
@@ -228,7 +228,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
                 </button>
 
                 {/* Hold / Reserve button */}
-                <button
+                <button suppressHydrationWarning
                   type="button"
                   onClick={handleAddToReserve}
                   className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold transition-all cursor-pointer ${
@@ -278,7 +278,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs font-mono font-semibold text-neutral-500 uppercase tracking-wider">
               <span>Inquiry Message Query</span>
-              <button
+              <button suppressHydrationWarning
                 onClick={handleCopyText}
                 className="text-xs font-semibold text-neutral-900 dark:text-white hover:underline flex items-center gap-1 cursor-pointer"
               >
@@ -299,7 +299,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
 
         {/* Footer Actions */}
         <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/50 flex flex-col sm:flex-row items-center gap-3">
-          <button
+          <button suppressHydrationWarning
             onClick={handleSendToWhatsApp}
             disabled={isProcessing}
             className="w-full sm:flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer disabled:opacity-75"
@@ -313,7 +313,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ item, isOpen, onClos
             </span>
           </button>
 
-          <button
+          <button suppressHydrationWarning
             onClick={onClose}
             className="w-full sm:w-auto px-5 py-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-xs font-semibold hover:border-black dark:hover:border-white transition-colors cursor-pointer"
           >

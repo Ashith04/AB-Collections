@@ -84,7 +84,7 @@ export default function AdminPortalPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
                 Staff Passcode
               </label>
-              <input
+              <input suppressHydrationWarning
                 type="password"
                 required
                 value={password}
@@ -98,7 +98,7 @@ export default function AdminPortalPage() {
               <p className="text-xs text-red-500 font-semibold">{errorMsg}</p>
             )}
 
-            <button
+            <button suppressHydrationWarning
               type="submit"
               className="w-full py-3.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold hover:bg-neutral-800 transition-all cursor-pointer"
             >
@@ -131,7 +131,7 @@ export default function AdminPortalPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button
+          <button suppressHydrationWarning
             onClick={() => setIsAuthenticated(false)}
             className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-700 text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
           >
@@ -167,7 +167,7 @@ export default function AdminPortalPage() {
       {/* Product Management Table */}
       <div className="bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-xl">
         <div className="p-4 sm:p-6 border-b border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <input
+          <input suppressHydrationWarning
             type="text"
             value={searchFilter}
             onChange={(e) => setSearchFilter(e.target.value)}
@@ -222,7 +222,7 @@ export default function AdminPortalPage() {
                   </td>
 
                   <td className="py-3 px-4">
-                    <button
+                    <button suppressHydrationWarning
                       onClick={() => toggleProductBadge(product.id, product.badge)}
                       className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase transition-transform hover:scale-105 cursor-pointer ${
                         product.badge === "New"
@@ -241,7 +241,7 @@ export default function AdminPortalPage() {
                   </td>
 
                   <td className="py-3 px-4">
-                    <button
+                    <button suppressHydrationWarning
                       onClick={() => deleteProduct(product.id)}
                       className="p-1.5 text-neutral-400 hover:text-red-500 transition-colors"
                       title="Delete"

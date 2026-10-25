@@ -98,7 +98,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
         {/* Top Control Buttons (Close & Favorite) */}
         <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 flex items-center gap-2">
           {/* Heart Favorite Button */}
-          <button
+          <button suppressHydrationWarning
             onClick={() => toggleWishlist(product)}
             aria-label={isFavorited ? "Remove from favorites" : "Save to favorites"}
             className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-md ${
@@ -112,7 +112,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           </button>
 
           {/* Close Button */}
-          <button
+          <button suppressHydrationWarning
             onClick={onClose}
             aria-label="Close modal"
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-105 cursor-pointer shadow-md"
@@ -253,7 +253,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
           {/* Action CTAs */}
           <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center gap-3">
             {/* WhatsApp Inquiry */}
-            <button
+            <button suppressHydrationWarning
               onClick={handleWhatsApp}
               className="w-full sm:flex-1 group flex items-center justify-between py-2.5 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
             >
@@ -267,7 +267,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
             </button>
 
             {/* In-Store Reserve Button */}
-            <button
+            <button suppressHydrationWarning
               onClick={handleAddToReserve}
               className={`w-full sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 justReserved || isReserved
@@ -281,7 +281,7 @@ export const CatalogModal: React.FC<CatalogModalProps> = ({ item, isOpen, onClos
             </button>
 
             {/* Share */}
-            <button
+            <button suppressHydrationWarning
               onClick={handleShare}
               aria-label="Share Look"
               className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-colors cursor-pointer hidden sm:flex items-center justify-center"

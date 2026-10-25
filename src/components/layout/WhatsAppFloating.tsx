@@ -19,6 +19,7 @@ export const WhatsAppFloating: React.FC = () => {
           <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-dot shrink-0" />
           <span className="font-medium">Need sizing or trial help? Chat with Kavoor team</span>
           <button
+            suppressHydrationWarning
             onClick={() => setShowTooltip(false)}
             aria-label="Close tooltip"
             className="text-neutral-400 hover:text-white p-0.5 ml-1"

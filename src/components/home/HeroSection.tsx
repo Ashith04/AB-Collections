@@ -155,6 +155,7 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full sm:w-auto">
             {categoryHighlights.map((card) => (
               <button
+                suppressHydrationWarning
                 key={card.category}
                 onClick={() => handleCategoryClick(card.category)}
                 className="group relative flex items-center gap-3 bg-black/60 hover:bg-black/75 backdrop-blur-md p-2.5 rounded-2xl border border-white/15 hover:border-white/30 transition-all duration-200 text-left cursor-pointer shadow-md"

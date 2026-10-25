@@ -143,7 +143,7 @@ export default function LookbookPage() {
             className="relative max-w-4xl w-full max-h-[90vh] bg-neutral-950 rounded-3xl overflow-hidden border border-neutral-800 p-6 flex flex-col md:flex-row gap-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
+            <button suppressHydrationWarning
               onClick={() => setActiveLightbox(null)}
               className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/20 text-white hover:bg-white/40 cursor-pointer"
             >

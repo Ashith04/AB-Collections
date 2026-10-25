@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 
 export function BrandPreloader() {
+  const [mounted, setMounted] = useState(false);
   const [phase, setPhase] = useState<"dropping" | "revealing" | "complete" | "exiting" | "done">("dropping");
   const [progress, setProgress] = useState(0);
 
   const letters = ["C", "O", "L", "L", "E", "C", "T", "I", "O", "N", "S"];
 
   useEffect(() => {
+    setMounted(true);
     // Prevent scrolling while preloader is active
     document.body.style.overflow = "hidden";
 
@@ -65,7 +67,7 @@ export function BrandPreloader() {
     }, 600);
   };
 
-  if (phase === "done") {
+  if (!mounted || phase === "done") {
     return null;
   }
 
@@ -89,6 +91,7 @@ export function BrandPreloader() {
     >
       {/* Quick skip button */}
       <button
+        suppressHydrationWarning
         onClick={handleSkip}
         type="button"
         className="absolute top-6 right-6 z-20 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 hover:text-white px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all hover:border-white/30 cursor-pointer"

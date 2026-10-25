@@ -31,7 +31,7 @@ export const ColorStorySection: React.FC = () => {
         {/* Tab switcher buttons */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
           {colorStories.map((story, idx) => (
-            <button
+            <button suppressHydrationWarning
               key={story.id}
               onClick={() => setActiveStoryIndex(idx)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer ${

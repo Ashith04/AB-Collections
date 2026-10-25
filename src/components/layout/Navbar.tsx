@@ -102,6 +102,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-0.5 sm:gap-1 md:hidden">
               <button
+                suppressHydrationWarning
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
                 className="p-1.5 sm:p-2 rounded-full text-white hover:bg-white/10 cursor-pointer"
@@ -109,6 +110,7 @@ export const Navbar: React.FC = () => {
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
               <button
+                suppressHydrationWarning
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
                 className="p-1.5 sm:p-2 rounded-full text-white hover:bg-white/10 cursor-pointer"
@@ -164,6 +166,7 @@ export const Navbar: React.FC = () => {
 
               {/* Desktop Search Button */}
               <button
+                suppressHydrationWarning
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search collection"
                 className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs text-neutral-300 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 transition-all cursor-pointer hover:scale-105"

@@ -70,7 +70,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
                 }}
               />
               {/* Video overlay controls */}
-              <button
+              <button suppressHydrationWarning
                 onClick={toggleVideoPlay}
                 aria-label={isPlaying ? "Pause video" : "Play video"}
                 className="absolute bottom-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md text-white text-xs font-semibold hover:bg-black transition-colors"
@@ -105,7 +105,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
 
             <div className="flex items-center gap-1.5 pointer-events-auto">
               {/* Quick View Button */}
-              <button
+              <button suppressHydrationWarning
                 onClick={(e) => {
                   e.stopPropagation();
                   onQuickView(item);
@@ -118,7 +118,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
               </button>
 
               {/* Like / Wishlist Button (Persisted to localStorage) */}
-              <button
+              <button suppressHydrationWarning
                 onClick={(e) => {
                   e.stopPropagation();
                   toggleWishlist(catalogItemToProduct(item));
@@ -174,7 +174,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({ item, onQuickView }) =
               <span className="truncate">{item.fabric}</span>
             </div>
 
-            <button
+            <button suppressHydrationWarning
               onClick={handleOpenInquiry}
               title="Inquire with Shirt Photo"
               className="shrink-0 group/btn inline-flex items-center gap-2 pl-3 pr-1 py-1 rounded-full bg-neutral-950 text-white text-xs font-semibold hover:bg-black transition-all hover:scale-105 cursor-pointer shadow-xs"

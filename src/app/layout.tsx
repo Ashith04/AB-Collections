@@ -101,7 +101,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -110,7 +110,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-neutral-900 antialiased selection:bg-neutral-950 selection:text-white">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col bg-white text-neutral-900 antialiased selection:bg-neutral-950 selection:text-white"
+      >
         <BrandPreloader />
         <WishlistProvider>
           <ReserveProvider>

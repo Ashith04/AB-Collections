@@ -17,7 +17,7 @@ export interface EventItem {
 
 export const eventItems: EventItem[] = [
   {
-    "id": "ab-event-2022-08-22",
+    "id": "ab-event-001",
     "slug": "flagship-showroom-grand-interior-display-wall",
     "title": "Flagship Showroom Grand Interior & Display Wall",
     "category": "Showroom Interior",
@@ -35,7 +35,7 @@ export const eventItems: EventItem[] = [
     ]
   },
   {
-    "id": "ab-event-2022-09-29",
+    "id": "ab-event-002",
     "slug": "autumn-fresh-arrivals-shelving-showcase",
     "title": "Autumn Fresh Arrivals & Shelving Showcase",
     "category": "Showroom Interior",
@@ -53,7 +53,7 @@ export const eventItems: EventItem[] = [
     ]
   },
   {
-    "id": "ab-event-2022-09-29",
+    "id": "ab-event-003",
     "slug": "store-checkout-gallery-contemporary-menswear",
     "title": "Store Checkout Gallery & Contemporary Menswear",
     "category": "Showroom Interior",
@@ -71,7 +71,7 @@ export const eventItems: EventItem[] = [
     ]
   },
   {
-    "id": "ab-event-2022-10-18",
+    "id": "ab-event-004",
     "slug": "diwali-big-sale-40-off-on-shirt-pant",
     "title": "Diwali Big Sale — 40% Off on Shirt & Pant",
     "category": "Festive Offer Poster",
@@ -89,7 +89,7 @@ export const eventItems: EventItem[] = [
     ]
   },
   {
-    "id": "ab-event-2022-10-24",
+    "id": "ab-event-005",
     "slug": "happy-diwali-festival-of-lights-celebration",
     "title": "Happy Diwali — Festival of Lights Celebration",
     "category": "Festival Greeting Poster",
@@ -107,7 +107,7 @@ export const eventItems: EventItem[] = [
     ]
   },
   {
-    "id": "ab-event-2022-11-17",
+    "id": "ab-event-006",
     "slug": "flagship-store-video-walkthrough-menswear-tour",
     "title": "Flagship Store Video Walkthrough & Menswear Tour",
     "category": "Showroom Video Reel",

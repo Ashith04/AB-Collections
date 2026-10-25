@@ -153,7 +153,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {product.images.length > 1 && (
             <div className="flex gap-3">
               {product.images.map((img, idx) => (
-                <button
+                <button suppressHydrationWarning
                   key={idx}
                   onClick={() => setActiveImage(idx)}
                   className={`relative w-20 h-20 rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border-2 transition-all cursor-pointer ${
@@ -215,7 +215,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </span>
             <div className="flex items-center gap-2.5">
               {product.colors.map((color) => (
-                <button
+                <button suppressHydrationWarning
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
                   title={color.name}
@@ -236,7 +236,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <span className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500">
                 Select Size: <span className="text-black dark:text-white font-sans">{selectedSize}</span>
               </span>
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setSizeGuideOpen(true)}
                 className="text-xs text-neutral-500 hover:text-black dark:hover:text-white underline flex items-center gap-1 cursor-pointer"
               >
@@ -247,7 +247,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             <div className="flex flex-wrap gap-2.5">
               {product.sizes.map((s) => (
-                <button
+                <button suppressHydrationWarning
                   key={s}
                   onClick={() => setSelectedSize(s)}
                   className={`min-w-12 h-11 px-4 rounded-2xl text-xs font-bold transition-all border cursor-pointer ${
@@ -272,7 +272,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             <div className="flex items-center gap-3">
               {/* Primary Signature Pill Button */}
-              <button
+              <button suppressHydrationWarning
                 onClick={handleAddReserve}
                 className="flex-1 group inline-flex items-center justify-between pl-6 pr-2 py-2 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-medium text-xs sm:text-sm hover:bg-black dark:hover:bg-neutral-100 transition-all hover:scale-[1.01] active:scale-[0.98] shadow-md cursor-pointer"
               >
@@ -285,7 +285,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 </span>
               </button>
 
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleWishlist(product)}
                 aria-label="Save to Wishlist"
                 className={`p-3.5 rounded-full border transition-colors cursor-pointer ${
@@ -297,7 +297,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <Heart className={`w-5 h-5 ${isFavorited ? "fill-red-500" : ""}`} />
               </button>
 
-              <button
+              <button suppressHydrationWarning
                 onClick={shareProduct}
                 aria-label="Share outfit"
                 className="p-3.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:border-black transition-colors cursor-pointer"
@@ -333,7 +333,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800 space-y-3">
             {/* 1. Fabric & Specifications */}
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleAccordion("details")}
                 className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >
@@ -360,7 +360,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             {/* 2. Care Guide */}
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleAccordion("care")}
                 className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >
@@ -385,7 +385,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             {/* 3. In-Store Trial Policy */}
             <div className="border border-neutral-200/80 dark:border-neutral-800 rounded-2xl overflow-hidden">
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleAccordion("store")}
                 className="w-full flex items-center justify-between p-4 text-xs font-mono font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 cursor-pointer"
               >

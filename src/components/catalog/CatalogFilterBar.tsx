@@ -54,6 +54,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
             const isSelected = selectedCategory === cat.name;
             return (
               <button
+                suppressHydrationWarning
                 key={cat.name}
                 onClick={() => onSelectCategory(cat.name)}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all whitespace-nowrap cursor-pointer ${
@@ -80,6 +81,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
         {/* Media Type Filter (Photos / Videos) */}
         <div className="flex items-center gap-1.5 p-1 bg-neutral-100 rounded-full border border-neutral-200/80">
           <button
+            suppressHydrationWarning
             onClick={() => onSelectMediaType("all")}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "all"
@@ -90,6 +92,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
             All Media ({catalogStats.total})
           </button>
           <button
+            suppressHydrationWarning
             onClick={() => onSelectMediaType("image")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "image"
@@ -101,6 +104,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
             <span>Photos ({catalogStats.images})</span>
           </button>
           <button
+            suppressHydrationWarning
             onClick={() => onSelectMediaType("video")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               selectedMediaType === "video"
@@ -119,7 +123,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
         {/* Search Input */}
         <div className="relative w-full sm:max-w-md">
           <Search className="w-4 h-4 text-neutral-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-          <input
+          <input suppressHydrationWarning
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -127,7 +131,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
             className="w-full pl-11 pr-10 py-2.5 rounded-full bg-neutral-100/90 border border-neutral-200 focus:border-neutral-950 focus:bg-white text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-500 outline-none transition-all shadow-2xs"
           />
           {searchQuery && (
-            <button
+            <button suppressHydrationWarning
               onClick={() => onSearchChange("")}
               aria-label="Clear search"
               className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-neutral-400 hover:text-neutral-800"
@@ -143,7 +147,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
             {fits.map((fit) => {
               const isSelected = selectedFit === fit;
               return (
-                <button
+                <button suppressHydrationWarning
                   key={fit}
                   onClick={() => onSelectFit(fit)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
@@ -159,7 +163,7 @@ export const CatalogFilterBar: React.FC<CatalogFilterBarProps> = ({
           </div>
 
           {hasActiveFilters && (
-            <button
+            <button suppressHydrationWarning
               onClick={onReset}
               className="text-xs font-semibold text-neutral-600 hover:text-neutral-950 underline underline-offset-4 shrink-0 transition-colors ml-2 cursor-pointer"
             >

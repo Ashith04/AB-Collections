@@ -58,7 +58,7 @@ export default function FAQPage() {
               key={idx}
               className="rounded-3xl border border-neutral-200/80 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 overflow-hidden transition-all duration-200"
             >
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
                 className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer"
               >

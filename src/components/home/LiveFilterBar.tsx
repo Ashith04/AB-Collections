@@ -72,7 +72,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
           </span>
 
           {hasActiveFilters && (
-            <button
+            <button suppressHydrationWarning
               onClick={onReset}
               className="flex items-center gap-1 text-xs text-neutral-900 dark:text-neutral-100 font-semibold underline underline-offset-4 ml-2 cursor-pointer"
             >
@@ -85,7 +85,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
         {/* Search Input on the Right */}
         <div className="relative w-full sm:w-72">
           <Search className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
+          <input suppressHydrationWarning
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -93,7 +93,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
             className="w-full bg-white dark:bg-neutral-800 pl-9 pr-8 py-2 rounded-full text-xs font-medium text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:border-black dark:focus:border-white shadow-xs"
           />
           {searchQuery && (
-            <button
+            <button suppressHydrationWarning
               onClick={() => onSearchChange("")}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
             >
@@ -107,7 +107,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
       <div className="flex flex-wrap items-center gap-3 pt-4">
         {/* Category Pill Dropdown */}
         <div className="relative">
-          <button
+          <button suppressHydrationWarning
             onClick={() => {
               setCategoryOpen(!categoryOpen);
               setSizeOpen(false);
@@ -126,7 +126,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
           {categoryOpen && (
             <div className="absolute left-0 mt-2 z-30 w-56 bg-white dark:bg-neutral-900 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800 p-2 max-h-64 overflow-y-auto">
               {productCategories.map((cat) => (
-                <button
+                <button suppressHydrationWarning
                   key={cat}
                   onClick={() => {
                     onSelectCategory(cat);
@@ -148,7 +148,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
 
         {/* Size Pill Dropdown */}
         <div className="relative">
-          <button
+          <button suppressHydrationWarning
             onClick={() => {
               setSizeOpen(!sizeOpen);
               setCategoryOpen(false);
@@ -167,7 +167,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
           {sizeOpen && (
             <div className="absolute left-0 mt-2 z-30 w-36 bg-white dark:bg-neutral-900 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800 p-2">
               {AVAILABLE_SIZES.map((size) => (
-                <button
+                <button suppressHydrationWarning
                   key={size}
                   onClick={() => {
                     onSelectSize(size);
@@ -189,7 +189,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
 
         {/* Price Filter Pill */}
         <div className="relative">
-          <button
+          <button suppressHydrationWarning
             onClick={() => {
               setPriceOpen(!priceOpen);
               setCategoryOpen(false);
@@ -211,7 +211,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
                 <span className="text-neutral-500">Max Budget:</span>
                 <span className="text-black dark:text-white">₹{maxPrice.toLocaleString("en-IN")}</span>
               </div>
-              <input
+              <input suppressHydrationWarning
                 type="range"
                 min="800"
                 max="3000"
@@ -236,7 +236,7 @@ export const LiveFilterBar: React.FC<LiveFilterBarProps> = ({
           {COLOR_CHIPS.map((chip) => {
             const isSelected = selectedColor.toLowerCase() === chip.name.toLowerCase();
             return (
-              <button
+              <button suppressHydrationWarning
                 key={chip.name}
                 onClick={() => onSelectColor(isSelected ? "All" : chip.name)}
                 title={chip.name}

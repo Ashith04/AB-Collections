@@ -55,6 +55,7 @@ export const DarkBentoSection: React.FC = () => {
               src="/images/store/store_interior.jpg"
               alt="AB Collections Store Interior Kavoor"
               fill
+              sizes="(max-width: 768px) 100vw, 60vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-85"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -106,6 +107,7 @@ export const DarkBentoSection: React.FC = () => {
                 src="/images/products/trousers_cargo_collection.jpg"
                 alt="Cargo trousers collection"
                 fill
+                sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -129,7 +131,7 @@ export const DarkBentoSection: React.FC = () => {
             {DARK_TABS.map((tab) => {
               const active = selectedTab === tab.category;
               return (
-                <button
+                <button suppressHydrationWarning
                   key={tab.label}
                   onClick={() => setSelectedTab(tab.category)}
                   className={`px-5 py-2 rounded-full text-xs font-semibold transition-all shrink-0 cursor-pointer ${

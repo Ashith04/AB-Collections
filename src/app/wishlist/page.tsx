@@ -27,7 +27,7 @@ export default function WishlistPage() {
         </div>
 
         {count > 0 && (
-          <button
+          <button suppressHydrationWarning
             onClick={clearWishlist}
             className="flex items-center gap-1.5 text-xs text-red-500 hover:text-red-600 font-semibold underline underline-offset-4"
           >

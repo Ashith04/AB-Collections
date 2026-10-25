@@ -79,7 +79,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex items-center gap-3">
             <Search className="w-5 h-5 text-neutral-400 shrink-0" />
-            <input
+            <input suppressHydrationWarning
               ref={inputRef}
               type="text"
               value={query}
@@ -88,14 +88,14 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
               className="w-full bg-transparent text-lg sm:text-xl font-medium tracking-tight text-neutral-900 dark:text-neutral-50 placeholder-neutral-400 focus:outline-none"
             />
             {query && (
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setQuery("")}
                 className="p-1 rounded-full text-neutral-400 hover:text-black dark:hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             )}
-            <button
+            <button suppressHydrationWarning
               onClick={onClose}
               className="ml-2 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors cursor-pointer"
             >
@@ -107,7 +107,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
           <div className="flex items-center gap-2 mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-900 overflow-x-auto no-scrollbar text-xs">
             <span className="text-neutral-400 font-mono text-[11px] shrink-0">Explore:</span>
             {["T-Shirts", "Shirts", "Outfits", "Linen", "Denim", "Polo"].map((cat) => (
-              <button
+              <button suppressHydrationWarning
                 key={cat}
                 onClick={() => {
                   setQuery(cat);
@@ -193,7 +193,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                   <p className="text-xs text-neutral-400 mt-1">
                     Try searching by category such as &ldquo;T-Shirts&rdquo;, &ldquo;Shirts&rdquo;, or &ldquo;Outfits&rdquo;.
                   </p>
-                  <button
+                  <button suppressHydrationWarning
                     onClick={() => setQuery("")}
                     className="mt-4 px-4 py-2 rounded-full text-xs font-semibold bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 cursor-pointer"
                   >
@@ -212,7 +212,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {POPULAR_SEARCHES.map((term) => (
-                    <button
+                    <button suppressHydrationWarning
                       key={term}
                       onClick={() => {
                         setQuery(term);
@@ -234,7 +234,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                     <span>Recent Searches</span>
                   </div>
                   {recentSearches.length > 0 && (
-                    <button
+                    <button suppressHydrationWarning
                       onClick={clearRecentSearches}
                       className="text-[10px] text-neutral-400 hover:text-black dark:hover:text-white cursor-pointer"
                     >
@@ -245,7 +245,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                 {recentSearches.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
                     {recentSearches.map((term) => (
-                      <button
+                      <button suppressHydrationWarning
                         key={term}
                         onClick={() => setQuery(term)}
                         className="px-3 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"

@@ -31,7 +31,7 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
               Calibrated for tailored Indian men&apos;s cuts (in inches)
             </p>
           </div>
-          <button
+          <button suppressHydrationWarning
             onClick={onClose}
             aria-label="Close modal"
             className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 hover:text-black dark:hover:text-white transition-colors"

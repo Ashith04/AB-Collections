@@ -48,7 +48,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
             <div className="flex items-center gap-1.5">
               {/* Quick View Button */}
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setQuickViewOpen(true)}
                 aria-label="Quick View"
                 className="w-8 h-8 rounded-full bg-white/90 dark:bg-black/90 hover:bg-white dark:hover:bg-black text-neutral-700 dark:text-neutral-200 flex items-center justify-center backdrop-blur-md shadow-xs opacity-0 group-hover:opacity-100 transition-all duration-200 hover:scale-105 cursor-pointer"
@@ -57,7 +57,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               </button>
 
               {/* Wishlist Button */}
-              <button
+              <button suppressHydrationWarning
                 onClick={() => toggleWishlist(product)}
                 aria-label="Save to Wishlist"
                 className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md shadow-xs transition-all duration-200 hover:scale-105 cursor-pointer ${
@@ -100,7 +100,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {product.colors.length > 1 && (
             <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 bg-white/80 dark:bg-black/80 backdrop-blur-md px-2 py-1 rounded-full border border-black/5 dark:border-white/10">
               {product.colors.map((color) => (
-                <button
+                <button suppressHydrationWarning
                   key={color.name}
                   onClick={(e) => {
                     e.preventDefault();

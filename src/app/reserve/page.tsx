@@ -52,7 +52,7 @@ export default function ReservePage() {
         </div>
 
         {count > 0 && (
-          <button
+          <button suppressHydrationWarning
             onClick={clearReserve}
             className="flex items-center gap-1.5 text-xs text-red-500 hover:text-red-600 font-semibold underline underline-offset-4 cursor-pointer"
           >
@@ -104,7 +104,7 @@ export default function ReservePage() {
                 {/* Quantity Controls & Delete */}
                 <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
                   <div className="flex items-center gap-2 bg-white dark:bg-neutral-800 rounded-full px-2 py-1 border border-neutral-200 dark:border-neutral-700 shadow-xs">
-                    <button
+                    <button suppressHydrationWarning
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white cursor-pointer"
                       aria-label="Decrease quantity"
@@ -114,7 +114,7 @@ export default function ReservePage() {
                     <span className="text-xs font-bold w-6 text-center text-neutral-900 dark:text-neutral-100">
                       {item.quantity}
                     </span>
-                    <button
+                    <button suppressHydrationWarning
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="p-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white cursor-pointer"
                       aria-label="Increase quantity"
@@ -123,7 +123,7 @@ export default function ReservePage() {
                     </button>
                   </div>
 
-                  <button
+                  <button suppressHydrationWarning
                     onClick={() => removeFromReserve(item.id)}
                     className="p-2 text-neutral-400 hover:text-red-500 transition-colors cursor-pointer"
                     aria-label="Remove item"
@@ -174,7 +174,7 @@ export default function ReservePage() {
                   <label className="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
                     Your Name (Optional)
                   </label>
-                  <input
+                  <input suppressHydrationWarning
                     type="text"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
@@ -187,7 +187,7 @@ export default function ReservePage() {
                   <label className="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
                     Visiting Note (Optional)
                   </label>
-                  <input
+                  <input suppressHydrationWarning
                     type="text"
                     value={customerNote}
                     onChange={(e) => setCustomerNote(e.target.value)}
@@ -198,7 +198,7 @@ export default function ReservePage() {
               </div>
 
               {/* Primary Action Button using Signature PillButton */}
-              <button
+              <button suppressHydrationWarning
                 onClick={handleWhatsAppReserve}
                 className="w-full group flex items-center justify-between py-3 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-semibold text-xs sm:text-sm shadow-md transition-all hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
               >

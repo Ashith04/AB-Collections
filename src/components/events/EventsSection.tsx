@@ -49,7 +49,7 @@ export const EventsSection: React.FC = () => {
           {/* Filter Pills */}
           <RevealOnScroll direction="up" delayMs={200}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setActiveFilter("all")}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeFilter === "all"
@@ -59,7 +59,7 @@ export const EventsSection: React.FC = () => {
               >
                 All Events &amp; Showcase ({eventStats.total})
               </button>
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setActiveFilter("poster")}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeFilter === "poster"
@@ -69,7 +69,7 @@ export const EventsSection: React.FC = () => {
               >
                 Festive Posters ({eventStats.posters})
               </button>
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setActiveFilter("showroom")}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeFilter === "showroom"
@@ -79,7 +79,7 @@ export const EventsSection: React.FC = () => {
               >
                 Store Interior ({eventStats.showrooms})
               </button>
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setActiveFilter("video")}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeFilter === "video"
@@ -118,7 +118,7 @@ export const EventsSection: React.FC = () => {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {/* Zoom Trigger Overlay */}
-                      <button
+                      <button suppressHydrationWarning
                         onClick={() => setActiveModalEvent(event)}
                         aria-label={`View full poster for ${event.title}`}
                         className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
@@ -190,7 +190,7 @@ export const EventsSection: React.FC = () => {
                     </a>
 
                     {event.mediaType !== "video" && (
-                      <button
+                      <button suppressHydrationWarning
                         onClick={() => setActiveModalEvent(event)}
                         aria-label="View large preview"
                         className="p-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white transition-colors border border-neutral-700/60 cursor-pointer"
@@ -241,7 +241,7 @@ export const EventsSection: React.FC = () => {
                   {activeModalEvent.title}
                 </h4>
               </div>
-              <button
+              <button suppressHydrationWarning
                 onClick={() => setActiveModalEvent(null)}
                 className="p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white transition-colors cursor-pointer"
               >

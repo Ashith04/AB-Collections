@@ -185,7 +185,7 @@ export default function ContactPage() {
                 <p className="text-xs text-neutral-600 dark:text-neutral-400">
                   Your inquiry has been opened on WhatsApp. Our Kavoor team will respond shortly.
                 </p>
-                <button
+                <button suppressHydrationWarning
                   onClick={() => setSubmitted(false)}
                   className="mt-3 text-xs text-emerald-600 font-bold underline cursor-pointer"
                 >
@@ -198,7 +198,7 @@ export default function ContactPage() {
                   <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Your Full Name
                   </label>
-                  <input
+                  <input suppressHydrationWarning
                     type="text"
                     required
                     value={name}
@@ -212,7 +212,7 @@ export default function ContactPage() {
                   <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 mb-1.5">
                     Phone / WhatsApp Number
                   </label>
-                  <input
+                  <input suppressHydrationWarning
                     type="tel"
                     required
                     value={phone}
@@ -253,7 +253,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button
+                <button suppressHydrationWarning
                   type="submit"
                   className="w-full group flex items-center justify-between py-3 pl-6 pr-2.5 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 text-xs sm:text-sm font-semibold hover:bg-black dark:hover:bg-neutral-100 transition-all hover:scale-[1.01] shadow-md cursor-pointer"
                 >

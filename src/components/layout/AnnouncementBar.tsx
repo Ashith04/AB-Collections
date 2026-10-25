@@ -33,6 +33,7 @@ export const AnnouncementBar: React.FC = () => {
       </div>
 
       <button
+        suppressHydrationWarning
         onClick={() => setDismissed(true)}
         aria-label="Dismiss announcement"
         className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-neutral-400 hover:text-white transition-colors"

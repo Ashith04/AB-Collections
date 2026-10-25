@@ -98,7 +98,13 @@ export const PillButton: React.FC<PillButtonProps> = ({
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={baseClasses}>
+    <button
+      suppressHydrationWarning
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={baseClasses}
+    >
       {content}
     </button>
   );
