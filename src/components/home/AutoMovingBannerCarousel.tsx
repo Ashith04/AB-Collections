@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowUpRight, Tag, ShieldCheck, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { PillButton } from "@/components/ui/PillButton";
 
 interface BannerSlide {
@@ -73,26 +73,36 @@ const BANNER_SLIDES: BannerSlide[] = [
 export const AutoMovingBannerCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [progress, setProgress] = useState<number>(0);
 
-  // Auto-move slide every 5 seconds (just like Flipkart & Amazon)
+  // Smoothly increment progress and auto-advance slide (like Flipkart & Amazon top carousels)
   useEffect(() => {
     if (isPaused) return;
 
-    timerRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % BANNER_SLIDES.length);
-    }, 5000);
+    const interval = 50; // update progress every 50ms
+    const totalDuration = 4500; // 4.5 seconds per slide
+    const step = (interval / totalDuration) * 100;
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused]);
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          setCurrentSlide((curr) => (curr + 1) % BANNER_SLIDES.length);
+          return 0;
+        }
+        return prev + step;
+      });
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [isPaused, currentSlide]);
 
   const handlePrev = () => {
+    setProgress(0);
     setCurrentSlide((prev) => (prev - 1 + BANNER_SLIDES.length) % BANNER_SLIDES.length);
   };
 
   const handleNext = () => {
+    setProgress(0);
     setCurrentSlide((prev) => (prev + 1) % BANNER_SLIDES.length);
   };
 
@@ -184,25 +194,35 @@ export const AutoMovingBannerCarousel: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Segmented Progress Dots (Flipkart / Amazon Ecommerce Style) */}
+        {/* Bottom Segmented Progress Indicators (Flipkart / Amazon Ecommerce Style) */}
         <div className="relative z-20 flex items-center justify-between pt-4 border-t border-white/15">
           <div className="flex items-center gap-2">
-            {BANNER_SLIDES.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                aria-label={`Jump to slide ${idx + 1}`}
-                className={`transition-all duration-300 h-1.5 rounded-full cursor-pointer ${
-                  idx === currentSlide
-                    ? "w-8 bg-white"
-                    : "w-2 bg-white/30 hover:bg-white/60"
-                }`}
-              />
-            ))}
+            {BANNER_SLIDES.map((_, idx) => {
+              const isCurrent = idx === currentSlide;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setProgress(0);
+                    setCurrentSlide(idx);
+                  }}
+                  aria-label={`Jump to slide ${idx + 1}`}
+                  className="relative h-1.5 rounded-full overflow-hidden bg-white/20 transition-all cursor-pointer"
+                  style={{ width: isCurrent ? "48px" : "16px" }}
+                >
+                  <div
+                    className="h-full bg-white rounded-full transition-all duration-75"
+                    style={{
+                      width: isCurrent ? `${progress}%` : "0%",
+                    }}
+                  />
+                </button>
+              );
+            })}
           </div>
 
           <span className="text-[10px] font-mono text-neutral-400">
-            {isPaused ? "Paused (hovering)" : "Auto-sliding • 5s"}
+            {isPaused ? "Paused (hovering)" : "Auto-sliding • 4.5s"}
           </span>
         </div>
       </div>
