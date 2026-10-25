@@ -17,12 +17,14 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [showStatusTooltip, setShowStatusTooltip] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [storeStatus, setStoreStatus] = useState({
     isOpen: true,
     statusText: "Open Today 10:00 AM – 9:30 PM",
   });
 
   useEffect(() => {
+    setMounted(true);
     setStoreStatus(isStoreCurrentlyOpen());
   }, []);
 
@@ -178,7 +180,7 @@ export const Navbar: React.FC = () => {
                 className="relative p-2 text-neutral-300 hover:text-white transition-transform hover:scale-110"
               >
                 <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                {wishlistCount > 0 && (
+                {mounted && wishlistCount > 0 && (
                   <span className="absolute top-1 right-1 w-4 h-4 bg-white text-neutral-950 text-[10px] font-bold rounded-full flex items-center justify-center animate-in zoom-in-50">
                     {wishlistCount}
                   </span>
@@ -188,7 +190,7 @@ export const Navbar: React.FC = () => {
               {/* Reserve List (Cart equivalent) */}
               <Link
                 href="/reserve"
-                aria-label={`Reserve List (${reserveCount})`}
+                aria-label={`Reserve List (${mounted ? reserveCount : 0})`}
                 className="group flex items-center gap-2 bg-white text-neutral-950 pl-3.5 pr-2 py-1.5 rounded-full text-xs font-semibold hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
                 <ShoppingBag className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
