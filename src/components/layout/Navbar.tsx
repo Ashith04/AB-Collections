@@ -200,8 +200,8 @@ export const Navbar: React.FC = () => {
               >
                 <ShoppingBag className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
                 <span className="hidden sm:inline">Reserve</span>
-                <span className="bg-black/15 text-neutral-950 px-2 py-0.5 rounded-full text-[11px] font-mono font-bold min-w-4 text-center">
-                  {reserveCount}
+                <span suppressHydrationWarning className="bg-black/15 text-neutral-950 px-2 py-0.5 rounded-full text-[11px] font-mono font-bold min-w-4 text-center">
+                  {mounted ? reserveCount : 0}
                 </span>
               </Link>
             </div>

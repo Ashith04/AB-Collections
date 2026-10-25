@@ -19,6 +19,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { catalogItems, CatalogItem } from "@/data/catalog";
+import { eventItems } from "@/data/events";
 import { useWishlist } from "@/context/WishlistContext";
 import { useReserve } from "@/context/ReserveContext";
 import { catalogItemToProduct } from "@/utils/catalogAdapter";
@@ -33,9 +34,30 @@ export const MotionReelsSection: React.FC<MotionReelsSectionProps> = ({ onQuickV
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { items: reserveItems, addToReserve } = useReserve();
 
-  // Filter the exact 3 video showcase reels from catalog
+  // Combine the outfit motion lookbooks and the store walkthrough tour reel into 3 interactive reels
   const reels: CatalogItem[] = useMemo(() => {
-    return catalogItems.filter((item) => item.mediaType === "video");
+    const outfitVideos = catalogItems.filter((item) => item.mediaType === "video");
+    const videoEvent = eventItems.find((e) => e.mediaType === "video");
+    if (videoEvent) {
+      const tourReel: CatalogItem = {
+        id: videoEvent.id,
+        slug: videoEvent.slug,
+        name: videoEvent.title,
+        category: "Outfits",
+        categorySlug: "outfits",
+        mediaType: "video",
+        mediaUrl: videoEvent.mediaUrl,
+        description: videoEvent.description,
+        badge: videoEvent.badge || "Store Tour",
+        fit: "Showroom Tour",
+        fabric: "Curated Menswear",
+        code: "ABC-TOUR-01",
+        inStock: true,
+        tags: videoEvent.highlights,
+      };
+      return [...outfitVideos, tourReel];
+    }
+    return outfitVideos;
   }, []);
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
