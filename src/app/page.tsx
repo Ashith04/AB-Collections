@@ -8,6 +8,7 @@ import { CatalogModal } from "@/components/catalog/CatalogModal";
 import { CatalogFilterBar } from "@/components/catalog/CatalogFilterBar";
 import { DarkBentoSection } from "@/components/home/DarkBentoSection";
 import { MarqueeStrip } from "@/components/home/MarqueeStrip";
+import { MotionReelsSection } from "@/components/home/MotionReelsSection";
 import { ValueProps } from "@/components/home/ValueProps";
 import { VisitStoreSection } from "@/components/home/VisitStoreSection";
 import { PillButton } from "@/components/ui/PillButton";
@@ -89,7 +90,12 @@ export default function HomePage() {
       {/* 2. Marquee Strip */}
       <MarqueeStrip />
 
-      {/* 3. Main Catalog Gallery Section */}
+      {/* 3. In-Motion Studio Video Reels (3 Auto-advancing reels with sound, reserve & inquiry) */}
+      <RevealOnScroll direction="up" delayMs={80}>
+        <MotionReelsSection onQuickView={handleOpenModal} />
+      </RevealOnScroll>
+
+      {/* 4. Main Catalog Gallery Section */}
       <section id="catalog-section" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Gallery Title & Context */}
         <RevealOnScroll direction="up" delayMs={100}>
@@ -186,22 +192,22 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* 4. Value Propositions Strip with Scroll Reveal */}
+      {/* 5. Value Propositions Strip with Scroll Reveal */}
       <RevealOnScroll direction="up" delayMs={100}>
         <ValueProps />
       </RevealOnScroll>
 
-      {/* 5. Dark Bento Section with Scroll Reveal */}
+      {/* 6. Dark Bento Section with Scroll Reveal */}
       <RevealOnScroll direction="up" delayMs={100}>
         <DarkBentoSection />
       </RevealOnScroll>
 
-      {/* 6. Visit Store Section with Live Map & Hours */}
+      {/* 7. Visit Store Section with Live Map & Hours */}
       <RevealOnScroll direction="up" delayMs={100}>
         <VisitStoreSection />
       </RevealOnScroll>
 
-      {/* 7. Quick View Full Modal */}
+      {/* 8. Quick View Full Modal */}
       <CatalogModal
         item={modalItem}
         isOpen={isModalOpen}
