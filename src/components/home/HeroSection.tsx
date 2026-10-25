@@ -82,47 +82,49 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
         </div>
       </div>
 
-      {/* 2. Editorial Hero Panel (Corporate Architectural Luxury Look) */}
-      <div className="relative mt-8 sm:mt-10 rounded-[28px] sm:rounded-[36px] overflow-hidden bg-[#0c0c0c] text-white p-6 sm:p-12 min-h-[480px] sm:min-h-[520px] flex flex-col justify-between shadow-2xl border border-neutral-800/80">
-        {/* Subtle store background texture */}
+      {/* 2. Editorial Hero Panel with Rich Vibrant Full-Color Store Interior */}
+      <div className="relative mt-8 sm:mt-10 rounded-[28px] sm:rounded-[36px] overflow-hidden bg-neutral-950 text-white p-6 sm:p-12 min-h-[480px] sm:min-h-[540px] flex flex-col justify-between shadow-2xl border border-neutral-800/80">
+        {/* Full-Color Store Interior Photo (Vibrant & Warm, without mix-blend-luminosity) */}
         <Image
           src="/images/store/store_interior.jpg"
-          alt="AB Collections Atelier"
+          alt="AB Collections Kavoor Showroom"
           fill
           priority
-          className="object-cover opacity-20 mix-blend-luminosity pointer-events-none"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          className="object-cover opacity-75 sm:opacity-80 scale-100 transition-transform duration-1000 ease-out hover:scale-105 pointer-events-none"
         />
 
-        {/* Subtle ambient lighting */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.03] rounded-full blur-3xl pointer-events-none" />
+        {/* Directional Scrim: Dark on the left for crisp typography readability, transparent on right to showcase real colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/35 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top bar inside hero panel */}
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono font-medium tracking-wider uppercase text-neutral-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-xs font-mono font-medium tracking-wider uppercase text-neutral-200 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>2026 Collection Released</span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-medium text-neutral-300 bg-white/5 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
-            <MapPin className="w-3.5 h-3.5 text-neutral-400" />
+          <div className="flex items-center gap-2 text-xs font-medium text-neutral-200 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 shadow-sm">
+            <MapPin className="w-3.5 h-3.5 text-emerald-400" />
             <span>Kavoor Tower, Above Union Bank, Mangaluru</span>
           </div>
         </div>
 
         {/* Main Content inside Hero Panel */}
         <div className="relative z-10 max-w-xl my-8 sm:my-auto">
-          <span className="text-xs uppercase tracking-[0.25em] font-mono font-semibold text-neutral-400">
+          <span className="text-xs uppercase tracking-[0.25em] font-mono font-semibold text-neutral-300 drop-shadow-xs">
             Men&apos;s Wear Exclusive
           </span>
-          <h2 className="editorial-headline text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mt-3 leading-[0.95]">
+          <h2 className="editorial-headline text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mt-3 leading-[0.95] drop-shadow-md">
             Effortless Style. Sharp Tailoring.
           </h2>
-          <p className="mt-4 text-xs sm:text-sm text-neutral-300 font-normal max-w-md leading-relaxed">
+          <p className="mt-4 text-xs sm:text-sm text-neutral-200 font-normal max-w-md leading-relaxed drop-shadow-xs">
             Discover our entire range of casual shirts, vintage-knit tees, and coordinated ensembles designed for comfortable distinction and everyday confidence.
           </p>
 
-          {/* Action Buttons using the exact signature PillButton */}
+          {/* Action Buttons using signature PillButton */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <PillButton
               href="#catalog-section"
@@ -142,9 +144,9 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
           </div>
         </div>
 
-        {/* Bottom 3 Category Mini Cards (NO prices) */}
-        <div className="relative z-10 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-6 pt-6 border-t border-white/10">
-          <div className="flex items-center gap-2 text-xs font-medium text-neutral-300">
+        {/* Bottom 3 Category Mini Cards (Glassmorphism over vibrant colored background) */}
+        <div className="relative z-10 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-6 pt-6 border-t border-white/15">
+          <div className="flex items-center gap-2 text-xs font-medium text-neutral-200">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>Try Before You Buy • Walk-in Trial Rooms Available</span>
           </div>
@@ -155,9 +157,9 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
               <button
                 key={card.category}
                 onClick={() => handleCategoryClick(card.category)}
-                className="group relative flex items-center gap-3 bg-white/10 hover:bg-white/15 backdrop-blur-md p-2.5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-200 text-left cursor-pointer"
+                className="group relative flex items-center gap-3 bg-black/60 hover:bg-black/75 backdrop-blur-md p-2.5 rounded-2xl border border-white/15 hover:border-white/30 transition-all duration-200 text-left cursor-pointer shadow-md"
               >
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-neutral-900 shrink-0">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-white/10">
                   <Image
                     src={card.image}
                     alt={card.title}
@@ -166,8 +168,8 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
                     sizes="48px"
                   />
                 </div>
-                <div className="flex flex-col pr-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">
+                <div className="flex flex-col pr-2 min-w-0">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold truncate">
                     {card.category}
                   </span>
                   <span className="text-xs font-bold text-white line-clamp-1">
