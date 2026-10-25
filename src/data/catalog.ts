@@ -1,13 +1,14 @@
-// Auto-generated full catalog containing all 142 items from main media folder
-// Categorized into T-Shirts, Shirts, and Outfits with elegant, fashion-forward descriptions.
-// Prices intentionally omitted as per requirement.
+// Auto-generated full catalog containing strictly segregated menswear clothing items
+// Strictly organized: T-Shirts (tees/polos only), Shirts (button-downs only),
+// Pants (trousers/jeans/cargos only), and Outfits (coordinated ensembles).
+// Event & festival posters are excluded here and maintained in src/data/events.ts.
 
 export interface CatalogItem {
   id: string;
   slug: string;
   name: string;
-  category: 'T-Shirts' | 'Shirts' | 'Outfits';
-  categorySlug: 't-shirts' | 'shirts' | 'outfits';
+  category: 'T-Shirts' | 'Shirts' | 'Pants' | 'Outfits';
+  categorySlug: 't-shirts' | 'shirts' | 'pants' | 'outfits';
   mediaType: 'image' | 'video';
   mediaUrl: string;
   description: string;
@@ -22,13 +23,13 @@ export interface CatalogItem {
 export const catalogItems: CatalogItem[] = [
   {
     "id": "ab-001",
-    "slug": "dual-tactical-pocket-utility-shirt-001",
-    "name": "Dual Tactical Pocket Utility Shirt",
+    "slug": "dual-tactical-flap-pocket-utility-cotton-shirt-001",
+    "name": "Dual Tactical Flap-Pocket Utility Cotton Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-22_20-46-41_2910523006602654161_55023169382.jpg",
-    "description": "Structured button-down featuring twin flap chest pockets and rugged modern detailing.",
+    "description": "Structured button-down featuring twin flap chest pockets, epaulette detailing, and rugged modern tailoring.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Heavy-Duty Cotton Twill",
@@ -42,57 +43,38 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-002",
-    "slug": "multi-pocket-tactical-cargo-linen-trouser-collection-002",
-    "name": "Multi-Pocket Tactical Cargo & Linen Trouser Collection",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "multi-pocket-tactical-cargo-pants-collection-002",
+    "name": "Multi-Pocket Tactical Cargo Pants Collection",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-22_20-47-12_2910523262228507796_55023169382.jpg",
-    "description": "Essential bottomwear options engineered for all-day mobility and immaculate drape.",
-    "badge": "Bottomwear Palette",
+    "description": "Engineered multi-pocket utility cargos featuring reinforced stitching, tapered cuffs, and mobility stretch.",
+    "badge": "Utility Edit",
     "fit": "Slim Fit",
-    "fabric": "Stretch Cotton & Linen",
-    "code": "ABC-OUTFIT-002",
+    "fabric": "Heavy-Duty Cotton Twill",
+    "code": "ABC-PNT-002",
     "inStock": true,
     "tags": [
       "Cargo Pants",
-      "Linen Trousers",
-      "Bottomwear Edit"
+      "Tactical Pockets",
+      "Tapered Fit",
+      "Utility"
     ]
   },
   {
     "id": "ab-003",
-    "slug": "flagship-store-curated-menswear-collection-003",
-    "name": "Flagship Store Curated Menswear Collection",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-22_20-48-10_2910523753541080837_55023169382.jpg",
-    "description": "Explore the complete AB Collections showroom edit crafted specifically for South Indian style.",
-    "badge": "Store Collection",
-    "fit": "Regular Fit",
-    "fabric": "Full Store Selection",
-    "code": "ABC-OUTFIT-003",
-    "inStock": true,
-    "tags": [
-      "Store Collection",
-      "In-Store Exclusive",
-      "Full Wardrobe"
-    ]
-  },
-  {
-    "id": "ab-004",
-    "slug": "dual-tactical-pocket-utility-shirt-004",
-    "name": "Dual Tactical Pocket Utility Shirt",
+    "slug": "dual-tactical-flap-pocket-utility-cotton-shirt-003",
+    "name": "Dual Tactical Flap-Pocket Utility Cotton Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-25_11-49-49_2912427122187072644_55023169382.jpg",
-    "description": "Structured button-down featuring twin flap chest pockets and rugged modern detailing.",
+    "description": "Structured button-down featuring twin flap chest pockets, epaulette detailing, and rugged modern tailoring.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Heavy-Duty Cotton Twill",
-    "code": "ABC-SHR-004",
+    "code": "ABC-SHR-003",
     "inStock": true,
     "tags": [
       "Utility",
@@ -101,38 +83,39 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-005",
-    "slug": "vintage-acid-wash-denim-jacket-jeans-pairing-005",
-    "name": "Vintage Acid-Wash Denim Jacket & Jeans Pairing",
+    "id": "ab-004",
+    "slug": "vintage-acid-wash-denim-trucker-jacket-jeans-pairing-004",
+    "name": "Vintage Acid-Wash Denim Trucker Jacket & Jeans Pairing",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-26_00-01-24_2912795336403359058_55023169382.jpg",
-    "description": "Classic 90s acid-wash trucker silhouette matched with durable denim for iconic layering.",
-    "badge": "Outerwear",
+    "description": "Classic 90s acid-wash trucker silhouette matched with durable straight-leg denim for iconic layering.",
+    "badge": "Outerwear Ensemble",
     "fit": "Regular Fit",
     "fabric": "Acid-Wash Denim",
-    "code": "ABC-OUTFIT-005",
+    "code": "ABC-OUTFIT-004",
     "inStock": true,
     "tags": [
       "Denim Jacket",
       "Acid Wash",
-      "Rugged Layer"
+      "Full Denim Look",
+      "Ensemble"
     ]
   },
   {
-    "id": "ab-006",
-    "slug": "tailored-windowpane-grid-check-shirt-006",
-    "name": "Tailored Windowpane Grid Check Shirt",
+    "id": "ab-005",
+    "slug": "tailored-windowpane-grid-check-poplin-shirt-005",
+    "name": "Tailored Windowpane Grid Check Poplin Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-26_22-58-20_2913488366529835596_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and polished ease.",
+    "description": "Classic button-down crafted with crisp geometric checks for timeless sophistication and polished ease.",
     "badge": "New Arrival",
     "fit": "Relaxed Fit",
     "fabric": "Combed Cotton Poplin",
-    "code": "ABC-SHR-006",
+    "code": "ABC-SHR-005",
     "inStock": true,
     "tags": [
       "Grid Check",
@@ -141,112 +124,137 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-007",
-    "slug": "multi-pocket-tactical-cargo-linen-trouser-collection-007",
-    "name": "Multi-Pocket Tactical Cargo & Linen Trouser Collection",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-006",
+    "slug": "drawstring-slub-linen-cotton-chinos-palette-006",
+    "name": "Drawstring Slub Linen & Cotton Chinos Palette",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-30_13-27-39_2916100239027852388_55023169382.jpg",
-    "description": "Essential bottomwear options engineered for all-day mobility and immaculate drape.",
-    "badge": "Bottomwear Palette",
-    "fit": "Slim Fit",
-    "fabric": "Stretch Cotton & Linen",
-    "code": "ABC-OUTFIT-007",
+    "description": "Lightweight, breathable linen-blend trousers featuring elasticated drawstring waist and crisp relaxed drape.",
+    "badge": "Summer Essential",
+    "fit": "Relaxed Fit",
+    "fabric": "Slub Linen & Cotton Blend",
+    "code": "ABC-PNT-006",
     "inStock": true,
     "tags": [
-      "Cargo Pants",
-      "Linen Trousers",
-      "Bottomwear Edit"
+      "Linen Chinos",
+      "Drawstring Waist",
+      "Breathable",
+      "Resort Casual"
+    ]
+  },
+  {
+    "id": "ab-007",
+    "slug": "mandarin-collar-striped-linen-casual-shirt-collection-007",
+    "name": "Mandarin Collar Striped Linen Casual Shirt Collection",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-30_21-35-17_2916345674741272961_55023169382.jpg",
+    "description": "Clean band-collar silhouette tailored in yarn-dyed stripes offering effortless coastal sophistication.",
+    "badge": "Signature Cut",
+    "fit": "Regular Fit",
+    "fabric": "Pure Breathable Linen",
+    "code": "ABC-SHR-007",
+    "inStock": true,
+    "tags": [
+      "Mandarin Collar",
+      "Band Collar",
+      "Vertical Stripes",
+      "Resort Linen"
     ]
   },
   {
     "id": "ab-008",
-    "slug": "complete-tailored-shirt-tonal-pant-ensemble-008",
-    "name": "Complete Tailored Shirt & Tonal Pant Ensemble",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-08-30_21-35-17_2916345674741272961_55023169382.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring for modern elegance.",
-    "badge": "Curated Look",
-    "fit": "Regular Fit",
-    "fabric": "Cotton & Linen Blend",
-    "code": "ABC-OUTFIT-008",
-    "inStock": true,
-    "tags": [
-      "Full Outfit",
-      "Color Harmony",
-      "Stylist Pick"
-    ]
-  },
-  {
-    "id": "ab-009",
-    "slug": "complete-tailored-shirt-tonal-pant-ensemble-009",
-    "name": "Complete Tailored Shirt & Tonal Pant Ensemble",
+    "slug": "athleisure-zip-up-sports-jacket-track-layering-ensemble-008",
+    "name": "Athleisure Zip-Up Sports Jacket & Track Layering Ensemble",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-09_11-01-19_2923274342364882795_55023169382.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring for modern elegance.",
-    "badge": "Curated Look",
-    "fit": "Regular Fit",
-    "fabric": "Cotton & Linen Blend",
-    "code": "ABC-OUTFIT-009",
+    "description": "Streamlined athletic zip-up jackets styled for lightweight morning fitness and evening urban layering.",
+    "badge": "Athleisure Ensemble",
+    "fit": "Slim Fit",
+    "fabric": "Performance Track Poly-Spandex",
+    "code": "ABC-OUTFIT-008",
     "inStock": true,
     "tags": [
-      "Full Outfit",
-      "Color Harmony",
-      "Stylist Pick"
+      "Track Jacket",
+      "Sports Layer",
+      "Athleisure",
+      "Coordinated"
     ]
   },
   {
-    "id": "ab-010",
-    "slug": "contemporary-tailored-casual-shirt-010",
-    "name": "Contemporary Tailored Casual Shirt",
+    "id": "ab-009",
+    "slug": "contemporary-tailored-spread-collar-casual-shirt-009",
+    "name": "Contemporary Tailored Spread-Collar Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-09_16-46-20_2923448000391882996_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
-    "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
-    "code": "ABC-SHR-010",
+    "description": "Impeccable cut tailored for versatile smart-casual transitions and breathable all-day wear.",
+    "badge": "Essential",
+    "fit": "Slim Fit",
+    "fabric": "Fine Combed Cotton Sateen",
+    "code": "ABC-SHR-009",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Spread Collar",
+      "Smart Casual",
+      "Tailored Cut"
     ]
   },
   {
-    "id": "ab-011",
-    "slug": "contemporary-tailored-casual-shirt-011",
-    "name": "Contemporary Tailored Casual Shirt",
+    "id": "ab-010",
+    "slug": "contemporary-tailored-spread-collar-casual-shirt-010",
+    "name": "Contemporary Tailored Spread-Collar Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-09_23-41-31_2923656967043777083_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
-    "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
-    "code": "ABC-SHR-011",
+    "description": "Impeccable cut tailored for versatile smart-casual transitions and breathable all-day wear.",
+    "badge": "Essential",
+    "fit": "Slim Fit",
+    "fabric": "Fine Combed Cotton Sateen",
+    "code": "ABC-SHR-010",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Spread Collar",
+      "Smart Casual",
+      "Tailored Cut"
     ]
   },
   {
-    "id": "ab-012",
-    "slug": "minimalist-graphic-crewneck-tee-012",
-    "name": "Minimalist Graphic Crewneck Tee",
+    "id": "ab-011",
+    "slug": "minimalist-graphic-chest-print-crewneck-tee-011",
+    "name": "Minimalist Graphic Chest-Print Crewneck Tee",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-10_12-52-16_2924054961588176687_55023169382_3.jpg",
-    "description": "Relaxed fit tee with a clean, versatile look and ultra-soft breathable feel.",
+    "description": "Relaxed fit tee with a clean, versatile chest print and ultra-soft breathable feel.",
+    "badge": "Bestseller",
+    "fit": "Regular Fit",
+    "fabric": "Soft-Washed Combed Cotton",
+    "code": "ABC-TSH-011",
+    "inStock": true,
+    "tags": [
+      "Everyday Tee",
+      "Graphic Detail",
+      "Breathable"
+    ]
+  },
+  {
+    "id": "ab-012",
+    "slug": "minimalist-graphic-chest-print-crewneck-tee-012",
+    "name": "Minimalist Graphic Chest-Print Crewneck Tee",
+    "category": "T-Shirts",
+    "categorySlug": "t-shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-10_12-52-16_2924054961588227747_55023169382_1.jpg",
+    "description": "Relaxed fit tee with a clean, versatile chest print and ultra-soft breathable feel.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Soft-Washed Combed Cotton",
@@ -260,13 +268,13 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-013",
-    "slug": "minimalist-graphic-crewneck-tee-013",
-    "name": "Minimalist Graphic Crewneck Tee",
+    "slug": "minimalist-graphic-chest-print-crewneck-tee-013",
+    "name": "Minimalist Graphic Chest-Print Crewneck Tee",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-10_12-52-16_2924054961588227747_55023169382_1.jpg",
-    "description": "Relaxed fit tee with a clean, versatile look and ultra-soft breathable feel.",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-10_12-52-16_2924054961596595492_55023169382_2.jpg",
+    "description": "Relaxed fit tee with a clean, versatile chest print and ultra-soft breathable feel.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Soft-Washed Combed Cotton",
@@ -280,33 +288,33 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-014",
-    "slug": "minimalist-graphic-crewneck-tee-014",
-    "name": "Minimalist Graphic Crewneck Tee",
-    "category": "T-Shirts",
-    "categorySlug": "t-shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-10_12-52-16_2924054961596595492_55023169382_2.jpg",
-    "description": "Relaxed fit tee with a clean, versatile look and ultra-soft breathable feel.",
-    "badge": "Bestseller",
-    "fit": "Regular Fit",
-    "fabric": "Soft-Washed Combed Cotton",
-    "code": "ABC-TSH-014",
-    "inStock": true,
-    "tags": [
-      "Everyday Tee",
-      "Graphic Detail",
-      "Breathable"
-    ]
-  },
-  {
-    "id": "ab-015",
-    "slug": "pastel-botanical-print-casual-shirt-015",
-    "name": "Pastel Botanical Print Casual Shirt",
+    "slug": "pastel-botanical-motif-resort-casual-shirt-014",
+    "name": "Pastel Botanical Motif Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-25_16-01-34_2935021878419299385_55023169382.jpg",
-    "description": "Artful floral motif tailored in breathable cotton for subtle statement styling.",
+    "description": "Artful floral motif tailored in breathable cotton sateen for subtle statement styling.",
+    "badge": "Trending",
+    "fit": "Slim Fit",
+    "fabric": "Soft-Finish Cotton Sateen",
+    "code": "ABC-SHR-014",
+    "inStock": true,
+    "tags": [
+      "Floral Print",
+      "Resort Casual",
+      "Slim Silhouette"
+    ]
+  },
+  {
+    "id": "ab-015",
+    "slug": "pastel-botanical-motif-resort-casual-shirt-015",
+    "name": "Pastel Botanical Motif Resort Casual Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-25_16-02-38_2935022415365622601_55023169382.jpg",
+    "description": "Artful floral motif tailored in breathable cotton sateen for subtle statement styling.",
     "badge": "Trending",
     "fit": "Slim Fit",
     "fabric": "Soft-Finish Cotton Sateen",
@@ -320,119 +328,119 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-016",
-    "slug": "pastel-botanical-print-casual-shirt-016",
-    "name": "Pastel Botanical Print Casual Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-25_16-02-38_2935022415365622601_55023169382.jpg",
-    "description": "Artful floral motif tailored in breathable cotton for subtle statement styling.",
-    "badge": "Trending",
-    "fit": "Slim Fit",
-    "fabric": "Soft-Finish Cotton Sateen",
-    "code": "ABC-SHR-016",
-    "inStock": true,
-    "tags": [
-      "Floral Print",
-      "Resort Casual",
-      "Slim Silhouette"
-    ]
-  },
-  {
-    "id": "ab-017",
-    "slug": "contemporary-tailored-casual-shirt-017",
-    "name": "Contemporary Tailored Casual Shirt",
+    "slug": "contemporary-spread-collar-woven-casual-shirt-016",
+    "name": "Contemporary Spread-Collar Woven Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_13-23-18_2937841321318949847_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
+    "description": "Refined button-down crafted for timeless elegance and effortless weekday layering.",
     "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
+    "fabric": "Yarn-Dyed Pure Cotton",
+    "code": "ABC-SHR-016",
+    "inStock": true,
+    "tags": [
+      "Woven Cotton",
+      "Spread Collar",
+      "Versatile"
+    ]
+  },
+  {
+    "id": "ab-017",
+    "slug": "contemporary-spread-collar-woven-casual-shirt-017",
+    "name": "Contemporary Spread-Collar Woven Casual Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_13-23-41_2937841512017207401_55023169382.jpg",
+    "description": "Refined button-down crafted for timeless elegance and effortless weekday layering.",
+    "fit": "Regular Fit",
+    "fabric": "Yarn-Dyed Pure Cotton",
     "code": "ABC-SHR-017",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
+      "Woven Cotton",
+      "Spread Collar",
       "Versatile"
     ]
   },
   {
     "id": "ab-018",
-    "slug": "contemporary-tailored-casual-shirt-018",
-    "name": "Contemporary Tailored Casual Shirt",
+    "slug": "contemporary-spread-collar-woven-casual-shirt-018",
+    "name": "Contemporary Spread-Collar Woven Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_13-23-41_2937841512017207401_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_15-43-27_2937911859353528582_55023169382.jpg",
+    "description": "Refined button-down crafted for timeless elegance and effortless weekday layering.",
     "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
+    "fabric": "Yarn-Dyed Pure Cotton",
     "code": "ABC-SHR-018",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
+      "Woven Cotton",
+      "Spread Collar",
       "Versatile"
     ]
   },
   {
     "id": "ab-019",
-    "slug": "contemporary-tailored-casual-shirt-019",
-    "name": "Contemporary Tailored Casual Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
+    "slug": "textured-mock-neck-fine-knit-tee-019",
+    "name": "Textured Mock-Neck Fine Knit Tee",
+    "category": "T-Shirts",
+    "categorySlug": "t-shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_15-43-27_2937911859353528582_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
-    "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
-    "code": "ABC-SHR-019",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-07_2943603697520690414_55023169382.jpg",
+    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
+    "badge": "New Arrival",
+    "fit": "Slim Fit",
+    "fabric": "Intarsia Stretch Knit",
+    "code": "ABC-TSH-019",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Mock Neck",
+      "Fine Knit",
+      "Smart Casual"
     ]
   },
   {
     "id": "ab-020",
-    "slug": "flagship-store-curated-menswear-collection-020",
-    "name": "Flagship Store Curated Menswear Collection",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "textured-mock-neck-fine-knit-tee-020",
+    "name": "Textured Mock-Neck Fine Knit Tee",
+    "category": "T-Shirts",
+    "categorySlug": "t-shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_16-42-03_2937941355444531753_55023169382.jpg",
-    "description": "Explore the complete AB Collections showroom edit crafted specifically for South Indian style.",
-    "badge": "Store Collection",
-    "fit": "Regular Fit",
-    "fabric": "Full Store Selection",
-    "code": "ABC-OUTFIT-020",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-28_2943603875140866181_55023169382.jpg",
+    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
+    "badge": "New Arrival",
+    "fit": "Slim Fit",
+    "fabric": "Intarsia Stretch Knit",
+    "code": "ABC-TSH-020",
     "inStock": true,
     "tags": [
-      "Store Collection",
-      "In-Store Exclusive",
-      "Full Wardrobe"
+      "Mock Neck",
+      "Fine Knit",
+      "Smart Casual"
     ]
   },
   {
     "id": "ab-021",
-    "slug": "flagship-store-curated-menswear-collection-021",
-    "name": "Flagship Store Curated Menswear Collection",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "textured-mock-neck-fine-knit-tee-021",
+    "name": "Textured Mock-Neck Fine Knit Tee",
+    "category": "T-Shirts",
+    "categorySlug": "t-shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-09-29_16-42-41_2937941675151174496_55023169382.jpg",
-    "description": "Explore the complete AB Collections showroom edit crafted specifically for South Indian style.",
-    "badge": "Store Collection",
-    "fit": "Regular Fit",
-    "fabric": "Full Store Selection",
-    "code": "ABC-OUTFIT-021",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-48_2943604042158081069_55023169382.jpg",
+    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
+    "badge": "New Arrival",
+    "fit": "Slim Fit",
+    "fabric": "Intarsia Stretch Knit",
+    "code": "ABC-TSH-021",
     "inStock": true,
     "tags": [
-      "Store Collection",
-      "In-Store Exclusive",
-      "Full Wardrobe"
+      "Mock Neck",
+      "Fine Knit",
+      "Smart Casual"
     ]
   },
   {
@@ -442,9 +450,9 @@ export const catalogItems: CatalogItem[] = [
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-07_2943603697520690414_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_16-37-21_2943737197812850121_55023169382.jpg",
     "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
-    "badge": "New",
+    "badge": "New Arrival",
     "fit": "Slim Fit",
     "fabric": "Intarsia Stretch Knit",
     "code": "ABC-TSH-022",
@@ -457,133 +465,135 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-023",
-    "slug": "textured-mock-neck-fine-knit-tee-023",
-    "name": "Textured Mock-Neck Fine Knit Tee",
-    "category": "T-Shirts",
-    "categorySlug": "t-shirts",
+    "slug": "u-s-polo-assn-vintage-straight-fit-denim-jeans-stack-023",
+    "name": "U.S. Polo Assn Vintage Straight-Fit Denim Jeans Stack",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-28_2943603875140866181_55023169382.jpg",
-    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
-    "badge": "New",
-    "fit": "Slim Fit",
-    "fabric": "Intarsia Stretch Knit",
-    "code": "ABC-TSH-023",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-03-15_2952447538944159200_55023169382.jpg",
+    "description": "Timeless 5-pocket denim jeans featuring authentic washed indigos, branded leather patch, and durable hardware.",
+    "badge": "Classic Denim",
+    "fit": "Regular Fit",
+    "fabric": "Authentic Ring-Spun Denim",
+    "code": "ABC-PNT-023",
     "inStock": true,
     "tags": [
-      "Mock Neck",
-      "Fine Knit",
-      "Smart Casual"
+      "Denim Jeans",
+      "Straight Fit",
+      "5-Pocket",
+      "Vintage Wash"
     ]
   },
   {
     "id": "ab-024",
-    "slug": "textured-mock-neck-fine-knit-tee-024",
-    "name": "Textured Mock-Neck Fine Knit Tee",
-    "category": "T-Shirts",
-    "categorySlug": "t-shirts",
+    "slug": "folded-camouflage-utility-cotton-chino-trousers-024",
+    "name": "Folded Camouflage & Utility Cotton Chino Trousers",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_12-12-48_2943604042158081069_55023169382.jpg",
-    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
-    "badge": "New",
-    "fit": "Slim Fit",
-    "fabric": "Intarsia Stretch Knit",
-    "code": "ABC-TSH-024",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-03-35_2952447711388637475_55023169382.jpg",
+    "description": "Sturdy cotton twill trousers tailored with flat front, subtle camo accents, and dependable day-to-night comfort.",
+    "badge": "Chino Edit",
+    "fit": "Regular Fit",
+    "fabric": "Pre-Washed Stretch Cotton Twill",
+    "code": "ABC-PNT-024",
     "inStock": true,
     "tags": [
-      "Mock Neck",
-      "Fine Knit",
-      "Smart Casual"
+      "Chino Trousers",
+      "Flat Front",
+      "Camo Utility",
+      "Durable"
     ]
   },
   {
     "id": "ab-025",
-    "slug": "textured-mock-neck-fine-knit-tee-025",
-    "name": "Textured Mock-Neck Fine Knit Tee",
-    "category": "T-Shirts",
-    "categorySlug": "t-shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-07_16-37-21_2943737197812850121_55023169382.jpg",
-    "description": "Contemporary high-neck knit silhouette with geometric intarsia detail for elevated layering.",
-    "badge": "New",
-    "fit": "Slim Fit",
-    "fabric": "Intarsia Stretch Knit",
-    "code": "ABC-TSH-025",
-    "inStock": true,
-    "tags": [
-      "Mock Neck",
-      "Fine Knit",
-      "Smart Casual"
-    ]
-  },
-  {
-    "id": "ab-026",
-    "slug": "festive-menswear-curated-wardrobe-campaign-026",
-    "name": "Festive Menswear Curated Wardrobe Campaign",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-18_22-36-00_2951890246771202031_55023169382.jpg",
-    "description": "A complete festival-ready ensemble showcasing our finest shirts and tailored trousers.",
-    "badge": "Festive Showcase",
-    "fit": "Regular Fit",
-    "fabric": "Multi-Garment Selection",
-    "code": "ABC-OUTFIT-026",
-    "inStock": true,
-    "tags": [
-      "Festive",
-      "Shirt & Pant Combo",
-      "AB Kavoor Special"
-    ]
-  },
-  {
-    "id": "ab-027",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-027",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-03-15_2952447538944159200_55023169382.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-027",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-028",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-028",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-03-35_2952447711388637475_55023169382.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-028",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-029",
-    "slug": "vertical-block-striped-oxford-shirt-029",
-    "name": "Vertical Block Striped Oxford Shirt",
+    "slug": "vertical-block-striped-oxford-button-down-shirt-025",
+    "name": "Vertical Block Striped Oxford Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-04-01_2952447924761451035_55023169382.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
+    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom and evening appeal.",
+    "badge": "Signature Cut",
+    "fit": "Slim Fit",
+    "fabric": "Striped Oxford Weave",
+    "code": "ABC-SHR-025",
+    "inStock": true,
+    "tags": [
+      "Vertical Stripe",
+      "Oxford Cotton",
+      "Sharp Tailoring"
+    ]
+  },
+  {
+    "id": "ab-026",
+    "slug": "vertical-block-striped-oxford-button-down-shirt-026",
+    "name": "Vertical Block Striped Oxford Button-Down Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884199784959_55023169382_3.jpg",
+    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom and evening appeal.",
+    "badge": "Signature Cut",
+    "fit": "Slim Fit",
+    "fabric": "Striped Oxford Weave",
+    "code": "ABC-SHR-026",
+    "inStock": true,
+    "tags": [
+      "Vertical Stripe",
+      "Oxford Cotton",
+      "Sharp Tailoring"
+    ]
+  },
+  {
+    "id": "ab-027",
+    "slug": "vertical-block-striped-oxford-button-down-shirt-027",
+    "name": "Vertical Block Striped Oxford Button-Down Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884199888188_55023169382_2.jpg",
+    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom and evening appeal.",
+    "badge": "Signature Cut",
+    "fit": "Slim Fit",
+    "fabric": "Striped Oxford Weave",
+    "code": "ABC-SHR-027",
+    "inStock": true,
+    "tags": [
+      "Vertical Stripe",
+      "Oxford Cotton",
+      "Sharp Tailoring"
+    ]
+  },
+  {
+    "id": "ab-028",
+    "slug": "vertical-block-striped-oxford-button-down-shirt-028",
+    "name": "Vertical Block Striped Oxford Button-Down Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884325757627_55023169382_4.jpg",
+    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom and evening appeal.",
+    "badge": "Signature Cut",
+    "fit": "Slim Fit",
+    "fabric": "Striped Oxford Weave",
+    "code": "ABC-SHR-028",
+    "inStock": true,
+    "tags": [
+      "Vertical Stripe",
+      "Oxford Cotton",
+      "Sharp Tailoring"
+    ]
+  },
+  {
+    "id": "ab-029",
+    "slug": "vertical-block-striped-oxford-button-down-shirt-029",
+    "name": "Vertical Block Striped Oxford Button-Down Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884325776789_55023169382_1.jpg",
+    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom and evening appeal.",
     "badge": "Signature Cut",
     "fit": "Slim Fit",
     "fabric": "Striped Oxford Weave",
@@ -597,141 +607,144 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-030",
-    "slug": "vertical-block-striped-oxford-shirt-030",
-    "name": "Vertical Block Striped Oxford Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884199784959_55023169382_3.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
-    "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
-    "code": "ABC-SHR-030",
-    "inStock": true,
-    "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
-    ]
-  },
-  {
-    "id": "ab-031",
-    "slug": "vertical-block-striped-oxford-shirt-031",
-    "name": "Vertical Block Striped Oxford Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884199888188_55023169382_2.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
-    "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
-    "code": "ABC-SHR-031",
-    "inStock": true,
-    "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
-    ]
-  },
-  {
-    "id": "ab-032",
-    "slug": "vertical-block-striped-oxford-shirt-032",
-    "name": "Vertical Block Striped Oxford Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884325757627_55023169382_4.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
-    "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
-    "code": "ABC-SHR-032",
-    "inStock": true,
-    "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
-    ]
-  },
-  {
-    "id": "ab-033",
-    "slug": "vertical-block-striped-oxford-shirt-033",
-    "name": "Vertical Block Striped Oxford Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-19-50_2952455884325776789_55023169382_1.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
-    "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
-    "code": "ABC-SHR-033",
-    "inStock": true,
-    "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
-    ]
-  },
-  {
-    "id": "ab-034",
-    "slug": "vertical-block-striped-oxford-shirt-034",
-    "name": "Vertical Block Striped Oxford Shirt",
+    "slug": "terracotta-plaid-hooded-flannel-casual-shirt-030",
+    "name": "Terracotta Plaid Hooded Flannel Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-20-37_2952456283715649560_55023169382.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
-    "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
-    "code": "ABC-SHR-034",
+    "description": "Rugged brushed cotton check shirt updated with an integrated knit hood and twin flap utility pockets.",
+    "badge": "Hooded Staple",
+    "fit": "Regular Fit",
+    "fabric": "Brushed Cotton Flannel",
+    "code": "ABC-SHR-030",
     "inStock": true,
     "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
+      "Hooded Shirt",
+      "Plaid Flannel",
+      "Casual Outerwear",
+      "Terracotta"
     ]
   },
   {
-    "id": "ab-035",
-    "slug": "vertical-block-striped-oxford-shirt-035",
-    "name": "Vertical Block Striped Oxford Shirt",
+    "id": "ab-031",
+    "slug": "ochre-plaid-hooded-flannel-casual-shirt-031",
+    "name": "Ochre Plaid Hooded Flannel Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-19_17-21-10_2952456555607293376_55023169382.jpg",
-    "description": "Contrasting vertical stripes create an elongating profile with pristine boardroom appeal.",
-    "badge": "Signature Cut",
+    "description": "Vibrant warm yellow and black plaid shirt with soft contrast hood for weekend lounging and rides.",
+    "badge": "Hooded Staple",
+    "fit": "Regular Fit",
+    "fabric": "Brushed Cotton Flannel",
+    "code": "ABC-SHR-031",
+    "inStock": true,
+    "tags": [
+      "Hooded Shirt",
+      "Plaid Flannel",
+      "Ochre Check",
+      "Weekend Cut"
+    ]
+  },
+  {
+    "id": "ab-032",
+    "slug": "monochrome-micro-pattern-jacquard-shirt-032",
+    "name": "Monochrome Micro-Pattern Jacquard Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326639681489_55023169382_5.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
+    "badge": "Evening Edit",
     "fit": "Slim Fit",
-    "fabric": "Striped Oxford Weave",
+    "fabric": "Tonal Jacquard Cotton",
+    "code": "ABC-SHR-032",
+    "inStock": true,
+    "tags": [
+      "Jacquard",
+      "Lustrous",
+      "Evening"
+    ]
+  },
+  {
+    "id": "ab-033",
+    "slug": "monochrome-micro-pattern-jacquard-shirt-033",
+    "name": "Monochrome Micro-Pattern Jacquard Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326639694858_55023169382_4.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
+    "badge": "Evening Edit",
+    "fit": "Slim Fit",
+    "fabric": "Tonal Jacquard Cotton",
+    "code": "ABC-SHR-033",
+    "inStock": true,
+    "tags": [
+      "Jacquard",
+      "Lustrous",
+      "Evening"
+    ]
+  },
+  {
+    "id": "ab-034",
+    "slug": "monochrome-micro-pattern-jacquard-shirt-034",
+    "name": "Monochrome Micro-Pattern Jacquard Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326656460545_55023169382_2.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
+    "badge": "Evening Edit",
+    "fit": "Slim Fit",
+    "fabric": "Tonal Jacquard Cotton",
+    "code": "ABC-SHR-034",
+    "inStock": true,
+    "tags": [
+      "Jacquard",
+      "Lustrous",
+      "Evening"
+    ]
+  },
+  {
+    "id": "ab-035",
+    "slug": "monochrome-micro-pattern-jacquard-shirt-035",
+    "name": "Monochrome Micro-Pattern Jacquard Shirt",
+    "category": "Shirts",
+    "categorySlug": "shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326664928569_55023169382_6.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
+    "badge": "Evening Edit",
+    "fit": "Slim Fit",
+    "fabric": "Tonal Jacquard Cotton",
     "code": "ABC-SHR-035",
     "inStock": true,
     "tags": [
-      "Vertical Stripe",
-      "Oxford Cotton",
-      "Sharp Tailoring"
+      "Jacquard",
+      "Lustrous",
+      "Evening"
     ]
   },
   {
     "id": "ab-036",
-    "slug": "contemporary-tailored-casual-shirt-036",
-    "name": "Contemporary Tailored Casual Shirt",
+    "slug": "monochrome-micro-pattern-jacquard-shirt-036",
+    "name": "Monochrome Micro-Pattern Jacquard Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-10-24_10-30-30_2955873741251724664_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
-    "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326849392427_55023169382_1.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
+    "badge": "Evening Edit",
+    "fit": "Slim Fit",
+    "fabric": "Tonal Jacquard Cotton",
     "code": "ABC-SHR-036",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Jacquard",
+      "Lustrous",
+      "Evening"
     ]
   },
   {
@@ -741,8 +754,8 @@ export const catalogItems: CatalogItem[] = [
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326639681489_55023169382_5.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326849493749_55023169382_3.jpg",
+    "description": "Understated jacquard weave adding tactile depth and rich luster for celebratory evening occasions.",
     "badge": "Evening Edit",
     "fit": "Slim Fit",
     "fabric": "Tonal Jacquard Cotton",
@@ -756,155 +769,37 @@ export const catalogItems: CatalogItem[] = [
   },
   {
     "id": "ab-038",
-    "slug": "monochrome-micro-pattern-jacquard-shirt-038",
-    "name": "Monochrome Micro-Pattern Jacquard Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326639694858_55023169382_4.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
-    "badge": "Evening Edit",
-    "fit": "Slim Fit",
-    "fabric": "Tonal Jacquard Cotton",
-    "code": "ABC-SHR-038",
-    "inStock": true,
-    "tags": [
-      "Jacquard",
-      "Lustrous",
-      "Evening"
-    ]
-  },
-  {
-    "id": "ab-039",
-    "slug": "monochrome-micro-pattern-jacquard-shirt-039",
-    "name": "Monochrome Micro-Pattern Jacquard Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326656460545_55023169382_2.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
-    "badge": "Evening Edit",
-    "fit": "Slim Fit",
-    "fabric": "Tonal Jacquard Cotton",
-    "code": "ABC-SHR-039",
-    "inStock": true,
-    "tags": [
-      "Jacquard",
-      "Lustrous",
-      "Evening"
-    ]
-  },
-  {
-    "id": "ab-040",
-    "slug": "monochrome-micro-pattern-jacquard-shirt-040",
-    "name": "Monochrome Micro-Pattern Jacquard Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326664928569_55023169382_6.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
-    "badge": "Evening Edit",
-    "fit": "Slim Fit",
-    "fabric": "Tonal Jacquard Cotton",
-    "code": "ABC-SHR-040",
-    "inStock": true,
-    "tags": [
-      "Jacquard",
-      "Lustrous",
-      "Evening"
-    ]
-  },
-  {
-    "id": "ab-041",
-    "slug": "monochrome-micro-pattern-jacquard-shirt-041",
-    "name": "Monochrome Micro-Pattern Jacquard Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326849392427_55023169382_1.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
-    "badge": "Evening Edit",
-    "fit": "Slim Fit",
-    "fabric": "Tonal Jacquard Cotton",
-    "code": "ABC-SHR-041",
-    "inStock": true,
-    "tags": [
-      "Jacquard",
-      "Lustrous",
-      "Evening"
-    ]
-  },
-  {
-    "id": "ab-042",
-    "slug": "monochrome-micro-pattern-jacquard-shirt-042",
-    "name": "Monochrome Micro-Pattern Jacquard Shirt",
-    "category": "Shirts",
-    "categorySlug": "shirts",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-16_11-09-44_2972563326849493749_55023169382_3.jpg",
-    "description": "Understated jacquard weave adding tactile depth and rich luster for evening occasions.",
-    "badge": "Evening Edit",
-    "fit": "Slim Fit",
-    "fabric": "Tonal Jacquard Cotton",
-    "code": "ABC-SHR-042",
-    "inStock": true,
-    "tags": [
-      "Jacquard",
-      "Lustrous",
-      "Evening"
-    ]
-  },
-  {
-    "id": "ab-043",
-    "slug": "contemporary-tailored-casual-shirt-043",
-    "name": "Contemporary Tailored Casual Shirt",
+    "slug": "wild-studio-slim-fit-artisanal-printed-shirts-collection-038",
+    "name": "Wild Studio Slim-Fit Artisanal Printed Shirts Collection",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-17_18-33-30_2973511457178935447_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
-    "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
-    "code": "ABC-SHR-043",
+    "description": "Curated stack of geometric, floral, and newspaper montage prints tailored for high-fashion statements.",
+    "badge": "Artisan Edit",
+    "fit": "Slim Fit",
+    "fabric": "Wild Studio Digital Sateen",
+    "code": "ABC-SHR-038",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Wild Studio",
+      "Printed Shirts",
+      "Artisanal",
+      "Slim Fit"
     ]
   },
   {
-    "id": "ab-044",
-    "slug": "flagship-store-garment-showcase-reel-044",
-    "name": "Flagship Store Garment Showcase Reel",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "video",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-17_18-47-18_2973518204380336778_55023169382.mp4",
-    "description": "Dynamic showcase highlighting seasonal casual staples, tailored silhouettes, and in-store menswear.",
-    "badge": "Reel Showcase",
-    "fit": "Regular Fit",
-    "fabric": "Curated Fabric Selection",
-    "code": "ABC-OUTFIT-044",
-    "inStock": true,
-    "tags": [
-      "Video Reel",
-      "Store Walkthrough",
-      "Trending"
-    ]
-  },
-  {
-    "id": "ab-045",
-    "slug": "pinstripe-smart-casual-button-down-045",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-039",
+    "slug": "pinstripe-smart-casual-button-down-shirt-039",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-19_08-37-58_2974661268603907699_55023169382_3.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-045",
+    "code": "ABC-SHR-039",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -913,17 +808,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-046",
-    "slug": "pinstripe-smart-casual-button-down-046",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-040",
+    "slug": "pinstripe-smart-casual-button-down-shirt-040",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-19_08-37-58_2974661268612156184_55023169382_4.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-046",
+    "code": "ABC-SHR-040",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -932,17 +827,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-047",
-    "slug": "pinstripe-smart-casual-button-down-047",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-041",
+    "slug": "pinstripe-smart-casual-button-down-shirt-041",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-19_08-37-58_2974661268612278177_55023169382_2.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-047",
+    "code": "ABC-SHR-041",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -951,17 +846,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-048",
-    "slug": "pinstripe-smart-casual-button-down-048",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-042",
+    "slug": "pinstripe-smart-casual-button-down-shirt-042",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-19_08-37-58_2974661268729665444_55023169382_5.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-048",
+    "code": "ABC-SHR-042",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -970,17 +865,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-049",
-    "slug": "pinstripe-smart-casual-button-down-049",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-043",
+    "slug": "pinstripe-smart-casual-button-down-shirt-043",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-19_08-37-58_2974661268771556991_55023169382_1.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-049",
+    "code": "ABC-SHR-043",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -989,9 +884,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-050",
-    "slug": "heritage-lumberjack-plaid-flap-shirt-050",
-    "name": "Heritage Lumberjack Plaid Flap Shirt",
+    "id": "ab-044",
+    "slug": "heritage-lumberjack-plaid-flap-pocket-shirt-044",
+    "name": "Heritage Lumberjack Plaid Flap Pocket Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1000,7 +895,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Brushed Cotton Flannel",
-    "code": "ABC-SHR-050",
+    "code": "ABC-SHR-044",
     "inStock": true,
     "tags": [
       "Plaid Flannel",
@@ -1009,9 +904,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-051",
-    "slug": "heritage-lumberjack-plaid-flap-shirt-051",
-    "name": "Heritage Lumberjack Plaid Flap Shirt",
+    "id": "ab-045",
+    "slug": "heritage-lumberjack-plaid-flap-pocket-shirt-045",
+    "name": "Heritage Lumberjack Plaid Flap Pocket Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1020,7 +915,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Brushed Cotton Flannel",
-    "code": "ABC-SHR-051",
+    "code": "ABC-SHR-045",
     "inStock": true,
     "tags": [
       "Plaid Flannel",
@@ -1029,9 +924,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-052",
-    "slug": "heritage-lumberjack-plaid-flap-shirt-052",
-    "name": "Heritage Lumberjack Plaid Flap Shirt",
+    "id": "ab-046",
+    "slug": "heritage-lumberjack-plaid-flap-pocket-shirt-046",
+    "name": "Heritage Lumberjack Plaid Flap Pocket Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1040,7 +935,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Brushed Cotton Flannel",
-    "code": "ABC-SHR-052",
+    "code": "ABC-SHR-046",
     "inStock": true,
     "tags": [
       "Plaid Flannel",
@@ -1049,9 +944,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-053",
-    "slug": "heritage-lumberjack-plaid-flap-shirt-053",
-    "name": "Heritage Lumberjack Plaid Flap Shirt",
+    "id": "ab-047",
+    "slug": "heritage-lumberjack-plaid-flap-pocket-shirt-047",
+    "name": "Heritage Lumberjack Plaid Flap Pocket Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1060,7 +955,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Brushed Cotton Flannel",
-    "code": "ABC-SHR-053",
+    "code": "ABC-SHR-047",
     "inStock": true,
     "tags": [
       "Plaid Flannel",
@@ -1069,9 +964,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-054",
-    "slug": "garment-dyed-classic-oxford-button-down-054",
-    "name": "Garment-Dyed Classic Oxford Button-Down",
+    "id": "ab-048",
+    "slug": "garment-dyed-classic-oxford-button-down-shirt-048",
+    "name": "Garment-Dyed Classic Oxford Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1080,7 +975,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Essential",
     "fit": "Regular Fit",
     "fabric": "Garment-Dyed Oxford Cotton",
-    "code": "ABC-SHR-054",
+    "code": "ABC-SHR-048",
     "inStock": true,
     "tags": [
       "Garment Dyed",
@@ -1089,9 +984,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-055",
-    "slug": "garment-dyed-classic-oxford-button-down-055",
-    "name": "Garment-Dyed Classic Oxford Button-Down",
+    "id": "ab-049",
+    "slug": "garment-dyed-classic-oxford-button-down-shirt-049",
+    "name": "Garment-Dyed Classic Oxford Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1100,7 +995,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Essential",
     "fit": "Regular Fit",
     "fabric": "Garment-Dyed Oxford Cotton",
-    "code": "ABC-SHR-055",
+    "code": "ABC-SHR-049",
     "inStock": true,
     "tags": [
       "Garment Dyed",
@@ -1109,9 +1004,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-056",
-    "slug": "highland-check-point-collar-shirt-056",
-    "name": "Highland Check Point-Collar Shirt",
+    "id": "ab-050",
+    "slug": "highland-tartan-check-point-collar-shirt-050",
+    "name": "Highland Tartan Check Point-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1119,7 +1014,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Refined tartan checked shirt tailored with a neat point collar and crisp drape.",
     "fit": "Regular Fit",
     "fabric": "High-Count Tartan Poplin",
-    "code": "ABC-SHR-056",
+    "code": "ABC-SHR-050",
     "inStock": true,
     "tags": [
       "Tartan Check",
@@ -1128,9 +1023,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-057",
-    "slug": "highland-check-point-collar-shirt-057",
-    "name": "Highland Check Point-Collar Shirt",
+    "id": "ab-051",
+    "slug": "highland-tartan-check-point-collar-shirt-051",
+    "name": "Highland Tartan Check Point-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1138,7 +1033,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Refined tartan checked shirt tailored with a neat point collar and crisp drape.",
     "fit": "Regular Fit",
     "fabric": "High-Count Tartan Poplin",
-    "code": "ABC-SHR-057",
+    "code": "ABC-SHR-051",
     "inStock": true,
     "tags": [
       "Tartan Check",
@@ -1147,9 +1042,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-058",
-    "slug": "highland-check-point-collar-shirt-058",
-    "name": "Highland Check Point-Collar Shirt",
+    "id": "ab-052",
+    "slug": "highland-tartan-check-point-collar-shirt-052",
+    "name": "Highland Tartan Check Point-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1157,7 +1052,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Refined tartan checked shirt tailored with a neat point collar and crisp drape.",
     "fit": "Regular Fit",
     "fabric": "High-Count Tartan Poplin",
-    "code": "ABC-SHR-058",
+    "code": "ABC-SHR-052",
     "inStock": true,
     "tags": [
       "Tartan Check",
@@ -1166,17 +1061,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-059",
-    "slug": "pinstripe-smart-casual-button-down-059",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-053",
+    "slug": "pinstripe-smart-casual-button-down-shirt-053",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-29_17-01-18_2982162361038649932_55023169382.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-059",
+    "code": "ABC-SHR-053",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -1185,17 +1080,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-060",
-    "slug": "pinstripe-smart-casual-button-down-060",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-054",
+    "slug": "pinstripe-smart-casual-button-down-shirt-054",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-29_17-14-31_2982169020116876148_55023169382_3.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-060",
+    "code": "ABC-SHR-054",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -1204,17 +1099,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-061",
-    "slug": "pinstripe-smart-casual-button-down-061",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-055",
+    "slug": "pinstripe-smart-casual-button-down-shirt-055",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-29_17-14-31_2982169020116903497_55023169382_1.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-061",
+    "code": "ABC-SHR-055",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -1223,17 +1118,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-062",
-    "slug": "pinstripe-smart-casual-button-down-062",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-056",
+    "slug": "pinstripe-smart-casual-button-down-shirt-056",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-29_17-14-31_2982169020116922813_55023169382_2.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-062",
+    "code": "ABC-SHR-056",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -1242,17 +1137,17 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-063",
-    "slug": "pinstripe-smart-casual-button-down-063",
-    "name": "Pinstripe Smart Casual Button-Down",
+    "id": "ab-057",
+    "slug": "pinstripe-smart-casual-button-down-shirt-057",
+    "name": "Pinstripe Smart Casual Button-Down Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-11-29_17-14-31_2982169020293135536_55023169382_4.jpg",
-    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday wardrobes.",
+    "description": "Clean fine stripes bring an immaculate tailored aesthetic to weekday and social wardrobes.",
     "fit": "Slim Fit",
     "fabric": "Fine Yarn-Dyed Cotton",
-    "code": "ABC-SHR-063",
+    "code": "ABC-SHR-057",
     "inStock": true,
     "tags": [
       "Pinstripe",
@@ -1261,36 +1156,38 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-064",
-    "slug": "contemporary-tailored-casual-shirt-064",
-    "name": "Contemporary Tailored Casual Shirt",
+    "id": "ab-058",
+    "slug": "artisanal-block-printed-relaxed-casual-shirt-058",
+    "name": "Artisanal Block-Printed Relaxed Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2022-12-21_11-12-27_2997931849222160546_55023169382.jpg",
-    "description": "Classic button-down crafted for timeless sophistication and all-day versatility.",
+    "description": "Handcrafted motif patterns in rich tonal shades tailored for effortless leisure.",
+    "badge": "Resort Cut",
     "fit": "Regular Fit",
-    "fabric": "100% Combed Cotton",
-    "code": "ABC-SHR-064",
+    "fabric": "Printed Poplin Cotton",
+    "code": "ABC-SHR-058",
     "inStock": true,
     "tags": [
-      "Casual Shirt",
-      "Cotton Comfort",
-      "Versatile"
+      "Printed Shirt",
+      "Resort Casual",
+      "Soft Poplin"
     ]
   },
   {
-    "id": "ab-065",
-    "slug": "urban-essential-solid-crew-tee-065",
+    "id": "ab-059",
+    "slug": "urban-essential-solid-crew-tee-059",
     "name": "Urban Essential Solid Crew Tee",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-01-03_20-38-02_3007638597164375839_55023169382.jpg",
     "description": "Relaxed fit tee with a clean, versatile look crafted for effortless daily comfort.",
+    "badge": "Essential",
     "fit": "Regular Fit",
     "fabric": "100% Breathable Cotton",
-    "code": "ABC-TSH-065",
+    "code": "ABC-TSH-059",
     "inStock": true,
     "tags": [
       "Essential",
@@ -1299,17 +1196,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-066",
-    "slug": "urban-essential-solid-crew-tee-066",
+    "id": "ab-060",
+    "slug": "urban-essential-solid-crew-tee-060",
     "name": "Urban Essential Solid Crew Tee",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-01-12_13-21-21_3013941794162248642_55023169382.jpg",
     "description": "Relaxed fit tee with a clean, versatile look crafted for effortless daily comfort.",
+    "badge": "Essential",
     "fit": "Regular Fit",
     "fabric": "100% Breathable Cotton",
-    "code": "ABC-TSH-066",
+    "code": "ABC-TSH-060",
     "inStock": true,
     "tags": [
       "Essential",
@@ -1318,9 +1216,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-067",
-    "slug": "artisanal-abstract-printed-shirt-067",
-    "name": "Artisanal Abstract Printed Shirt",
+    "id": "ab-061",
+    "slug": "artisanal-abstract-digital-printed-shirt-061",
+    "name": "Artisanal Abstract Digital Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1329,7 +1227,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Artisan Series",
     "fit": "Slim Fit",
     "fabric": "Digital Printed Sateen",
-    "code": "ABC-SHR-067",
+    "code": "ABC-SHR-061",
     "inStock": true,
     "tags": [
       "Abstract Print",
@@ -1338,9 +1236,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-068",
-    "slug": "artisanal-abstract-printed-shirt-068",
-    "name": "Artisanal Abstract Printed Shirt",
+    "id": "ab-062",
+    "slug": "artisanal-abstract-digital-printed-shirt-062",
+    "name": "Artisanal Abstract Digital Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1349,7 +1247,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Artisan Series",
     "fit": "Slim Fit",
     "fabric": "Digital Printed Sateen",
-    "code": "ABC-SHR-068",
+    "code": "ABC-SHR-062",
     "inStock": true,
     "tags": [
       "Abstract Print",
@@ -1358,9 +1256,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-069",
-    "slug": "artisanal-abstract-printed-shirt-069",
-    "name": "Artisanal Abstract Printed Shirt",
+    "id": "ab-063",
+    "slug": "artisanal-abstract-digital-printed-shirt-063",
+    "name": "Artisanal Abstract Digital Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1369,7 +1267,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Artisan Series",
     "fit": "Slim Fit",
     "fabric": "Digital Printed Sateen",
-    "code": "ABC-SHR-069",
+    "code": "ABC-SHR-063",
     "inStock": true,
     "tags": [
       "Abstract Print",
@@ -1378,118 +1276,123 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-070",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-070",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-064",
+    "slug": "big-bash-contrast-stitch-straight-cut-denim-jeans-in-raw-deep-indigo-064",
+    "name": "Big Bash Contrast Stitch & Straight-Cut Denim Jeans in Raw Deep Indigo",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-18_06-40-09_3060850284784774845_55023169382_1.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Premium denim crafted with contrast topstitching, ergonomic knee articulation, and soft hand-feel.",
+    "badge": "Denim Edit",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-070",
+    "fabric": "Artisan Stonewashed Denim",
+    "code": "ABC-PNT-064",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Denim Jeans",
+      "Contrast Stitch",
+      "Slim Straight",
+      "Daily Denim"
     ]
   },
   {
-    "id": "ab-071",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-071",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-065",
+    "slug": "big-bash-contrast-stitch-straight-cut-denim-jeans-in-acid-tint-blue-065",
+    "name": "Big Bash Contrast Stitch & Straight-Cut Denim Jeans in Acid Tint Blue",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-18_06-40-09_3060850284792947809_55023169382_2.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Premium denim crafted with contrast topstitching, ergonomic knee articulation, and soft hand-feel.",
+    "badge": "Denim Edit",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-071",
+    "fabric": "Artisan Stonewashed Denim",
+    "code": "ABC-PNT-065",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Denim Jeans",
+      "Contrast Stitch",
+      "Slim Straight",
+      "Daily Denim"
     ]
   },
   {
-    "id": "ab-072",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-072",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-066",
+    "slug": "big-bash-contrast-stitch-straight-cut-denim-jeans-in-light-indigo-wash-066",
+    "name": "Big Bash Contrast Stitch & Straight-Cut Denim Jeans in Light Indigo Wash",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-18_06-40-09_3060850284793129613_55023169382_4.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Premium denim crafted with contrast topstitching, ergonomic knee articulation, and soft hand-feel.",
+    "badge": "Denim Edit",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-072",
+    "fabric": "Artisan Stonewashed Denim",
+    "code": "ABC-PNT-066",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Denim Jeans",
+      "Contrast Stitch",
+      "Slim Straight",
+      "Daily Denim"
     ]
   },
   {
-    "id": "ab-073",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-073",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-067",
+    "slug": "big-bash-contrast-stitch-straight-cut-denim-jeans-in-medium-stonewash-067",
+    "name": "Big Bash Contrast Stitch & Straight-Cut Denim Jeans in Medium Stonewash",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-18_06-40-09_3060850284801313022_55023169382_3.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Premium denim crafted with contrast topstitching, ergonomic knee articulation, and soft hand-feel.",
+    "badge": "Denim Edit",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-073",
+    "fabric": "Artisan Stonewashed Denim",
+    "code": "ABC-PNT-067",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Denim Jeans",
+      "Contrast Stitch",
+      "Slim Straight",
+      "Daily Denim"
     ]
   },
   {
-    "id": "ab-074",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-074",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-068",
+    "slug": "big-bash-contrast-stitch-straight-cut-denim-jeans-in-charcoal-vintage-068",
+    "name": "Big Bash Contrast Stitch & Straight-Cut Denim Jeans in Charcoal Vintage",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-18_06-40-09_3060850284801519021_55023169382_5.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Premium denim crafted with contrast topstitching, ergonomic knee articulation, and soft hand-feel.",
+    "badge": "Denim Edit",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-074",
+    "fabric": "Artisan Stonewashed Denim",
+    "code": "ABC-PNT-068",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Denim Jeans",
+      "Contrast Stitch",
+      "Slim Straight",
+      "Daily Denim"
     ]
   },
   {
-    "id": "ab-075",
-    "slug": "solid-slub-linen-resort-shirt-075",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-069",
+    "slug": "solid-slub-linen-resort-casual-shirt-069",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479676459883_55023169382_5.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-075",
+    "code": "ABC-SHR-069",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1498,18 +1401,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-076",
-    "slug": "solid-slub-linen-resort-shirt-076",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-070",
+    "slug": "solid-slub-linen-resort-casual-shirt-070",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479676566125_55023169382_4.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-076",
+    "code": "ABC-SHR-070",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1518,18 +1421,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-077",
-    "slug": "solid-slub-linen-resort-shirt-077",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-071",
+    "slug": "solid-slub-linen-resort-casual-shirt-071",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479684861692_55023169382_1.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-077",
+    "code": "ABC-SHR-071",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1538,18 +1441,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-078",
-    "slug": "solid-slub-linen-resort-shirt-078",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-072",
+    "slug": "solid-slub-linen-resort-casual-shirt-072",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479684902053_55023169382_2.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-078",
+    "code": "ABC-SHR-072",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1558,18 +1461,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-079",
-    "slug": "solid-slub-linen-resort-shirt-079",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-073",
+    "slug": "solid-slub-linen-resort-casual-shirt-073",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479835869305_55023169382_6.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-079",
+    "code": "ABC-SHR-073",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1578,18 +1481,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-080",
-    "slug": "solid-slub-linen-resort-shirt-080",
-    "name": "Solid Slub Linen Resort Shirt",
+    "id": "ab-074",
+    "slug": "solid-slub-linen-resort-casual-shirt-074",
+    "name": "Solid Slub Linen Resort Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-03-20_18-36-41_3062660479877777205_55023169382_3.jpg",
-    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit comfort.",
+    "description": "Lightweight slub linen woven in fresh vibrant pastels for sunlit coastal comfort.",
     "badge": "Summer Essential",
     "fit": "Slim Fit",
     "fabric": "Breathable Slub Linen-Cotton",
-    "code": "ABC-SHR-080",
+    "code": "ABC-SHR-074",
     "inStock": true,
     "tags": [
       "Slub Linen",
@@ -1598,9 +1501,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-081",
-    "slug": "mandala-geometric-swirl-print-shirt-081",
-    "name": "Mandala Geometric Swirl Print Shirt",
+    "id": "ab-075",
+    "slug": "mandala-geometric-swirl-printed-shirt-075",
+    "name": "Mandala Geometric Swirl Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1608,7 +1511,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Intricate kaleidoscope motifs create a vibrant, modern touch for celebratory outings.",
     "fit": "Slim Fit",
     "fabric": "Combed Cotton Sateen",
-    "code": "ABC-SHR-081",
+    "code": "ABC-SHR-075",
     "inStock": true,
     "tags": [
       "Mandala Print",
@@ -1617,9 +1520,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-082",
-    "slug": "mandala-geometric-swirl-print-shirt-082",
-    "name": "Mandala Geometric Swirl Print Shirt",
+    "id": "ab-076",
+    "slug": "mandala-geometric-swirl-printed-shirt-076",
+    "name": "Mandala Geometric Swirl Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1627,7 +1530,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Intricate kaleidoscope motifs create a vibrant, modern touch for celebratory outings.",
     "fit": "Slim Fit",
     "fabric": "Combed Cotton Sateen",
-    "code": "ABC-SHR-082",
+    "code": "ABC-SHR-076",
     "inStock": true,
     "tags": [
       "Mandala Print",
@@ -1636,9 +1539,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-083",
-    "slug": "mandala-geometric-swirl-print-shirt-083",
-    "name": "Mandala Geometric Swirl Print Shirt",
+    "id": "ab-077",
+    "slug": "mandala-geometric-swirl-printed-shirt-077",
+    "name": "Mandala Geometric Swirl Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1646,7 +1549,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Intricate kaleidoscope motifs create a vibrant, modern touch for celebratory outings.",
     "fit": "Slim Fit",
     "fabric": "Combed Cotton Sateen",
-    "code": "ABC-SHR-083",
+    "code": "ABC-SHR-077",
     "inStock": true,
     "tags": [
       "Mandala Print",
@@ -1655,9 +1558,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-084",
-    "slug": "mandala-geometric-swirl-print-shirt-084",
-    "name": "Mandala Geometric Swirl Print Shirt",
+    "id": "ab-078",
+    "slug": "mandala-geometric-swirl-printed-shirt-078",
+    "name": "Mandala Geometric Swirl Printed Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1665,7 +1568,7 @@ export const catalogItems: CatalogItem[] = [
     "description": "Intricate kaleidoscope motifs create a vibrant, modern touch for celebratory outings.",
     "fit": "Slim Fit",
     "fabric": "Combed Cotton Sateen",
-    "code": "ABC-SHR-084",
+    "code": "ABC-SHR-078",
     "inStock": true,
     "tags": [
       "Mandala Print",
@@ -1674,209 +1577,219 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-085",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-085",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-079",
+    "slug": "zara-comfort-stretch-tailored-cotton-chinos-in-olive-khaki-079",
+    "name": "Zara Comfort-Stretch Tailored Cotton Chinos in Olive Khaki",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-07-06_20-22-15_3140989392416274608_55023169382_1.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "description": "Modern European cut trousers engineered with 2% elastane for flexibility and sleek boardroom-to-dinner polish.",
+    "badge": "Smart Casual",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-085",
+    "fabric": "Sateen Comfort-Stretch Cotton",
+    "code": "ABC-PNT-079",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Cotton Trousers",
+      "Stretch Chinos",
+      "Slim Silhouette",
+      "Polished"
+    ]
+  },
+  {
+    "id": "ab-080",
+    "slug": "zara-comfort-stretch-tailored-cotton-chinos-in-slate-grey-080",
+    "name": "Zara Comfort-Stretch Tailored Cotton Chinos in Slate Grey",
+    "category": "Pants",
+    "categorySlug": "pants",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-07-06_20-22-15_3140989392424587540_55023169382_3.jpg",
+    "description": "Modern European cut trousers engineered with 2% elastane for flexibility and sleek boardroom-to-dinner polish.",
+    "badge": "Smart Casual",
+    "fit": "Slim Fit",
+    "fabric": "Sateen Comfort-Stretch Cotton",
+    "code": "ABC-PNT-080",
+    "inStock": true,
+    "tags": [
+      "Cotton Trousers",
+      "Stretch Chinos",
+      "Slim Silhouette",
+      "Polished"
+    ]
+  },
+  {
+    "id": "ab-081",
+    "slug": "zara-comfort-stretch-tailored-cotton-chinos-in-warm-biscuit-tan-081",
+    "name": "Zara Comfort-Stretch Tailored Cotton Chinos in Warm Biscuit Tan",
+    "category": "Pants",
+    "categorySlug": "pants",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-07-06_20-22-15_3140989392567344360_55023169382_2.jpg",
+    "description": "Modern European cut trousers engineered with 2% elastane for flexibility and sleek boardroom-to-dinner polish.",
+    "badge": "Smart Casual",
+    "fit": "Slim Fit",
+    "fabric": "Sateen Comfort-Stretch Cotton",
+    "code": "ABC-PNT-081",
+    "inStock": true,
+    "tags": [
+      "Cotton Trousers",
+      "Stretch Chinos",
+      "Slim Silhouette",
+      "Polished"
+    ]
+  },
+  {
+    "id": "ab-082",
+    "slug": "four-squares-denim-polo-club-multi-tone-polo-tee-082",
+    "name": "Four Squares Denim Polo Club Multi-Tone Polo Tee",
+    "category": "T-Shirts",
+    "categorySlug": "t-shirts",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-07_18-49-06_3164135332152978430_55023169382.jpg",
+    "description": "Classic sports-luxe piqué polo featuring dual-tone contrast sleeves and refined collar tipping.",
+    "badge": "Bestseller",
+    "fit": "Regular Fit",
+    "fabric": "Combed Cotton Piqué",
+    "code": "ABC-TSH-082",
+    "inStock": true,
+    "tags": [
+      "Polo Tee",
+      "Colorblock",
+      "Smart Casual",
+      "Combed Cotton"
+    ]
+  },
+  {
+    "id": "ab-083",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-raw-dark-blue-083",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Raw Dark Blue",
+    "category": "Pants",
+    "categorySlug": "pants",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485812996855_55023169382_6.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
+    "fit": "Slim Fit",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-083",
+    "inStock": true,
+    "tags": [
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
+    ]
+  },
+  {
+    "id": "ab-084",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-tonal-stonewash-084",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Tonal Stonewash",
+    "category": "Pants",
+    "categorySlug": "pants",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821339107_55023169382_4.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
+    "fit": "Slim Fit",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-084",
+    "inStock": true,
+    "tags": [
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
+    ]
+  },
+  {
+    "id": "ab-085",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-distressed-sky-blue-085",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Distressed Sky Blue",
+    "category": "Pants",
+    "categorySlug": "pants",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821414579_55023169382_3.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
+    "fit": "Slim Fit",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-085",
+    "inStock": true,
+    "tags": [
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
     ]
   },
   {
     "id": "ab-086",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-086",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-faded-ice-wash-086",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Faded Ice Wash",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-07-06_20-22-15_3140989392424587540_55023169382_3.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821449084_55023169382_1.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-086",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-086",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
     ]
   },
   {
     "id": "ab-087",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-087",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-vintage-whiskered-indigo-087",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Vintage Whiskered Indigo",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-07-06_20-22-15_3140989392567344360_55023169382_2.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485955480969_55023169382_2.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
     "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-087",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-087",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
     ]
   },
   {
     "id": "ab-088",
-    "slug": "complete-tailored-shirt-tonal-pant-ensemble-088",
-    "name": "Complete Tailored Shirt & Tonal Pant Ensemble",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "slug": "gp-432-distressed-slim-fit-stretch-denim-jeans-in-midnight-black-088",
+    "name": "GP/432 Distressed Slim-Fit Stretch Denim Jeans in Midnight Black",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-07_18-49-06_3164135332152978430_55023169382.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring for modern elegance.",
-    "badge": "Curated Look",
-    "fit": "Regular Fit",
-    "fabric": "Cotton & Linen Blend",
-    "code": "ABC-OUTFIT-088",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485972331085_55023169382_5.jpg",
+    "description": "Hand-whiskered and subtly distressed denim jeans designed for an effortless streetwear edge and snug flexibility.",
+    "badge": "Bestseller",
+    "fit": "Slim Fit",
+    "fabric": "Power-Stretch Denim",
+    "code": "ABC-PNT-088",
     "inStock": true,
     "tags": [
-      "Full Outfit",
-      "Color Harmony",
-      "Stylist Pick"
+      "Distressed Jeans",
+      "Power Stretch",
+      "Whiskered Denim",
+      "Streetwear"
     ]
   },
   {
     "id": "ab-089",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-089",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485812996855_55023169382_6.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-089",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-090",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-090",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821339107_55023169382_4.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-090",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-091",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-091",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821414579_55023169382_3.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-091",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-092",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-092",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485821449084_55023169382_1.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-092",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-093",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-093",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485955480969_55023169382_2.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-093",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-094",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-094",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2023-08-21_18-23-51_3174269485972331085_55023169382_5.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-094",
-    "inStock": true,
-    "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
-    ]
-  },
-  {
-    "id": "ab-095",
-    "slug": "resort-geometric-print-vacation-shirt-095",
-    "name": "Resort Geometric Print Vacation Shirt",
+    "slug": "resort-geometric-print-vacation-camp-collar-shirt-089",
+    "name": "Resort Geometric Print Vacation Camp-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1885,7 +1798,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Trending",
     "fit": "Relaxed Fit",
     "fabric": "Silky Rayon Twill",
-    "code": "ABC-SHR-095",
+    "code": "ABC-SHR-089",
     "inStock": true,
     "tags": [
       "Resort Print",
@@ -1894,9 +1807,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-096",
-    "slug": "resort-geometric-print-vacation-shirt-096",
-    "name": "Resort Geometric Print Vacation Shirt",
+    "id": "ab-090",
+    "slug": "resort-geometric-print-vacation-camp-collar-shirt-090",
+    "name": "Resort Geometric Print Vacation Camp-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1905,7 +1818,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Trending",
     "fit": "Relaxed Fit",
     "fabric": "Silky Rayon Twill",
-    "code": "ABC-SHR-096",
+    "code": "ABC-SHR-090",
     "inStock": true,
     "tags": [
       "Resort Print",
@@ -1914,9 +1827,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-097",
-    "slug": "resort-geometric-print-vacation-shirt-097",
-    "name": "Resort Geometric Print Vacation Shirt",
+    "id": "ab-091",
+    "slug": "resort-geometric-print-vacation-camp-collar-shirt-091",
+    "name": "Resort Geometric Print Vacation Camp-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1925,7 +1838,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Trending",
     "fit": "Relaxed Fit",
     "fabric": "Silky Rayon Twill",
-    "code": "ABC-SHR-097",
+    "code": "ABC-SHR-091",
     "inStock": true,
     "tags": [
       "Resort Print",
@@ -1934,9 +1847,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-098",
-    "slug": "resort-geometric-print-vacation-shirt-098",
-    "name": "Resort Geometric Print Vacation Shirt",
+    "id": "ab-092",
+    "slug": "resort-geometric-print-vacation-camp-collar-shirt-092",
+    "name": "Resort Geometric Print Vacation Camp-Collar Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -1945,7 +1858,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Trending",
     "fit": "Relaxed Fit",
     "fabric": "Silky Rayon Twill",
-    "code": "ABC-SHR-098",
+    "code": "ABC-SHR-092",
     "inStock": true,
     "tags": [
       "Resort Print",
@@ -1954,28 +1867,29 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-099",
-    "slug": "buttercup-textured-shirt-cargo-jogger-ensemble-099",
-    "name": "Buttercup Textured Shirt & Cargo Jogger Ensemble",
+    "id": "ab-093",
+    "slug": "buttercup-textured-shirt-cargo-jogger-ensemble-with-boots-093",
+    "name": "Buttercup Textured Shirt & Cargo Jogger Ensemble with Boots",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2023-09-10_18-37-41_3188771960582315469_55023169382.jpg",
-    "description": "Rugged utility meets effortless charm in this curated shirt, cargo pants, and boots look.",
+    "description": "Rugged utility meets effortless charm in this curated shirt, cargo pants, and leather boot pairing.",
     "badge": "Model Lookbook",
     "fit": "Regular Fit",
     "fabric": "Textured Linen & Multi-Pocket Twill",
-    "code": "ABC-OUTFIT-099",
+    "code": "ABC-OUTFIT-093",
     "inStock": true,
     "tags": [
       "Utility Cargo",
       "Boots Styling",
-      "Complete Look"
+      "Complete Look",
+      "Editorial"
     ]
   },
   {
-    "id": "ab-100",
-    "slug": "clean-minimal-oversized-boxy-tee-100",
+    "id": "ab-094",
+    "slug": "clean-minimal-oversized-boxy-tee-094",
     "name": "Clean Minimal Oversized Boxy Tee",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
@@ -1985,187 +1899,196 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Streetwear Edit",
     "fit": "Oversized",
     "fabric": "Heavyweight Combed Jersey",
-    "code": "ABC-TSH-100",
+    "code": "ABC-TSH-094",
     "inStock": true,
     "tags": [
       "Oversized Fit",
       "Boxy Cut",
-      "Drop Shoulder"
+      "Drop Shoulder",
+      "Streetwear"
     ]
   },
   {
-    "id": "ab-101",
-    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-101",
-    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers",
+    "id": "ab-095",
+    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-ensemble-095",
+    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers Ensemble",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-06-16_09-47-41_3391442408841720724_55023169382_1.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring in warm terracotta tones.",
+    "description": "A fashion-forward pairing blending casual graphic tee energy with sharp terracotta tailored trousers.",
     "badge": "Model Lookbook",
     "fit": "Relaxed Fit",
     "fabric": "Cotton Tee & Pleated Twill",
-    "code": "ABC-OUTFIT-101",
+    "code": "ABC-OUTFIT-095",
     "inStock": true,
     "tags": [
       "Streetwear Look",
       "Terracotta",
-      "Pleated Trousers"
+      "Pleated Trousers",
+      "Coordinated Set"
     ]
   },
   {
-    "id": "ab-102",
-    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-102",
-    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers",
+    "id": "ab-096",
+    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-ensemble-096",
+    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers Ensemble",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-06-16_09-47-41_3391442408841814770_55023169382_3.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring in warm terracotta tones.",
+    "description": "A fashion-forward pairing blending casual graphic tee energy with sharp terracotta tailored trousers.",
     "badge": "Model Lookbook",
     "fit": "Relaxed Fit",
     "fabric": "Cotton Tee & Pleated Twill",
-    "code": "ABC-OUTFIT-102",
+    "code": "ABC-OUTFIT-096",
     "inStock": true,
     "tags": [
       "Streetwear Look",
       "Terracotta",
-      "Pleated Trousers"
+      "Pleated Trousers",
+      "Coordinated Set"
     ]
   },
   {
-    "id": "ab-103",
-    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-103",
-    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers",
+    "id": "ab-097",
+    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-ensemble-097",
+    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers Ensemble",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-06-16_09-47-41_3391442408841841243_55023169382_2.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring in warm terracotta tones.",
+    "description": "A fashion-forward pairing blending casual graphic tee energy with sharp terracotta tailored trousers.",
     "badge": "Model Lookbook",
     "fit": "Relaxed Fit",
     "fabric": "Cotton Tee & Pleated Twill",
-    "code": "ABC-OUTFIT-103",
+    "code": "ABC-OUTFIT-097",
     "inStock": true,
     "tags": [
       "Streetwear Look",
       "Terracotta",
-      "Pleated Trousers"
+      "Pleated Trousers",
+      "Coordinated Set"
     ]
   },
   {
-    "id": "ab-104",
-    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-104",
-    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers",
+    "id": "ab-098",
+    "slug": "urban-streetwear-graphic-tee-terracotta-trousers-ensemble-098",
+    "name": "Urban Streetwear Graphic Tee & Terracotta Trousers Ensemble",
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-06-16_09-47-41_3391442408992905825_55023169382_4.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring in warm terracotta tones.",
+    "description": "A fashion-forward pairing blending casual graphic tee energy with sharp terracotta tailored trousers.",
     "badge": "Model Lookbook",
     "fit": "Relaxed Fit",
     "fabric": "Cotton Tee & Pleated Twill",
-    "code": "ABC-OUTFIT-104",
+    "code": "ABC-OUTFIT-098",
     "inStock": true,
     "tags": [
       "Streetwear Look",
       "Terracotta",
-      "Pleated Trousers"
+      "Pleated Trousers",
+      "Coordinated Set"
     ]
   },
   {
-    "id": "ab-105",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-105",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-099",
+    "slug": "authentic-heavyweight-stretch-denim-jeans-in-washed-cobalt-099",
+    "name": "Authentic Heavyweight Stretch Denim Jeans in Washed Cobalt",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-10-05_10-07-44_3471902605426708026_55023169382_1.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-105",
+    "description": "Substantial authentic denim engineered for longevity, retaining its clean silhouette wash after wash.",
+    "badge": "New Arrival",
+    "fit": "Regular Fit",
+    "fabric": "Heavyweight 12.5oz Denim",
+    "code": "ABC-PNT-099",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Heavyweight Denim",
+      "Classic Cut",
+      "Durable Wash",
+      "Essential Jeans"
     ]
   },
   {
-    "id": "ab-106",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-106",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-100",
+    "slug": "authentic-heavyweight-stretch-denim-jeans-in-charcoal-rinse-100",
+    "name": "Authentic Heavyweight Stretch Denim Jeans in Charcoal Rinse",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-10-05_10-07-44_3471902605435156489_55023169382_2.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-106",
+    "description": "Substantial authentic denim engineered for longevity, retaining its clean silhouette wash after wash.",
+    "badge": "New Arrival",
+    "fit": "Regular Fit",
+    "fabric": "Heavyweight 12.5oz Denim",
+    "code": "ABC-PNT-100",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Heavyweight Denim",
+      "Classic Cut",
+      "Durable Wash",
+      "Essential Jeans"
     ]
   },
   {
-    "id": "ab-107",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-107",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-101",
+    "slug": "authentic-heavyweight-stretch-denim-jeans-in-classic-indigo-101",
+    "name": "Authentic Heavyweight Stretch Denim Jeans in Classic Indigo",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-10-05_10-07-44_3471902605451727171_55023169382_3.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-107",
+    "description": "Substantial authentic denim engineered for longevity, retaining its clean silhouette wash after wash.",
+    "badge": "New Arrival",
+    "fit": "Regular Fit",
+    "fabric": "Heavyweight 12.5oz Denim",
+    "code": "ABC-PNT-101",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Heavyweight Denim",
+      "Classic Cut",
+      "Durable Wash",
+      "Essential Jeans"
     ]
   },
   {
-    "id": "ab-108",
-    "slug": "tailored-stretch-denim-jeans-casual-shirt-set-108",
-    "name": "Tailored Stretch Denim Jeans & Casual Shirt Set",
-    "category": "Outfits",
-    "categorySlug": "outfits",
+    "id": "ab-102",
+    "slug": "authentic-heavyweight-stretch-denim-jeans-in-deep-azure-102",
+    "name": "Authentic Heavyweight Stretch Denim Jeans in Deep Azure",
+    "category": "Pants",
+    "categorySlug": "pants",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2024-10-05_10-07-44_3471902605594536782_55023169382_4.jpg",
-    "description": "Durable authentic denim washes paired for effortless weekend and travel versatility.",
-    "badge": "Denim Collection",
-    "fit": "Slim Fit",
-    "fabric": "Premium Stretch Denim",
-    "code": "ABC-OUTFIT-108",
+    "description": "Substantial authentic denim engineered for longevity, retaining its clean silhouette wash after wash.",
+    "badge": "New Arrival",
+    "fit": "Regular Fit",
+    "fabric": "Heavyweight 12.5oz Denim",
+    "code": "ABC-PNT-102",
     "inStock": true,
     "tags": [
-      "Stretch Denim",
-      "Slim Fit Jeans",
-      "Weekend Styling"
+      "Heavyweight Denim",
+      "Classic Cut",
+      "Durable Wash",
+      "Essential Jeans"
     ]
   },
   {
-    "id": "ab-109",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-espresso-brown-109",
+    "id": "ab-103",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-espresso-brown-103",
     "name": "Retro Textured Knit Stripe Polo Tee in Espresso Brown",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606770934224_55023169382_4.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Trending",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-109",
+    "code": "ABC-TSH-103",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2174,18 +2097,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-110",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-sage-olive-110",
+    "id": "ab-104",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-sage-olive-104",
     "name": "Retro Textured Knit Stripe Polo Tee in Sage Olive",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606905124760_55023169382_1.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-110",
+    "code": "ABC-TSH-104",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2194,18 +2117,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-111",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-sky-cerulean-111",
+    "id": "ab-105",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-sky-cerulean-105",
     "name": "Retro Textured Knit Stripe Polo Tee in Sky Cerulean",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606938770548_55023169382_6.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Trending",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-111",
+    "code": "ABC-TSH-105",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2214,18 +2137,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-112",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-dusty-rose-112",
+    "id": "ab-106",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-dusty-rose-106",
     "name": "Retro Textured Knit Stripe Polo Tee in Dusty Rose",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606955484057_55023169382_3.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-112",
+    "code": "ABC-TSH-106",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2234,18 +2157,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-113",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-chalk-cream-113",
+    "id": "ab-107",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-chalk-cream-107",
     "name": "Retro Textured Knit Stripe Polo Tee in Chalk Cream",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606972237284_55023169382_5.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Trending",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-113",
+    "code": "ABC-TSH-107",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2254,18 +2177,18 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-114",
-    "slug": "retro-textured-knit-stripe-polo-tee-in-deep-plum-114",
+    "id": "ab-108",
+    "slug": "retro-textured-knit-stripe-polo-tee-in-deep-plum-108",
     "name": "Retro Textured Knit Stripe Polo Tee in Deep Plum",
     "category": "T-Shirts",
     "categorySlug": "t-shirts",
     "mediaType": "image",
     "mediaUrl": "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606989116795_55023169382_2.jpg",
-    "description": "Vintage-inspired vertical textured polo knit for an effortlessly sharp weekend aesthetic.",
+    "description": "Vintage-inspired vertical textured polo knit tailored for an effortlessly sharp weekend aesthetic.",
     "badge": "Bestseller",
     "fit": "Regular Fit",
     "fabric": "Textured Jacquard Cotton Knit",
-    "code": "ABC-TSH-114",
+    "code": "ABC-TSH-108",
     "inStock": true,
     "tags": [
       "Textured Knit",
@@ -2274,9 +2197,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-115",
-    "slug": "sun-faded-ombre-linen-casual-shirt-115",
-    "name": "Sun-Faded Ombre Linen Casual Shirt",
+    "id": "ab-109",
+    "slug": "sun-faded-ombre-dip-dyed-linen-casual-shirt-109",
+    "name": "Sun-Faded Ombre Dip-Dyed Linen Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -2285,7 +2208,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Model Feature",
     "fit": "Relaxed Fit",
     "fabric": "Garment-Washed Ombre Linen",
-    "code": "ABC-SHR-115",
+    "code": "ABC-SHR-109",
     "inStock": true,
     "tags": [
       "Ombre Dye",
@@ -2294,9 +2217,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-116",
-    "slug": "sun-faded-ombre-linen-casual-shirt-116",
-    "name": "Sun-Faded Ombre Linen Casual Shirt",
+    "id": "ab-110",
+    "slug": "sun-faded-ombre-dip-dyed-linen-casual-shirt-110",
+    "name": "Sun-Faded Ombre Dip-Dyed Linen Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -2305,7 +2228,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Model Feature",
     "fit": "Relaxed Fit",
     "fabric": "Garment-Washed Ombre Linen",
-    "code": "ABC-SHR-116",
+    "code": "ABC-SHR-110",
     "inStock": true,
     "tags": [
       "Ombre Dye",
@@ -2314,9 +2237,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-117",
-    "slug": "sun-faded-ombre-linen-casual-shirt-117",
-    "name": "Sun-Faded Ombre Linen Casual Shirt",
+    "id": "ab-111",
+    "slug": "sun-faded-ombre-dip-dyed-linen-casual-shirt-111",
+    "name": "Sun-Faded Ombre Dip-Dyed Linen Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -2325,7 +2248,7 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Model Feature",
     "fit": "Relaxed Fit",
     "fabric": "Garment-Washed Ombre Linen",
-    "code": "ABC-SHR-117",
+    "code": "ABC-SHR-111",
     "inStock": true,
     "tags": [
       "Ombre Dye",
@@ -2334,9 +2257,9 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
-    "id": "ab-118",
-    "slug": "sun-faded-ombre-linen-casual-shirt-118",
-    "name": "Sun-Faded Ombre Linen Casual Shirt",
+    "id": "ab-112",
+    "slug": "sun-faded-ombre-dip-dyed-linen-casual-shirt-112",
+    "name": "Sun-Faded Ombre Dip-Dyed Linen Casual Shirt",
     "category": "Shirts",
     "categorySlug": "shirts",
     "mediaType": "image",
@@ -2345,12 +2268,138 @@ export const catalogItems: CatalogItem[] = [
     "badge": "Model Feature",
     "fit": "Relaxed Fit",
     "fabric": "Garment-Washed Ombre Linen",
-    "code": "ABC-SHR-118",
+    "code": "ABC-SHR-112",
     "inStock": true,
     "tags": [
       "Ombre Dye",
       "Pure Linen",
       "Coastal Cool"
+    ]
+  },
+  {
+    "id": "ab-113",
+    "slug": "textured-linen-button-down-tonal-drawstring-trousers-113",
+    "name": "Textured Linen Button-Down & Tonal Drawstring Trousers",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-29_19-46-58_3951992887380927302_55023169382.jpg",
+    "description": "A coordinated ensemble blending comfort with sharp tailoring for sunlit events.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-113",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
+    ]
+  },
+  {
+    "id": "ab-114",
+    "slug": "sky-blue-oxford-shirt-sand-beige-pleated-bottoms-114",
+    "name": "Sky Blue Oxford Shirt & Sand Beige Pleated Bottoms",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-30_18-29-47_3952678560119236080_55023169382.jpg",
+    "description": "Effortlessly polished pairing of crisp blue shirting and relaxed neutral chinos.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-114",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
+    ]
+  },
+  {
+    "id": "ab-115",
+    "slug": "burberry-striped-shirt-tailored-obsidian-trousers-115",
+    "name": "Burberry Striped Shirt & Tailored Obsidian Trousers",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-31_17-48-50_3953384454922477528_55023169382.jpg",
+    "description": "A sophisticated duo balancing heritage stripes with sleek dark trousers.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-115",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
+    ]
+  },
+  {
+    "id": "ab-116",
+    "slug": "olive-geometric-printed-shirt-crisp-white-chinos-116",
+    "name": "Olive Geometric Printed Shirt & Crisp White Chinos",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-02_17-25-55_3954816174486110051_55023169382.jpg",
+    "description": "Sharp modern contrast blending vibrant olive motifs with clean summer whites.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-116",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
+    ]
+  },
+  {
+    "id": "ab-117",
+    "slug": "pastel-coral-linen-shirt-caramel-tailored-trousers-117",
+    "name": "Pastel Coral Linen Shirt & Caramel Tailored Trousers",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-03_19-37-12_3955613230045697812_55023169382.jpg",
+    "description": "Harmonious summer hues uniting a breathable linen shirt with sleek bottoms.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-117",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
+    ]
+  },
+  {
+    "id": "ab-118",
+    "slug": "forest-green-casual-shirt-khaki-slim-trousers-118",
+    "name": "Forest Green Casual Shirt & Khaki Slim Trousers",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "image",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-06_11-48-40_3957548519995537850_55023169382.jpg",
+    "description": "Earth-toned coordinated set offering rugged refinement and sharp lines.",
+    "badge": "Coordinated Set",
+    "fit": "Regular Fit",
+    "fabric": "Linen Shirt & Cotton Trousers",
+    "code": "ABC-OUTFIT-118",
+    "inStock": true,
+    "tags": [
+      "Coordinated Set",
+      "Pre-Styled",
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2360,7 +2409,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-29_19-46-58_3951992887380927302_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-07_20-31-15_3958539571401399904_55023169382.jpg",
     "description": "Timeless nautical elegance pairing structured checks with lightweight linen.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2370,7 +2419,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2380,7 +2430,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-30_18-29-47_3952678560119236080_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-08_18-20-45_3959198668450875358_55023169382.jpg",
     "description": "Warm vibrant tones balanced with versatile charcoal trousers for evening dining.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2390,7 +2440,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2400,7 +2451,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-07-31_17-48-50_3953384454922477528_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-09_20-08-29_3959976301389768157_55023169382.jpg",
     "description": "A coordinated ensemble blending comfort with sharp tailoring for sunlit events.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2410,7 +2461,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2420,7 +2472,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-02_17-25-55_3954816174486110051_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-10_19-04-24_3960670156508967997_55023169382.jpg",
     "description": "Effortlessly polished pairing of crisp blue shirting and relaxed neutral chinos.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2430,7 +2482,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2440,7 +2493,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-03_19-37-12_3955613230045697812_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-13_17-38-25_3962801064611538159_55023169382.jpg",
     "description": "A sophisticated duo balancing heritage stripes with sleek dark trousers.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2450,7 +2503,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2460,7 +2514,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-06_11-48-40_3957548519995537850_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-15_19-47-00_3964315863010861953_55023169382.jpg",
     "description": "Sharp modern contrast blending vibrant olive motifs with clean summer whites.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2470,7 +2524,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2480,7 +2535,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-07_20-31-15_3958539571401399904_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-17_17-17-39_3965690809633104302_55023169382.jpg",
     "description": "Harmonious summer hues uniting a breathable linen shirt with sleek bottoms.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2490,7 +2545,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2500,7 +2556,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-08_18-20-45_3959198668450875358_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-20_18-29-26_3967899950791382005_55023169382.jpg",
     "description": "Earth-toned coordinated set offering rugged refinement and sharp lines.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2510,7 +2566,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2520,7 +2577,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-09_20-08-29_3959976301389768157_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-21_17-42-54_3968599653696374766_55023169382.jpg",
     "description": "Timeless nautical elegance pairing structured checks with lightweight linen.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2530,7 +2587,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2540,7 +2598,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-10_19-04-24_3960670156508967997_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-27_18-16-18_3972968012076456319_55023169382.jpg",
     "description": "Warm vibrant tones balanced with versatile charcoal trousers for evening dining.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2550,7 +2608,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2560,7 +2619,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-13_17-38-25_3962801064611538159_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-28_19-15-24_3973717665365057987_55023169382.jpg",
     "description": "A coordinated ensemble blending comfort with sharp tailoring for sunlit events.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2570,7 +2629,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2580,7 +2640,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-15_19-47-00_3964315863010861953_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-29_18-21-07_3974420418457349018_55023169382.jpg",
     "description": "Effortlessly polished pairing of crisp blue shirting and relaxed neutral chinos.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2590,7 +2650,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2600,7 +2661,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-17_17-17-39_3965690809633104302_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-02_17-31-11_3977292178447603306_55023169382.jpg",
     "description": "A sophisticated duo balancing heritage stripes with sleek dark trousers.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2610,7 +2671,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2620,7 +2682,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-20_18-29-26_3967899950791382005_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-03_18-19-36_3978040631955822314_55023169382.jpg",
     "description": "Sharp modern contrast blending vibrant olive motifs with clean summer whites.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2630,7 +2692,8 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
@@ -2640,7 +2703,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-21_17-42-54_3968599653696374766_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-05_18-44-50_3979504017700926320_55023169382.jpg",
     "description": "Harmonious summer hues uniting a breathable linen shirt with sleek bottoms.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2650,47 +2713,50 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   },
   {
     "id": "ab-134",
-    "slug": "forest-green-casual-shirt-khaki-slim-trousers-134",
-    "name": "Forest Green Casual Shirt & Khaki Slim Trousers",
+    "slug": "coordinated-linen-shirt-trousers-motion-showcase-134",
+    "name": "Coordinated Linen Shirt & Trousers Motion Showcase",
     "category": "Outfits",
     "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-27_18-16-18_3972968012076456319_55023169382.jpg",
-    "description": "Earth-toned coordinated set offering rugged refinement and sharp lines.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
+    "mediaType": "video",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-07_21-09-14_3981022948528008521_55023169382.mp4",
+    "description": "A coordinated ensemble in dynamic motion, showcasing natural linen fabric drape and effortless smart-casual charm.",
+    "badge": "Motion Reel",
+    "fit": "Slim Fit",
+    "fabric": "Pure Linen & Cotton Twill",
     "code": "ABC-OUTFIT-134",
     "inStock": true,
     "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
+      "Motion Reel",
+      "Ensemble",
+      "Summer Edit",
+      "Model Styling"
     ]
   },
   {
     "id": "ab-135",
-    "slug": "navy-windowpane-shirt-cream-linen-trousers-135",
-    "name": "Navy Windowpane Shirt & Cream Linen Trousers",
+    "slug": "editorial-menswear-layering-styling-lookbook-reel-135",
+    "name": "Editorial Menswear Layering & Styling Lookbook Reel",
     "category": "Outfits",
     "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-28_19-15-24_3973717665365057987_55023169382.jpg",
-    "description": "Timeless nautical elegance pairing structured checks with lightweight linen.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
+    "mediaType": "video",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-13_17-55-41_3985270753590532471_45788700626.mp4",
+    "description": "Dynamic motion showcase blending relaxed streetwear with clean tailoring for the modern Indian wardrobe.",
+    "badge": "Motion Reel",
+    "fit": "Relaxed Fit",
+    "fabric": "Curated Fabric Blends",
     "code": "ABC-OUTFIT-135",
     "inStock": true,
     "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
+      "Motion Reel",
+      "Lookbook",
+      "Trending",
+      "Coordinated Set"
     ]
   },
   {
@@ -2700,7 +2766,7 @@ export const catalogItems: CatalogItem[] = [
     "category": "Outfits",
     "categorySlug": "outfits",
     "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-08-29_18-21-07_3974420418457349018_55023169382.jpg",
+    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-15_20-11-53_3986794222359220513_55023169382.jpg",
     "description": "Warm vibrant tones balanced with versatile charcoal trousers for evening dining.",
     "badge": "Coordinated Set",
     "fit": "Regular Fit",
@@ -2710,136 +2776,18 @@ export const catalogItems: CatalogItem[] = [
     "tags": [
       "Coordinated Set",
       "Pre-Styled",
-      "Smart Casual"
-    ]
-  },
-  {
-    "id": "ab-137",
-    "slug": "textured-linen-button-down-tonal-drawstring-trousers-137",
-    "name": "Textured Linen Button-Down & Tonal Drawstring Trousers",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-02_17-31-11_3977292178447603306_55023169382.jpg",
-    "description": "A coordinated ensemble blending comfort with sharp tailoring for sunlit events.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
-    "code": "ABC-OUTFIT-137",
-    "inStock": true,
-    "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
-    ]
-  },
-  {
-    "id": "ab-138",
-    "slug": "sky-blue-oxford-shirt-sand-beige-pleated-bottoms-138",
-    "name": "Sky Blue Oxford Shirt & Sand Beige Pleated Bottoms",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-03_18-19-36_3978040631955822314_55023169382.jpg",
-    "description": "Effortlessly polished pairing of crisp blue shirting and relaxed neutral chinos.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
-    "code": "ABC-OUTFIT-138",
-    "inStock": true,
-    "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
-    ]
-  },
-  {
-    "id": "ab-139",
-    "slug": "burberry-striped-shirt-tailored-obsidian-trousers-139",
-    "name": "Burberry Striped Shirt & Tailored Obsidian Trousers",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-05_18-44-50_3979504017700926320_55023169382.jpg",
-    "description": "A sophisticated duo balancing heritage stripes with sleek dark trousers.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
-    "code": "ABC-OUTFIT-139",
-    "inStock": true,
-    "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
-    ]
-  },
-  {
-    "id": "ab-140",
-    "slug": "coordinated-linen-trouser-motion-showcase-140",
-    "name": "Coordinated Linen & Trouser Motion Showcase",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "video",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-07_21-09-14_3981022948528008521_55023169382.mp4",
-    "description": "A coordinated ensemble in dynamic motion, showcasing natural fabric drape and effortless smart-casual charm.",
-    "badge": "Reel Showcase",
-    "fit": "Slim Fit",
-    "fabric": "Pure Linen & Cotton Twill",
-    "code": "ABC-OUTFIT-140",
-    "inStock": true,
-    "tags": [
-      "Motion Reel",
-      "Ensemble",
-      "Summer Edit"
-    ]
-  },
-  {
-    "id": "ab-141",
-    "slug": "new-season-wardrobe-styling-motion-reel-141",
-    "name": "New Season Wardrobe Styling Motion Reel",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "video",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-13_17-55-41_3985270753590532471_45788700626.mp4",
-    "description": "Editorial motion showcase blending relaxed streetwear with clean tailoring for the modern Indian wardrobe.",
-    "badge": "Reel Showcase",
-    "fit": "Relaxed Fit",
-    "fabric": "Premium Woven Cottons",
-    "code": "ABC-OUTFIT-141",
-    "inStock": true,
-    "tags": [
-      "Motion Reel",
-      "New Season",
-      "Style Inspo"
-    ]
-  },
-  {
-    "id": "ab-142",
-    "slug": "forest-green-casual-shirt-khaki-slim-trousers-142",
-    "name": "Forest Green Casual Shirt & Khaki Slim Trousers",
-    "category": "Outfits",
-    "categorySlug": "outfits",
-    "mediaType": "image",
-    "mediaUrl": "/catalog/ab_collections_kavoor_2026-09-15_20-11-53_3986794222359220513_55023169382.jpg",
-    "description": "Earth-toned coordinated set offering rugged refinement and sharp lines.",
-    "badge": "Coordinated Set",
-    "fit": "Regular Fit",
-    "fabric": "Linen Shirt & Cotton Trousers",
-    "code": "ABC-OUTFIT-142",
-    "inStock": true,
-    "tags": [
-      "Coordinated Set",
-      "Pre-Styled",
-      "Smart Casual"
+      "Smart Casual",
+      "Full Outfit"
     ]
   }
 ];
 
 export const catalogStats = {
-  total: 142,
-  tShirts: 16,
+  total: 136,
+  tShirts: 17,
   shirts: 66,
-  outfits: 60,
-  videos: 3,
-  images: 139,
+  pants: 22,
+  outfits: 31,
+  videos: 2,
+  images: 134,
 };

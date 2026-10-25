@@ -56,7 +56,9 @@ export const Navbar: React.FC = () => {
     { label: "All Items", href: "/shop" },
     { label: "T-Shirts", href: "/shop?category=T-Shirts" },
     { label: "Shirts", href: "/shop?category=Shirts" },
+    { label: "Pants", href: "/shop?category=Pants" },
     { label: "Outfits", href: "/shop?category=Outfits" },
+    { label: "Events", href: "/events" },
     { label: "Lookbook", href: "/lookbook" },
     { label: "Visit Store", href: "/contact" },
   ];

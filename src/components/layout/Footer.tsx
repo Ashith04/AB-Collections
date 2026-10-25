@@ -90,6 +90,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs">
               {[
+                { label: "Events & Festive Offers", href: "/events" },
                 { label: "Lookbook & Archive", href: "/lookbook" },
                 { label: "Our Kavoor Atelier", href: "/about" },
                 { label: "Saved Outfits", href: "/wishlist" },

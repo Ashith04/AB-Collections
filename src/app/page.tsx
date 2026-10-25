@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { catalogItems, CatalogItem } from "@/data/catalog";
+import { catalogItems, catalogStats, CatalogItem } from "@/data/catalog";
 import { HeroSection } from "@/components/home/HeroSection";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { CatalogModal } from "@/components/catalog/CatalogModal";
 import { CatalogFilterBar } from "@/components/catalog/CatalogFilterBar";
 import { DarkBentoSection } from "@/components/home/DarkBentoSection";
+import { EventsSection } from "@/components/events/EventsSection";
 import { MarqueeStrip } from "@/components/home/MarqueeStrip";
 import { ValueProps } from "@/components/home/ValueProps";
 import { VisitStoreSection } from "@/components/home/VisitStoreSection";
@@ -96,7 +97,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 text-neutral-800 text-xs font-mono font-semibold uppercase tracking-wider mb-3 border border-neutral-200/90 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>Showroom Collection • 142 Items</span>
+              <span>Showroom Collection • {catalogStats.total} Menswear Pieces</span>
             </div>
 
             <h2 className="editorial-headline text-3xl sm:text-5xl font-black text-neutral-950 tracking-tight">
@@ -104,7 +105,7 @@ export default function HomePage() {
             </h2>
 
             <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl mx-auto">
-              Every garment in our Kavoor store is captured and categorized below. Browse our relaxed-fit tees, tailored button-downs, and coordinated ensembles with prominent visual previews.
+              Every garment in our Kavoor store is strictly organized below into T-Shirts, Shirts, Pants, and Outfits. Browse crisp button-downs, premium denim &amp; chinos, relaxed tees, and styled sets with prominent visual previews.
             </p>
           </div>
         </RevealOnScroll>
@@ -196,7 +197,10 @@ export default function HomePage() {
         <DarkBentoSection />
       </RevealOnScroll>
 
-      {/* 6. Visit Store Section with Live Map & Hours */}
+      {/* 6. Dedicated Events, Festival Campaigns & Showroom Section */}
+      <EventsSection />
+
+      {/* 7. Visit Store Section with Live Map & Hours */}
       <RevealOnScroll direction="up" delayMs={100}>
         <VisitStoreSection />
       </RevealOnScroll>

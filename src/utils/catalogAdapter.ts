@@ -26,6 +26,7 @@ export function catalogItemToProduct(item: AdaptableCatalogItem): Product {
   const categoryMap: Record<string, ProductCategory> = {
     "T-Shirts": "T-Shirts",
     "Shirts": "Casual Shirts",
+    "Pants": "Jeans",
     "Outfits": "Cargo Trousers",
   };
 

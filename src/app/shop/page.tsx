@@ -40,6 +40,7 @@ function ShopContent() {
     { name: "All", count: catalogStats.total },
     { name: "T-Shirts", count: catalogStats.tShirts },
     { name: "Shirts", count: catalogStats.shirts },
+    { name: "Pants", count: catalogStats.pants },
     { name: "Outfits", count: catalogStats.outfits },
   ];
 

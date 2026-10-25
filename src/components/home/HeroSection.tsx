@@ -9,14 +9,14 @@ import { PillButton } from "@/components/ui/PillButton";
 export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => void }> = ({
   onSelectCategory,
 }) => {
-  // Mini highlight cards for the 3 core categories (NO prices)
+  // Mini highlight cards for the 4 core categories (NO prices)
   const categoryHighlights = [
     {
       category: "T-Shirts",
       title: "Retro Knit & Graphic Tees",
       subtitle: "Relaxed fit tees with clean, versatile looks",
       image: "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606905124760_55023169382_1.jpg",
-      tag: "16 Curated Designs",
+      tag: "17 Curated Tees",
     },
     {
       category: "Shirts",
@@ -26,11 +26,18 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
       tag: "66 Exclusive Cuts",
     },
     {
+      category: "Pants",
+      title: "Tactical Cargos, Chinos & Denim",
+      subtitle: "Engineered bottomwear with mobility stretch & pristine drape",
+      image: "/catalog/ab_collections_kavoor_2022-08-22_20-47-12_2910523262228507796_55023169382.jpg",
+      tag: "22 Tailored Bottoms",
+    },
+    {
       category: "Outfits",
       title: "Curated Shirt & Trouser Sets",
       subtitle: "Coordinated ensembles blending comfort with sharp tailoring",
       image: "/catalog/ab_collections_kavoor_2026-07-29_19-46-58_3951992887380927302_55023169382.jpg",
-      tag: "60 Complete Looks",
+      tag: "31 Complete Looks",
     },
   ];
 
@@ -64,10 +71,12 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
             <span className="text-neutral-400">•</span>
             <span>Shirts</span>
             <span className="text-neutral-400">•</span>
+            <span>Pants</span>
+            <span className="text-neutral-400">•</span>
             <span>Outfits</span>
             <span className="text-neutral-400">•</span>
             <span className="text-neutral-950 font-bold bg-neutral-100 px-2 py-0.5 rounded-full border border-neutral-200/80">
-              142 Showcase Items
+              136 Active Designs
             </span>
           </div>
         </div>
@@ -140,8 +149,8 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
             <span>Try Before You Buy • Walk-in Trial Rooms Available</span>
           </div>
 
-          {/* 3 Mini Product Cards for T-Shirts, Shirts, Outfits */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full sm:w-auto">
+          {/* 4 Mini Product Cards for T-Shirts, Shirts, Pants, Outfits */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full sm:w-auto">
             {categoryHighlights.map((card) => (
               <button
                 key={card.category}
