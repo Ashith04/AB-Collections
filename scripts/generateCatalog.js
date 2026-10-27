@@ -71,9 +71,15 @@ const eventFiles = [
 const pantsPatterns = [
   '2022-08-22_20-47-12',
   '2022-08-30_13-27-39',
+  '2022-09-29_15-43-27',
   '2022-10-19_17-03-15',
   '2022-10-19_17-03-35',
+  '2022-10-19_17-04-01',
+  '2022-11-28_17-24-36',
+  '2022-11-28_17-24-48',
+  '2022-11-29_17-01-18',
   '2023-03-18',
+  '2023-05-23_11-54-29',
   '2023-07-06',
   '2023-08-21',
   '2024-10-05'
@@ -92,6 +98,7 @@ const tShirtPatterns = [
 const outfitPatterns = [
   '2022-08-26_00-01-24',
   '2022-09-09_11-01-19',
+  '2023-09-05_13-09-44',
   '2023-09-10_18-37-41',
   '2024-06-16',
   '2026-07',
@@ -227,6 +234,13 @@ const catalogItems = clothingFiles.map((file, idx) => {
       name = 'Drawstring Slub Linen & Cotton Chinos Palette';
       description = 'Lightweight, breathable linen-blend trousers featuring elasticated drawstring waist and crisp relaxed drape.';
       tags = ['Linen Chinos', 'Drawstring Waist', 'Breathable', 'Resort Casual'];
+    } else if (file.includes('2022-09-29_15-43-27')) {
+      fit = 'Tailored Fit';
+      fabric = 'Poly-Viscose Fine Suiting Blend';
+      badge = 'Formal Edit';
+      name = 'Alexander McQueen Tailored Formal Trousers Palette';
+      description = 'Sharp flat-front formal trousers in versatile navy, olive, sky blue, grey, and black tones with pristine crease line and tailored drape.';
+      tags = ['Formal Trousers', 'Flat Front', 'Suiting Fabric', 'Office Wear'];
     } else if (file.includes('2022-10-19_17-03-15')) {
       fit = 'Regular Fit';
       fabric = 'Authentic Ring-Spun Denim';
@@ -241,6 +255,53 @@ const catalogItems = clothingFiles.map((file, idx) => {
       name = 'Folded Camouflage & Utility Cotton Chino Trousers';
       description = 'Sturdy cotton twill trousers tailored with flat front, subtle camo accents, and dependable day-to-night comfort.';
       tags = ['Chino Trousers', 'Flat Front', 'Camo Utility', 'Durable'];
+    } else if (file.includes('2022-10-19_17-04-01')) {
+      fit = 'Slim Fit';
+      fabric = 'Premium Stretch Denim';
+      badge = 'Bestseller';
+      name = 'Signature Cut Multi-Tone Stretch Denim Jeans Stack';
+      description = 'Modern slim-tapered stretch jeans engineered with reinforced pocket arches, durable rivets, and contrasting dark-to-washed indigo tones.';
+      tags = ['Denim Jeans', 'Stretch Denim', 'Slim Fit', 'Multi-Wash'];
+    } else if (file.includes('2022-11-28_17-24-36')) {
+      fit = 'Slim Fit';
+      fabric = 'Comfort Stretch Ring-Spun Denim';
+      badge = 'Designer Edit';
+      name = 'Armani Exchange Slim-Fit Whiskered Denim Jeans';
+      description = 'Contemporary slim-fit designer denim featuring artisanal hand-sanded whiskering, embossed hardware, and mobility stretch.';
+      tags = ['Denim Jeans', 'Whiskered Wash', 'Designer Denim', 'Stretch'];
+    } else if (file.includes('2022-11-28_17-24-48')) {
+      fit = 'Slim Fit';
+      fabric = 'Comfort Stretch Ring-Spun Denim';
+      badge = 'Designer Edit';
+      name = 'Armani Exchange Multi-Wash Designer Jeans Collection';
+      description = 'Stacked collection of Armani Exchange denim in light ice wash, classic indigo, charcoal slate, and deep midnight black.';
+      tags = ['Denim Jeans', 'Multi-Wash', 'Designer Denim', 'Slim Fit'];
+    } else if (file.includes('2022-11-29_17-01-18')) {
+      fit = 'Slim Fit';
+      fabric = 'Fine Stretch Cotton Twill';
+      badge = 'Smart Casual';
+      name = 'Contemporary Tailored Chinos & Casual Trousers Palette';
+      description = 'Clean flat-front chinos presented in essential olive, sand beige, white, navy, black, and slate grey with tailored tapered hems.';
+      tags = ['Chinos', 'Tailored Trousers', 'Stretch Twill', 'Smart Casual'];
+    } else if (file.includes('2023-05-23_11-54-29')) {
+      fit = 'Slim Fit';
+      fabric = 'Stonewashed Flex Stretch Denim';
+      if (file.includes('_2.jpg')) {
+        badge = 'Artisan Wash';
+        name = 'Sand Tint Artisan Washed Slim Denim Jeans';
+        description = 'Unique sand-tinted washed denim featuring subtle fading and comfortable stretch for effortless casual distinction.';
+        tags = ['Denim Jeans', 'Sand Tint', 'Stonewashed', 'Slim Fit'];
+      } else if (file.includes('_1.jpg')) {
+        badge = 'Trending';
+        name = 'KMJN Multi-Tone Slim-Fit Stretch Denim Jeans Trio';
+        description = 'Curated trio of stretch denim in washed grey, deep indigo, and plum undertone featuring tailored back pockets and durable hardware.';
+        tags = ['Denim Jeans', 'Stretch Denim', 'Slim Fit', 'Multi-Tone'];
+      } else {
+        badge = 'Vintage Wash';
+        name = 'Vintage Acid-Washed & Sand Tint Denim Jeans Stack';
+        description = 'Layered stack of high-character washed denim jeans showcasing distressed wash effects, sand fade, and modern slim silhouettes.';
+        tags = ['Denim Jeans', 'Acid Wash', 'Vintage Finish', 'Slim Fit'];
+      }
     } else if (file.includes('2023-03-18')) {
       fit = 'Slim Fit';
       fabric = 'Artisan Stonewashed Denim';
@@ -327,7 +388,7 @@ const catalogItems = clothingFiles.map((file, idx) => {
       name = 'Contemporary Spread-Collar Woven Casual Shirt';
       description = 'Refined button-down crafted for timeless elegance and effortless weekday layering.';
       tags = ['Woven Cotton', 'Spread Collar', 'Versatile'];
-    } else if (file.includes('2022-10-19_17-04-01') || file.includes('2022-10-19_17-19-50')) {
+    } else if (file.includes('2022-10-19_17-19-50')) {
       fit = 'Slim Fit';
       fabric = 'Striped Oxford Weave';
       badge = 'Signature Cut';
@@ -468,6 +529,13 @@ const catalogItems = clothingFiles.map((file, idx) => {
       name = 'Athleisure Zip-Up Sports Jacket & Track Layering Ensemble';
       description = 'Streamlined athletic zip-up jackets styled for lightweight morning fitness and evening urban layering.';
       tags = ['Track Jacket', 'Sports Layer', 'Athleisure', 'Coordinated'];
+    } else if (file.includes('2023-09-05_13-09-44')) {
+      badge = 'Complete Look';
+      fit = 'Regular Fit';
+      fabric = 'Cotton Waffle & Heavy Denim';
+      name = 'Distressed Denim, Overshirt & Textured Tee Casual Outfit';
+      description = 'Complete coordinated weekend look pairing washed distressed denim, casual denim overshirt, waffle knit tee, and rugged leather boots.';
+      tags = ['Ensemble', 'Distressed Denim', 'Layered Look', 'Weekend Set'];
     } else if (file.includes('2023-09-10_18-37-41')) {
       badge = 'Model Lookbook';
       fit = 'Regular Fit';

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MapPin, ShieldCheck } from "lucide-react";
 import { PillButton } from "@/components/ui/PillButton";
+import { catalogStats } from "@/data/catalog";
 
 export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => void }> = ({
   onSelectCategory,
@@ -16,28 +17,28 @@ export const HeroSection: React.FC<{ onSelectCategory?: (category: string) => vo
       title: "Retro Knit & Graphic Tees",
       subtitle: "Relaxed fit tees with clean, versatile looks",
       image: "/catalog/ab_collections_kavoor_2025-01-22_15-10-37_3551055606905124760_55023169382_1.jpg",
-      tag: "17 Curated Tees",
+      tag: `${catalogStats.tShirts} Curated Tees`,
     },
     {
       category: "Shirts",
       title: "Tailored & Oxford Button-Downs",
       subtitle: "Classic button-downs crafted for timeless sophistication",
       image: "/catalog/ab_collections_kavoor_2022-08-26_22-58-20_2913488366529835596_55023169382.jpg",
-      tag: "66 Exclusive Cuts",
+      tag: `${catalogStats.shirts} Exclusive Cuts`,
     },
     {
       category: "Pants",
       title: "Tactical Cargos, Chinos & Denim",
       subtitle: "Engineered bottomwear with mobility stretch & pristine drape",
       image: "/catalog/ab_collections_kavoor_2022-08-22_20-47-12_2910523262228507796_55023169382.jpg",
-      tag: "22 Tailored Bottoms",
+      tag: `${catalogStats.pants} Tailored Bottoms`,
     },
     {
       category: "Outfits",
       title: "Curated Shirt & Trouser Sets",
       subtitle: "Coordinated ensembles blending comfort with sharp tailoring",
       image: "/catalog/ab_collections_kavoor_2026-07-29_19-46-58_3951992887380927302_55023169382.jpg",
-      tag: "31 Complete Looks",
+      tag: `${catalogStats.outfits} Complete Looks`,
     },
   ];
 
