@@ -2776,6 +2776,27 @@ export const catalogItems: CatalogItem[] = [
     ]
   },
   {
+    "id": "ab-137",
+    "slug": "ab-collections-showroom-motion-reel-4-137",
+    "name": "AB Collections Showroom Motion Reel",
+    "category": "Outfits",
+    "categorySlug": "outfits",
+    "mediaType": "video",
+    "mediaUrl": "/catalog/ab_collections_video_4.mp4",
+    "description": "Live showroom motion reel capturing the latest menswear styles and fabric drape at AB Collections Kavoor.",
+    "badge": "Motion Reel",
+    "fit": "Regular Fit",
+    "fabric": "Curated Menswear",
+    "code": "ABC-REEL-004",
+    "inStock": true,
+    "tags": [
+      "Motion Reel",
+      "Showroom",
+      "New Arrival",
+      "Kavoor"
+    ]
+  },
+  {
     "id": "ab-136",
     "slug": "mustard-slub-shirt-charcoal-slim-chinos-136",
     "name": "Mustard Slub Shirt & Charcoal Slim Chinos",
@@ -2799,11 +2820,11 @@ export const catalogItems: CatalogItem[] = [
 ];
 
 export const catalogStats = {
-  total: 136,
+  total: 137,
   tShirts: 17,
   shirts: 57,
   pants: 30,
-  outfits: 32,
-  videos: 2,
+  outfits: 33,
+  videos: 3,
   images: 134,
 };
