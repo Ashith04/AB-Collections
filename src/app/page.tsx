@@ -9,6 +9,8 @@ import { CatalogFilterBar } from "@/components/catalog/CatalogFilterBar";
 import { DarkBentoSection } from "@/components/home/DarkBentoSection";
 import { EventsSection } from "@/components/events/EventsSection";
 import { MarqueeStrip } from "@/components/home/MarqueeStrip";
+import { ProductPhotoTicker } from "@/components/home/ProductPhotoTicker";
+import { AutoMovingBannerCarousel } from "@/components/home/AutoMovingBannerCarousel";
 import { MotionReelsSection } from "@/components/home/MotionReelsSection";
 import { ValueProps } from "@/components/home/ValueProps";
 import { VisitStoreSection } from "@/components/home/VisitStoreSection";
@@ -91,12 +93,20 @@ export default function HomePage() {
       {/* 2. Marquee Strip */}
       <MarqueeStrip />
 
+      {/* 3. Product Photo Ribbon (Slow Auto-moving like Flipkart & Amazon) */}
+      <ProductPhotoTicker onQuickView={handleOpenModal} />
+
+      {/* 4. Auto-Moving Promo Banner Slider (Flipkart / Amazon style carousel) */}
+      <RevealOnScroll direction="up" delayMs={60}>
+        <AutoMovingBannerCarousel />
+      </RevealOnScroll>
+
       {/* 3. In-Motion Studio Video Reels (3 Auto-advancing reels with sound, reserve & inquiry) */}
       <RevealOnScroll direction="up" delayMs={80}>
         <MotionReelsSection onQuickView={handleOpenModal} />
       </RevealOnScroll>
 
-      {/* 4. Main Catalog Gallery Section */}
+      {/* 6. Main Catalog Gallery Section */}
       <section id="catalog-section" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Gallery Title & Context */}
         <RevealOnScroll direction="up" delayMs={100}>
